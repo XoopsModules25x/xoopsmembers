@@ -1,0 +1,12 @@
+	=>version 1.02
+	--------------------
+	->Added: icons for Edit/Delete (Mamba)
+	->Added: Admin side (Mamba)
+	->Added: Converted to XOOPS 2.5.5 Admin GUI (Mamba)
+
+	=>version 1.01
+	--------------------
+	->Removed: Xoops Depreciated code
+	->Removed: Removed old php code
+	->Changed: changed to work on php5 and xoops2.3
+
