@@ -22,19 +22,19 @@
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 
 $modversion = array( 'name' => _XO_MI_MEMBERS_NAME,
-	'description' => _XO_MI_MEMBERS_DESC,
-	'author' => 'John Neill, Kazumi Ono',
+    'description' => _XO_MI_MEMBERS_DESC,
+    'author' => 'John Neill, Kazumi Ono',
     'license' => 'GNU GPL 2.0',
     'license_url' => "www.gnu.org/licenses/gpl-2.0.html",
     'help' => 'page=help',
-	'contributors' => '',
-	'credits' => 'The Xoops Module Development Team',
-	'version' => 1.02,
+    'contributors' => '',
+    'credits' => 'The Xoops Module Development Team',
+    'version' => 1.02,
     'module_status' => "Final",
 //	'releasedate' => 'Friday 10.4.2009',
-	'official' => 1,
-	'image' => 'images/slogo.png',
-	'dirname' => basename( dirname( __FILE__ ) ),
+    'official' => 1,
+    'image' => 'images/slogo.png',
+    'dirname' => basename( dirname( __FILE__ ) ),
     'dirmoduleadmin' => '/Frameworks/moduleclasses/moduleadmin',
     'icons16' =>  '../../Frameworks/moduleclasses/icons/16',
     'icons32' =>  '../../Frameworks/moduleclasses/icons/32',
@@ -49,7 +49,7 @@ $modversion = array( 'name' => _XO_MI_MEMBERS_NAME,
     'min_xoops' => '2.5.6',
     'min_db' => array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7'),
     'min_admin' => '1.1'
-	);
+    );
 
 /**
  * Module Admin
@@ -67,10 +67,8 @@ $modversion['hasMain'] = 1;
  * Module Templates
  */
 $modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.html',
-	'description' => ''
-	);
+    'description' => ''
+    );
 $modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.html',
-	'description' => ''
-	);
-
-?>
+    'description' => ''
+    );

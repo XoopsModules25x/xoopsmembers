@@ -24,5 +24,3 @@ defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access');
  */
 define('_XO_MI_MEMBERS_NAME','Members');
 define('_XO_MI_MEMBERS_DESC','Shows a list of registered users');
-
-?>
