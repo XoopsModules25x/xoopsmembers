@@ -55,5 +55,3 @@ define('_XO_LA_ASC','Ascending order');
 define('_XO_LA_DESC','Descending order');
 define('_XO_LA_LIMIT','Number of members per page');
 define('_XO_LA_RESULTS','Search results');
-
-?>
