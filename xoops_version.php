@@ -10,7 +10,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @copyright XOOPS Project (https://xoops.org)
  * @license http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package : XOOPS
  * @Module :
@@ -40,9 +40,9 @@ $modversion = array( 'name' => _XO_MI_MEMBERS_NAME,
     'icons32' =>  '../../Frameworks/moduleclasses/icons/32',
 
     //about
-    'author_website_url' => 'http://xoops.org',
+    'author_website_url' => 'https://xoops.org',
     'author_website_name' => 'XOOPS',
-    'module_website_url' => 'http://xoops.org',
+    'module_website_url' => 'https://xoops.org',
     'module_website_name' => 'XOOPS',
     'release_date' => '2013/04/29',
     'min_php' => '5.2.0',
