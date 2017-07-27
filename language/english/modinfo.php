@@ -10,17 +10,17 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @copyright XOOPS Project (https://xoops.org)
- * @license http://www.fsf.org/copyleft/gpl.html GNU public license
- * @package Xoops Members
- * @since 2.3.0
- * @author onokazu
- * @author John Neill
- * @version $Id: index.php catzwolf$
+ * @license   http://www.fsf.org/copyleft/gpl.html GNU public license
+ * @package   Xoops Members
+ * @since     2.3.0
+ * @author    onokazu
+ * @author    John Neill
+ * @version   $Id: index.php catzwolf$
  */
-defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access');
+defined('XOOPS_ROOT_PATH') || die('Restricted access');
 
 /**
  * Module Menu Items
  */
-define('_XO_MI_MEMBERS_NAME','Members');
-define('_XO_MI_MEMBERS_DESC','Shows a list of registered users');
+define('_XO_MI_MEMBERS_NAME', 'Members');
+define('_XO_MI_MEMBERS_DESC', 'Shows a list of registered users');
