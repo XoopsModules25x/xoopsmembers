@@ -36,10 +36,6 @@ $modversion = array(
     'official'            => 1,
     'image'               => 'assets/images/logoModule.png',
     'dirname'             => basename(__DIR__),
-    //    'dirmoduleadmin'      => '/Frameworks/moduleclasses/moduleadmin',
-    //    'icons16'             => '../../Frameworks/moduleclasses/icons/16',
-    //    'icons32'             => '../../Frameworks/moduleclasses/icons/32',
-    // Local path icons
     'modicons16'          => 'assets/images/icons/16',
     'modicons32'          => 'assets/images/icons/32',
     //about
@@ -53,6 +49,14 @@ $modversion = array(
     'min_admin'           => '1.1'
 );
 
+
+// ------------------- Help files ------------------- //
+$modversion['helpsection'] = array(
+    ['name' => _MI_XOOPSMEMBERS_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_XOOPSMEMBERS_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_XOOPSMEMBERS_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_XOOPSMEMBERS_SUPPORT, 'link' => 'page=support'],
+);
 /**
  * Module Admin
  */
