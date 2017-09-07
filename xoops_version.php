@@ -20,7 +20,7 @@
  */
 defined('XOOPS_ROOT_PATH') || die('Restricted access');
 
-$modversion = array(
+$modversion = [
     'version'             => 1.03,
     'module_status'       => 'Beta 1',
     'release_date'        => '2017/07/07',
@@ -45,18 +45,18 @@ $modversion = array(
     'module_website_name' => 'XOOPS',
     'min_php'             => '5.5',
     'min_xoops'           => '2.5.9',
-    'min_db'              => array('mysql' => '5.5'),
+    'min_db'              => ['mysql' => '5.5'],
     'min_admin'           => '1.1'
-);
+];
 
 
 // ------------------- Help files ------------------- //
-$modversion['helpsection'] = array(
+$modversion['helpsection'] = [
     ['name' => _MI_XOOPSMEMBERS_OVERVIEW, 'link' => 'page=help'],
     ['name' => _MI_XOOPSMEMBERS_DISCLAIMER, 'link' => 'page=disclaimer'],
     ['name' => _MI_XOOPSMEMBERS_LICENSE, 'link' => 'page=license'],
     ['name' => _MI_XOOPSMEMBERS_SUPPORT, 'link' => 'page=support'],
-);
+];
 /**
  * Module Admin
  */
@@ -72,11 +72,11 @@ $modversion['hasMain'] = 1;
 /**
  * Module Templates
  */
-$modversion['templates'][] = array(
+$modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchform.tpl',
     'description' => ''
-);
-$modversion['templates'][] = array(
+];
+$modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchresults.tpl',
     'description' => ''
-);
+];

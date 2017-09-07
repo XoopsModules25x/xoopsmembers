@@ -97,17 +97,17 @@ if ($op === 'form') {
     $form->addElement(new XoopsFormText(_XO_LA_POSTSLESS, 'user_posts_less', 10, 5));
 
     $sort_select = new XoopsFormSelect(_XO_LA_SORT, 'user_sort');
-    $sort_select->addOptionArray(array(
+    $sort_select->addOptionArray([
                                      'uname'        => _XO_LA_UNAME,
                                      'email'        => _XO_LA_EMAIL,
                                      'last_login'   => _XO_LA_LASTLOGIN,
                                      'user_regdate' => _XO_LA_REGDATE,
                                      'posts'        => _XO_LA_POSTS
-                                 ));
+                                 ]);
     $form->addElement($sort_select);
 
     $order_select = new XoopsFormSelect(_XO_LA_ORDER, 'user_order');
-    $order_select->addOptionArray(array('ASC' => _XO_LA_ASC, 'DESC' => _XO_LA_DESC));
+    $order_select->addOptionArray(['ASC' => _XO_LA_ASC, 'DESC' => _XO_LA_DESC]);
     $form->addElement($order_select);
 
     $form->addElement(new XoopsFormText(_XO_LA_LIMIT, 'limit', 6, 2));
@@ -228,7 +228,7 @@ if ($op === 'submit') {
     }
 
     $criteria->add(new Criteria('level', 0, '>'));
-    $validsort = array('uname', 'email', 'last_login', 'user_regdate', 'posts');
+    $validsort = ['uname', 'email', 'last_login', 'user_regdate', 'posts'];
     $sort      = (!in_array($_POST['user_sort'], $validsort)) ? 'uname' : $_POST['user_sort'];
     $order     = 'ASC';
     if (isset($_POST['user_order']) && $_POST['user_order'] === 'DESC') {
