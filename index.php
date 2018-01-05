@@ -122,7 +122,7 @@ if ('submit' === $op) {
     include XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
-    $myts     = MyTextSanitizer::getInstance();
+    $myts     = \MyTextSanitizer::getInstance();
     $criteria = new CriteriaCompo();
 
     if (!empty($_POST['user_uname'])) {

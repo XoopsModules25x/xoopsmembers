@@ -1,9 +1,9 @@
-<h5>1.03 Beta 2  [NOT RELEASED]</h5>
+<h5>1.03 Beta 2  [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.0
 <hr>
 - XOOPS 2.5.9, PHP 7 (mamba)
 - PSR-2 code cosmetics (mamba)
 - changed _handler to Handler (mamba)
-- removed '/' from void HTML elements (&lt;br&gt;, &lt;img&gt;, etc) (mamba)
+- removed '/' from void HTML elements (&lt;br>, &lt;img>, etc) (mamba)
 - HTML 5: removed 'selected' and 'checked' (mamba)
 - updated file headers for consistency (mamba)
 - renamed several $indexAdmin with $adminObject for consistency (mamba)

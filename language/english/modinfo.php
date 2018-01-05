@@ -38,3 +38,6 @@ define('_MI_XOOPSMEMBERS_OVERVIEW', 'Overview');
 define('_MI_XOOPSMEMBERS_DISCLAIMER', 'Disclaimer');
 define('_MI_XOOPSMEMBERS_LICENSE', 'License');
 define('_MI_XOOPSMEMBERS_SUPPORT', 'Support');
+
+define('_MI_XOOPSMEMBERS_HOME', 'Home');
+define('_MI_XOOPSMEMBERS_ABOUT', 'About');
