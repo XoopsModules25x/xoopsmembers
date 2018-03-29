@@ -30,73 +30,73 @@ if ('form' === $op) {
     include XOOPS_ROOT_PATH . '/header.php';
 
     $memberHandler = xoops_getHandler('member');
-    $total         = $memberHandler->getUserCount(new Criteria('level', 0, '>'));
+    $total         = $memberHandler->getUserCount(new \Criteria('level', 0, '>'));
 
     require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 
-    $form        = new XoopsThemeForm('', 'searchform', 'index.php');
-    $uname_text  = new XoopsFormText('', 'user_uname', 30, 60);
-    $uname_match = new XoopsFormSelectMatchOption('', 'user_uname_match');
-    $uname_tray  = new XoopsFormElementTray(_XO_LA_UNAME, '&nbsp;');
+    $form        = new \XoopsThemeForm('', 'searchform', 'index.php');
+    $uname_text  = new \XoopsFormText('', 'user_uname', 30, 60);
+    $uname_match = new \XoopsFormSelectMatchOption('', 'user_uname_match');
+    $uname_tray  = new \XoopsFormElementTray(_XO_LA_UNAME, '&nbsp;');
     $uname_tray->addElement($uname_match);
     $uname_tray->addElement($uname_text);
     $form->addElement($uname_tray);
 
-    $name_text  = new XoopsFormText('', 'user_name', 30, 60);
-    $name_match = new XoopsFormSelectMatchOption('', 'user_name_match');
-    $name_tray  = new XoopsFormElementTray(_XO_LA_REALNAME, '&nbsp;');
+    $name_text  = new \XoopsFormText('', 'user_name', 30, 60);
+    $name_match = new \XoopsFormSelectMatchOption('', 'user_name_match');
+    $name_tray  = new \XoopsFormElementTray(_XO_LA_REALNAME, '&nbsp;');
     $name_tray->addElement($name_match);
     $name_tray->addElement($name_text);
     $form->addElement($name_tray);
 
-    $email_text  = new XoopsFormText('', 'user_email', 30, 60);
-    $email_match = new XoopsFormSelectMatchOption('', 'user_email_match');
-    $email_tray  = new XoopsFormElementTray(_XO_LA_EMAIL, '&nbsp;');
+    $email_text  = new \XoopsFormText('', 'user_email', 30, 60);
+    $email_match = new \XoopsFormSelectMatchOption('', 'user_email_match');
+    $email_tray  = new \XoopsFormElementTray(_XO_LA_EMAIL, '&nbsp;');
     $email_tray->addElement($email_match);
     $email_tray->addElement($email_text);
     $form->addElement($email_tray);
 
-    $form->addElement(new XoopsFormText(_XO_LA_URLC, 'user_url', 30, 100));
+    $form->addElement(new \XoopsFormText(_XO_LA_URLC, 'user_url', 30, 100));
 
-    $icq_text  = new XoopsFormText('', 'user_icq', 30, 100);
-    $icq_match = new XoopsFormSelectMatchOption('', 'user_icq_match');
-    $icq_tray  = new XoopsFormElementTray(_XO_LA_ICQ, '&nbsp;');
+    $icq_text  = new \XoopsFormText('', 'user_icq', 30, 100);
+    $icq_match = new \XoopsFormSelectMatchOption('', 'user_icq_match');
+    $icq_tray  = new \XoopsFormElementTray(_XO_LA_ICQ, '&nbsp;');
     $icq_tray->addElement($icq_match);
     $icq_tray->addElement($icq_text);
     $form->addElement($icq_tray);
 
-    $aim_text  = new XoopsFormText('', 'user_aim', 30, 100);
-    $aim_match = new XoopsFormSelectMatchOption('', 'user_aim_match');
-    $aim_tray  = new XoopsFormElementTray(_XO_LA_AIM, '&nbsp;');
+    $aim_text  = new \XoopsFormText('', 'user_aim', 30, 100);
+    $aim_match = new \XoopsFormSelectMatchOption('', 'user_aim_match');
+    $aim_tray  = new \XoopsFormElementTray(_XO_LA_AIM, '&nbsp;');
     $aim_tray->addElement($aim_match);
     $aim_tray->addElement($aim_text);
     $form->addElement($aim_tray);
 
-    $yim_text  = new XoopsFormText('', 'user_yim', 30, 100);
-    $yim_match = new XoopsFormSelectMatchOption('', 'user_yim_match');
-    $yim_tray  = new XoopsFormElementTray(_XO_LA_YIM, '&nbsp;');
+    $yim_text  = new \XoopsFormText('', 'user_yim', 30, 100);
+    $yim_match = new \XoopsFormSelectMatchOption('', 'user_yim_match');
+    $yim_tray  = new \XoopsFormElementTray(_XO_LA_YIM, '&nbsp;');
     $yim_tray->addElement($yim_match);
     $yim_tray->addElement($yim_text);
     $form->addElement($yim_tray);
 
-    $msnm_text  = new XoopsFormText('', 'user_msnm', 30, 100);
-    $msnm_match = new XoopsFormSelectMatchOption('', 'user_msnm_match');
-    $msnm_tray  = new XoopsFormElementTray(_XO_LA_MSNM, '&nbsp;');
+    $msnm_text  = new \XoopsFormText('', 'user_msnm', 30, 100);
+    $msnm_match = new \XoopsFormSelectMatchOption('', 'user_msnm_match');
+    $msnm_tray  = new \XoopsFormElementTray(_XO_LA_MSNM, '&nbsp;');
     $msnm_tray->addElement($msnm_match);
     $msnm_tray->addElement($msnm_text);
     $form->addElement($msnm_tray);
 
-    $form->addElement(new XoopsFormText(_XO_LA_LOCATION, 'user_from', 30, 100));
-    $form->addElement(new XoopsFormText(_XO_LA_OCCUPATION, 'user_occ', 30, 100));
-    $form->addElement(new XoopsFormText(_XO_LA_INTEREST, 'user_intrest', 30, 100));
-    $form->addElement(new XoopsFormText(_XO_LA_LASTLOGMORE, 'user_lastlog_more', 10, 5));
-    $form->addElement(new XoopsFormText(_XO_LA_LASTLOGLESS, 'user_lastlog_less', 10, 5));
-    $form->addElement(new XoopsFormText(_XO_LA_REGMORE, 'user_reg_more', 10, 5));
-    $form->addElement(new XoopsFormText(_XO_LA_REGLESS, 'user_reg_less', 10, 5));
-    $form->addElement(new XoopsFormText(_XO_LA_POSTSMORE, 'user_posts_more', 10, 5));
-    $form->addElement(new XoopsFormText(_XO_LA_POSTSLESS, 'user_posts_less', 10, 5));
+    $form->addElement(new \XoopsFormText(_XO_LA_LOCATION, 'user_from', 30, 100));
+    $form->addElement(new \XoopsFormText(_XO_LA_OCCUPATION, 'user_occ', 30, 100));
+    $form->addElement(new \XoopsFormText(_XO_LA_INTEREST, 'user_intrest', 30, 100));
+    $form->addElement(new \XoopsFormText(_XO_LA_LASTLOGMORE, 'user_lastlog_more', 10, 5));
+    $form->addElement(new \XoopsFormText(_XO_LA_LASTLOGLESS, 'user_lastlog_less', 10, 5));
+    $form->addElement(new \XoopsFormText(_XO_LA_REGMORE, 'user_reg_more', 10, 5));
+    $form->addElement(new \XoopsFormText(_XO_LA_REGLESS, 'user_reg_less', 10, 5));
+    $form->addElement(new \XoopsFormText(_XO_LA_POSTSMORE, 'user_posts_more', 10, 5));
+    $form->addElement(new \XoopsFormText(_XO_LA_POSTSLESS, 'user_posts_less', 10, 5));
 
-    $sort_select = new XoopsFormSelect(_XO_LA_SORT, 'user_sort');
+    $sort_select = new \XoopsFormSelect(_XO_LA_SORT, 'user_sort');
     $sort_select->addOptionArray([
                                      'uname'        => _XO_LA_UNAME,
                                      'email'        => _XO_LA_EMAIL,
@@ -106,13 +106,13 @@ if ('form' === $op) {
                                  ]);
     $form->addElement($sort_select);
 
-    $order_select = new XoopsFormSelect(_XO_LA_ORDER, 'user_order');
+    $order_select = new \XoopsFormSelect(_XO_LA_ORDER, 'user_order');
     $order_select->addOptionArray(['ASC' => _XO_LA_ASC, 'DESC' => _XO_LA_DESC]);
     $form->addElement($order_select);
 
-    $form->addElement(new XoopsFormText(_XO_LA_LIMIT, 'limit', 6, 2));
-    $form->addElement(new XoopsFormHidden('op', 'submit'));
-    $form->addElement(new XoopsFormButton('', 'user_submit', _SUBMIT, 'submit'));
+    $form->addElement(new \XoopsFormText(_XO_LA_LIMIT, 'limit', 6, 2));
+    $form->addElement(new \XoopsFormHidden('op', 'submit'));
+    $form->addElement(new \XoopsFormButton('', 'user_submit', _SUBMIT, 'submit'));
     $form->assign($xoopsTpl);
     $xoopsTpl->assign('totalmember', $total);
 }
@@ -123,7 +123,7 @@ if ('submit' === $op) {
 
     $iamadmin = $xoopsUserIsAdmin;
     $myts     = \MyTextSanitizer::getInstance();
-    $criteria = new CriteriaCompo();
+    $criteria = new \CriteriaCompo();
 
     if (!empty($_POST['user_uname'])) {
         $match = (!empty($_POST['user_uname_match'])) ? (int)$_POST['user_uname_match'] : XOOPS_MATCH_START;
@@ -142,13 +142,13 @@ if ('submit' === $op) {
         $ret   = $myts->addSlashes(trim($_POST['user_email']));
         xoops_Criteria($criteria, 'name', $ret, $match);
         if (!$iamadmin) {
-            $criteria->add(new Criteria('user_viewemail', 1));
+            $criteria->add(new \Criteria('user_viewemail', 1));
         }
     }
 
     if (!empty($_POST['user_url'])) {
         $url = formatURL(trim($_POST['user_url']));
-        $criteria->add(new Criteria('url', $myts->addSlashes($url) . '%', 'LIKE'));
+        $criteria->add(new \Criteria('url', $myts->addSlashes($url) . '%', 'LIKE'));
     }
 
     if (!empty($_POST['user_icq'])) {
@@ -176,22 +176,22 @@ if ('submit' === $op) {
     }
 
     if (!empty($_POST['user_from'])) {
-        $criteria->add(new Criteria('user_from', '%' . $myts->addSlashes(trim($_POST['user_from'])) . '%', 'LIKE'));
+        $criteria->add(new \Criteria('user_from', '%' . $myts->addSlashes(trim($_POST['user_from'])) . '%', 'LIKE'));
     }
 
     if (!empty($_POST['user_intrest'])) {
-        $criteria->add(new Criteria('user_intrest', '%' . $myts->addSlashes(trim($_POST['user_intrest'])) . '%', 'LIKE'));
+        $criteria->add(new \Criteria('user_intrest', '%' . $myts->addSlashes(trim($_POST['user_intrest'])) . '%', 'LIKE'));
     }
 
     if (!empty($_POST['user_occ'])) {
-        $criteria->add(new Criteria('user_occ', '%' . $myts->addSlashes(trim($_POST['user_occ'])) . '%', 'LIKE'));
+        $criteria->add(new \Criteria('user_occ', '%' . $myts->addSlashes(trim($_POST['user_occ'])) . '%', 'LIKE'));
     }
 
     if (!empty($_POST['user_lastlog_more']) && is_numeric($_POST['user_lastlog_more'])) {
         $f_user_lastlog_more = (int)trim($_POST['user_lastlog_more']);
         $time                = time() - (60 * 60 * 24 * $f_user_lastlog_more);
         if ($time > 0) {
-            $criteria->add(new Criteria('last_login', $time, '<'));
+            $criteria->add(new \Criteria('last_login', $time, '<'));
         }
     }
 
@@ -199,7 +199,7 @@ if ('submit' === $op) {
         $f_user_lastlog_less = (int)trim($_POST['user_lastlog_less']);
         $time                = time() - (60 * 60 * 24 * $f_user_lastlog_less);
         if ($time > 0) {
-            $criteria->add(new Criteria('last_login', $time, '>'));
+            $criteria->add(new \Criteria('last_login', $time, '>'));
         }
     }
 
@@ -207,7 +207,7 @@ if ('submit' === $op) {
         $f_user_reg_more = (int)trim($_POST['user_reg_more']);
         $time            = time() - (60 * 60 * 24 * $f_user_reg_more);
         if ($time > 0) {
-            $criteria->add(new Criteria('user_regdate', $time, '<'));
+            $criteria->add(new \Criteria('user_regdate', $time, '<'));
         }
     }
 
@@ -215,19 +215,19 @@ if ('submit' === $op) {
         $f_user_reg_less = (int)$_POST['user_reg_less'];
         $time            = time() - (60 * 60 * 24 * $f_user_reg_less);
         if ($time > 0) {
-            $criteria->add(new Criteria('user_regdate', $time, '>'));
+            $criteria->add(new \Criteria('user_regdate', $time, '>'));
         }
     }
 
     if (isset($_POST['user_posts_more']) && is_numeric($_POST['user_posts_more'])) {
-        $criteria->add(new Criteria('posts', (int)$_POST['user_posts_more'], '>'));
+        $criteria->add(new \Criteria('posts', (int)$_POST['user_posts_more'], '>'));
     }
 
     if (!empty($_POST['user_posts_less']) && is_numeric($_POST['user_posts_less'])) {
-        $criteria->add(new Criteria('posts', (int)$_POST['user_posts_less'], '<'));
+        $criteria->add(new \Criteria('posts', (int)$_POST['user_posts_less'], '<'));
     }
 
-    $criteria->add(new Criteria('level', 0, '>'));
+    $criteria->add(new \Criteria('level', 0, '>'));
     $validsort = ['uname', 'email', 'last_login', 'user_regdate', 'posts'];
     $sort      = (!in_array($_POST['user_sort'], $validsort)) ? 'uname' : $_POST['user_sort'];
     $order     = 'ASC';
@@ -358,16 +358,16 @@ function xoops_Criteria(&$criteria, $name = '', $ret = '', $match = '')
 
     switch ($match) {
         case XOOPS_MATCH_START:
-            $criteria->add(new Criteria($name, $ret . '%', 'LIKE'));
+            $criteria->add(new \Criteria($name, $ret . '%', 'LIKE'));
             break;
         case XOOPS_MATCH_END:
-            $criteria->add(new Criteria($name, '%' . $ret . '%', 'LIKE'));
+            $criteria->add(new \Criteria($name, '%' . $ret . '%', 'LIKE'));
             break;
         case XOOPS_MATCH_EQUAL:
-            $criteria->add(new Criteria($name, $ret));
+            $criteria->add(new \Criteria($name, $ret));
             break;
         case XOOPS_MATCH_CONTAIN:
-            $criteria->add(new Criteria($name, '%' . $ret . '%', 'LIKE'));
+            $criteria->add(new \Criteria($name, '%' . $ret . '%', 'LIKE'));
             break;
     }
 }
