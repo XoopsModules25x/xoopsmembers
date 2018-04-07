@@ -125,19 +125,19 @@ if ('submit' === $op) {
     $myts     = \MyTextSanitizer::getInstance();
     $criteria = new \CriteriaCompo();
 
-    if (!empty($_POST['user_uname'])) {
+   if (\Xmf\Request::hasVar('user_uname', 'POST')) {
         $match = \Xmf\Request::getInt('user_uname_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_uname']));
         xoops_Criteria($criteria, 'uname', $ret, $match);
     }
 
-    if (!empty($_POST['user_name'])) {
+   if (\Xmf\Request::hasVar('user_name', 'POST')) {
         $match = \Xmf\Request::getInt('user_name_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_uname']));
         xoops_Criteria($criteria, 'name', $ret, $match);
     }
 
-    if (!empty($_POST['user_email'])) {
+   if (\Xmf\Request::hasVar('user_email', 'POST')) {
         $match = \Xmf\Request::getInt('user_email_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_email']));
         xoops_Criteria($criteria, 'name', $ret, $match);
@@ -146,44 +146,44 @@ if ('submit' === $op) {
         }
     }
 
-    if (!empty($_POST['user_url'])) {
+   if (\Xmf\Request::hasVar('user_url', 'POST')) {
         $url = formatURL(trim($_POST['user_url']));
         $criteria->add(new \Criteria('url', $myts->addSlashes($url) . '%', 'LIKE'));
     }
 
-    if (!empty($_POST['user_icq'])) {
+   if (\Xmf\Request::hasVar('user_icq', 'POST')) {
         $match = \Xmf\Request::getInt('user_icq_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_icq']));
         xoops_Criteria($criteria, 'user_icq', $ret, $match);
     }
 
-    if (!empty($_POST['user_aim'])) {
+   if (\Xmf\Request::hasVar('user_aim', 'POST')) {
         $match = \Xmf\Request::getInt('user_aim_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_aim']));
         xoops_Criteria($criteria, 'user_aim', $ret, $match);
     }
 
-    if (!empty($_POST['user_yim'])) {
+   if (\Xmf\Request::hasVar('user_yim', 'POST')) {
         $match = \Xmf\Request::getInt('user_yim_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_yim']));
         xoops_Criteria($criteria, 'user_yim', $ret, $match);
     }
 
-    if (!empty($_POST['user_msnm'])) {
+   if (\Xmf\Request::hasVar('user_msnm', 'POST')) {
         $match = \Xmf\Request::getInt('user_msnm_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_msnm']));
         xoops_Criteria($criteria, 'user_msnm', $ret, $match);
     }
 
-    if (!empty($_POST['user_from'])) {
+   if (\Xmf\Request::hasVar('user_from', 'POST')) {
         $criteria->add(new \Criteria('user_from', '%' . $myts->addSlashes(trim($_POST['user_from'])) . '%', 'LIKE'));
     }
 
-    if (!empty($_POST['user_intrest'])) {
+   if (\Xmf\Request::hasVar('user_intrest', 'POST')) {
         $criteria->add(new \Criteria('user_intrest', '%' . $myts->addSlashes(trim($_POST['user_intrest'])) . '%', 'LIKE'));
     }
 
-    if (!empty($_POST['user_occ'])) {
+   if (\Xmf\Request::hasVar('user_occ', 'POST')) {
         $criteria->add(new \Criteria('user_occ', '%' . $myts->addSlashes(trim($_POST['user_occ'])) . '%', 'LIKE'));
     }
 
