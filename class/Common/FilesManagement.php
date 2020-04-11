@@ -1,4 +1,6 @@
-<?php namespace XoopsModules\Xoopsmembers\Common;
+<?php
+
+namespace XoopsModules\Xoopsmembers\Common;
 
 /*
  You may not change or alter any portion of this comment or credits
@@ -21,8 +23,6 @@ trait FilesManagement
      * Function responsible for checking if a directory exists, we can also write in and create an index.html file
      *
      * @param string $folder The full path of the directory to check
-     *
-     * @return void
      */
     public static function createFolder($folder)
     {
@@ -57,14 +57,15 @@ trait FilesManagement
     {
         $dir = opendir($src);
         //        @mkdir($dst);
-        if (!mkdir($dst) && !is_dir($dst)) {
-            while (false !== ($file = readdir($dir))) {
-                if (('.' !== $file) && ('..' !== $file)) {
-                    if (is_dir($src . '/' . $file)) {
-                        self::recurseCopy($src . '/' . $file, $dst . '/' . $file);
-                    } else {
-                        copy($src . '/' . $file, $dst . '/' . $file);
-                    }
+        if (!@mkdir($dst) && !is_dir($dst)) {
+            throw new \RuntimeException('The directory ' . $dst . ' could not be created.');
+        }
+        while (false !== ($file = readdir($dir))) {
+            if (('.' !== $file) && ('..' !== $file)) {
+                if (is_dir($src . '/' . $file)) {
+                    self::recurseCopy($src . '/' . $file, $dst . '/' . $file);
+                } else {
+                    copy($src . '/' . $file, $dst . '/' . $file);
                 }
             }
         }
@@ -72,15 +73,14 @@ trait FilesManagement
     }
 
     /**
-     *
      * Remove files and (sub)directories
      *
      * @param string $src source directory to delete
      *
-     * @uses \Xmf\Module\Helper::getHelper()
+     * @return bool true on success
      * @uses \Xmf\Module\Helper::isUserAdmin()
      *
-     * @return bool true on success
+     * @uses \Xmf\Module\Helper::getHelper()
      */
     public static function deleteDirectory($src)
     {
@@ -117,11 +117,11 @@ trait FilesManagement
             // input is not a valid directory
             $success = false;
         }
+
         return $success;
     }
 
     /**
-     *
      * Recursively remove directory
      *
      * @todo currently won't remove directories with hidden files, should it?
@@ -208,10 +208,10 @@ trait FilesManagement
      * @param string $src  - Source of files being moved
      * @param string $dest - Destination of files being moved
      *
-     * @uses \Xmf\Module\Helper::getHelper()
+     * @return bool true on success
      * @uses \Xmf\Module\Helper::isUserAdmin()
      *
-     * @return bool true on success
+     * @uses \Xmf\Module\Helper::getHelper()
      */
     public static function rcopy($src, $dest)
     {
@@ -239,6 +239,7 @@ trait FilesManagement
                 self::rcopy($fObj->getPathname(), "{$dest}/" . $fObj->getFilename());
             }
         }
+
         return true;
     }
 }

@@ -22,17 +22,20 @@ use XoopsModules\Xoopsmembers;
 
 // require_once  dirname(__DIR__) . '/class/Helper.php';
 //require_once  dirname(__DIR__) . '/include/common.php';
+/** @var \Xoopsmembers\Helper $helper */
 $helper = Xoopsmembers\Helper::getInstance();
+$helper->loadLanguage('common');
+$helper->loadLanguage('feedback');
 
 $pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
-$pathModIcon32 = $helper->getModule()->getInfo('modicons32');
-
+if (is_object($helper->getModule())) {
+    $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
+}
 
 $adminmenu[] = [
     'title' => _MI_XOOPSMEMBERS_HOME,
     'link'  => 'admin/index.php',
     'icon'  => $pathIcon32 . '/home.png',
-
 ];
 
 $adminmenu[] = [

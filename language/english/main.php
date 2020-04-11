@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Xoops Members Module
  *
@@ -17,7 +18,7 @@
  * @author    John Neill
  * @version   $Id: index.php catzwolf$
  */
-defined('XOOPS_ROOT_PATH') || die('Restricted access');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 define('_XO_LA_SEARCH', 'Search Members');
 define('_XO_LA_AVATAR', 'Avatar');

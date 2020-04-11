@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Xoops Members Module
  *
@@ -16,7 +17,7 @@
  * @author    onokazu
  * @author    John Neill
  */
-include dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'mainfile.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'mainfile.php';
 //require_once __DIR__ . '/header.php';
 //global $pathIcon16;
 
@@ -27,7 +28,7 @@ $op = (isset($_POST['op']) && 'submit' === $_POST['op']) ? 'submit' : 'form';
 
 if ('form' === $op) {
     $GLOBALS['xoopsOption']['template_main'] = 'xoopsmembers_searchform.html';
-    include XOOPS_ROOT_PATH . '/header.php';
+    require_once XOOPS_ROOT_PATH . '/header.php';
 
     $memberHandler = xoops_getHandler('member');
     $total         = $memberHandler->getUserCount(new \Criteria('level', 0, '>'));
@@ -97,13 +98,15 @@ if ('form' === $op) {
     $form->addElement(new \XoopsFormText(_XO_LA_POSTSLESS, 'user_posts_less', 10, 5));
 
     $sort_select = new \XoopsFormSelect(_XO_LA_SORT, 'user_sort');
-    $sort_select->addOptionArray([
-                                     'uname'        => _XO_LA_UNAME,
-                                     'email'        => _XO_LA_EMAIL,
-                                     'last_login'   => _XO_LA_LASTLOGIN,
-                                     'user_regdate' => _XO_LA_REGDATE,
-                                     'posts'        => _XO_LA_POSTS
-                                 ]);
+    $sort_select->addOptionArray(
+        [
+            'uname'        => _XO_LA_UNAME,
+            'email'        => _XO_LA_EMAIL,
+            'last_login'   => _XO_LA_LASTLOGIN,
+            'user_regdate' => _XO_LA_REGDATE,
+            'posts'        => _XO_LA_POSTS,
+        ]
+    );
     $form->addElement($sort_select);
 
     $order_select = new \XoopsFormSelect(_XO_LA_ORDER, 'user_order');
@@ -119,25 +122,25 @@ if ('form' === $op) {
 
 if ('submit' === $op) {
     $GLOBALS['xoopsOption']['template_main'] = 'xoopsmembers_searchresults.html';
-    include XOOPS_ROOT_PATH . '/header.php';
+    require_once XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
     $myts     = \MyTextSanitizer::getInstance();
     $criteria = new \CriteriaCompo();
 
-   if (\Xmf\Request::hasVar('user_uname', 'POST')) {
+    if (\Xmf\Request::hasVar('user_uname', 'POST')) {
         $match = \Xmf\Request::getInt('user_uname_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_uname']));
         xoops_Criteria($criteria, 'uname', $ret, $match);
     }
 
-   if (\Xmf\Request::hasVar('user_name', 'POST')) {
+    if (\Xmf\Request::hasVar('user_name', 'POST')) {
         $match = \Xmf\Request::getInt('user_name_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_uname']));
         xoops_Criteria($criteria, 'name', $ret, $match);
     }
 
-   if (\Xmf\Request::hasVar('user_email', 'POST')) {
+    if (\Xmf\Request::hasVar('user_email', 'POST')) {
         $match = \Xmf\Request::getInt('user_email_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_email']));
         xoops_Criteria($criteria, 'name', $ret, $match);
@@ -146,44 +149,44 @@ if ('submit' === $op) {
         }
     }
 
-   if (\Xmf\Request::hasVar('user_url', 'POST')) {
+    if (\Xmf\Request::hasVar('user_url', 'POST')) {
         $url = formatURL(trim($_POST['user_url']));
         $criteria->add(new \Criteria('url', $myts->addSlashes($url) . '%', 'LIKE'));
     }
 
-   if (\Xmf\Request::hasVar('user_icq', 'POST')) {
+    if (\Xmf\Request::hasVar('user_icq', 'POST')) {
         $match = \Xmf\Request::getInt('user_icq_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_icq']));
         xoops_Criteria($criteria, 'user_icq', $ret, $match);
     }
 
-   if (\Xmf\Request::hasVar('user_aim', 'POST')) {
+    if (\Xmf\Request::hasVar('user_aim', 'POST')) {
         $match = \Xmf\Request::getInt('user_aim_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_aim']));
         xoops_Criteria($criteria, 'user_aim', $ret, $match);
     }
 
-   if (\Xmf\Request::hasVar('user_yim', 'POST')) {
+    if (\Xmf\Request::hasVar('user_yim', 'POST')) {
         $match = \Xmf\Request::getInt('user_yim_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_yim']));
         xoops_Criteria($criteria, 'user_yim', $ret, $match);
     }
 
-   if (\Xmf\Request::hasVar('user_msnm', 'POST')) {
+    if (\Xmf\Request::hasVar('user_msnm', 'POST')) {
         $match = \Xmf\Request::getInt('user_msnm_match', XOOPS_MATCH_START, 'POST');
         $ret   = $myts->addSlashes(trim($_POST['user_msnm']));
         xoops_Criteria($criteria, 'user_msnm', $ret, $match);
     }
 
-   if (\Xmf\Request::hasVar('user_from', 'POST')) {
+    if (\Xmf\Request::hasVar('user_from', 'POST')) {
         $criteria->add(new \Criteria('user_from', '%' . $myts->addSlashes(trim($_POST['user_from'])) . '%', 'LIKE'));
     }
 
-   if (\Xmf\Request::hasVar('user_intrest', 'POST')) {
+    if (\Xmf\Request::hasVar('user_intrest', 'POST')) {
         $criteria->add(new \Criteria('user_intrest', '%' . $myts->addSlashes(trim($_POST['user_intrest'])) . '%', 'LIKE'));
     }
 
-   if (\Xmf\Request::hasVar('user_occ', 'POST')) {
+    if (\Xmf\Request::hasVar('user_occ', 'POST')) {
         $criteria->add(new \Criteria('user_occ', '%' . $myts->addSlashes(trim($_POST['user_occ'])) . '%', 'LIKE'));
     }
 
@@ -219,7 +222,7 @@ if ('submit' === $op) {
         }
     }
 
-    if (isset($_POST['user_posts_more']) && is_numeric($_POST['user_posts_more'])) {
+    if (\Xmf\Request::hasVar('user_posts_more', 'POST') && is_numeric($_POST['user_posts_more'])) {
         $criteria->add(new \Criteria('posts', \Xmf\Request::getInt('user_posts_more', 0, 'POST'), '>'));
     }
 
@@ -231,7 +234,7 @@ if ('submit' === $op) {
     $validsort = ['uname', 'email', 'last_login', 'user_regdate', 'posts'];
     $sort      = (!in_array($_POST['user_sort'], $validsort)) ? 'uname' : $_POST['user_sort'];
     $order     = 'ASC';
-    if (isset($_POST['user_order']) && 'DESC' === $_POST['user_order']) {
+    if (\Xmf\Request::hasVar('user_order', 'POST') && 'DESC' === $_POST['user_order']) {
         $order = 'DESC';
     }
     $limit = \Xmf\Request::getInt('limit', 20, 'POST');
@@ -265,15 +268,13 @@ if ('submit' === $op) {
                 $userdata['email'] = '&nbsp;';
             }
             if ($xoopsUser) {
-                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\''
-                                      . XOOPS_URL
-                                      . '/pmlite.php?send2=1&amp;to_userid='
-                                      . $foundusers[$j]->getVar('uid')
-                                      . '\',\'pmlite\',450,370);"><img src="'
-                                      . XOOPS_URL
-                                      . '/images/icons/pm.gif" border="0" alt="'
-                                      . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e'))
-                                      . '"></a>';
+                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(
+                        _SENDPMTO,
+                        $foundusers[$j]->getVar(
+                            'uname',
+                            'e'
+                        )
+                    ) . '"></a>';
             } else {
                 $userdata['pmlink'] = '&nbsp;';
             }
@@ -345,7 +346,7 @@ require_once XOOPS_ROOT_PATH . '/footer.php';
 exit();
 
 /**
- * xoops_Criteria()
+ * xoops_Criteria('')
  *
  * @param        $criteria
  * @param string $name

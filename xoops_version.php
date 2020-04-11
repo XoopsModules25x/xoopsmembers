@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Name: xoops_version.php
  * Description:
@@ -18,7 +19,7 @@
  * @since      2.3.0
  * @author     John Neill
  */
-defined('XOOPS_ROOT_PATH') || die('Restricted access');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 require_once __DIR__ . '/preloads/autoloader.php';
 
@@ -46,11 +47,10 @@ $modversion = [
     'module_website_url'  => 'https://xoops.org',
     'module_website_name' => 'XOOPS',
     'min_php'             => '5.5',
-    'min_xoops'           => '2.5.9',
+    'min_xoops'           => '2.5.10',
     'min_db'              => ['mysql' => '5.5'],
-    'min_admin'           => '1.1'
+    'min_admin'           => '1.1',
 ];
-
 
 // ------------------- Help files ------------------- //
 $modversion['helpsection'] = [
@@ -76,9 +76,9 @@ $modversion['hasMain'] = 1;
  */
 $modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchform.tpl',
-    'description' => ''
+    'description' => '',
 ];
 $modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchresults.tpl',
-    'description' => ''
+    'description' => '',
 ];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Xoops Members Module
  *
@@ -17,7 +18,7 @@
  * @author    John Neill
  * @version   $Id: index.php catzwolf$
  */
-defined('XOOPS_ROOT_PATH') || die('Restricted access');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 /**
  * Module Menu Items
@@ -28,7 +29,7 @@ define('_XO_MI_MEMBERS_DESC', 'Shows a list of registered users');
 //1.03
 //Help
 define('_MI_XOOPSMEMBERS_DIRNAME', basename(dirname(dirname(__DIR__))));
-define('_MI_XOOPSMEMBERS_HELP_HEADER', __DIR__.'/help/helpheader.tpl');
+define('_MI_XOOPSMEMBERS_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_XOOPSMEMBERS_BACK_2_ADMIN', 'Back to Administration of ');
 define('_MI_XOOPSMEMBERS_OVERVIEW', 'Overview');
 

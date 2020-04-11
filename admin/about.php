@@ -1,4 +1,5 @@
 <?php
+
 /**
  * XoopsMembers module
  * Description: Category Admin file
@@ -17,7 +18,6 @@
  * @since     ::      1.02
  * @author    ::     Mamba
  **/
-
 require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 

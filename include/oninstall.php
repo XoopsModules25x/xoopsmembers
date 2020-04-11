@@ -11,7 +11,7 @@
 
 /**
  * @copyright    XOOPS Project https://xoops.org/
- * @license      GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @license      GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @package
  * @since
  * @author       XOOPS Development Team
@@ -22,22 +22,21 @@ use XoopsModules\Xoopsmembers;
 //require_once __DIR__ . '/setup.php';
 
 /**
- *
  * Prepares system prior to attempting to install module
- * @param XoopsModule $module {@link XoopsModule}
+ * @param \XoopsModule $module {@link XoopsModule}
  *
  * @return bool true if ready to install, false if not
  */
 function xoops_module_pre_install_xoopsmembers(\XoopsModule $module)
 {
-    include  dirname(__DIR__) . '/preloads/autoloader.php';
-    /** @var Xoopsmembers\Utility $utility */
-    $utility = new \XoopsModules\Xoopsmembers\Utility();
+    require_once dirname(__DIR__) . '/preloads/autoloader.php';
+    /** @var \Xoopsmembers\Utility $utility */
+    $utility      = new \XoopsModules\Xoopsmembers\Utility();
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
 
-    if (false !== $xoopsSuccess && false !==  $phpSuccess) {
-        $moduleTables =& $module->getInfo('tables');
+    if (false !== $xoopsSuccess && false !== $phpSuccess) {
+        $moduleTables = &$module->getInfo('tables');
         foreach ($moduleTables as $table) {
             $GLOBALS['xoopsDB']->queryF('DROP TABLE IF EXISTS ' . $GLOBALS['xoopsDB']->prefix($table) . ';');
         }
@@ -47,19 +46,17 @@ function xoops_module_pre_install_xoopsmembers(\XoopsModule $module)
 }
 
 /**
- *
  * Performs tasks required during installation of the module
- * @param XoopsModule $module {@link XoopsModule}
+ * @param \XoopsModule $module {@link XoopsModule}
  *
  * @return bool true if installation successful, false if not
  */
 function xoops_module_install_xoopsmembers(\XoopsModule $module)
 {
-    require_once   dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
-    require_once   dirname(__DIR__) . '/include/config.php';
+    require_once dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
 
     $moduleDirName = basename(dirname(__DIR__));
-
+    /** @var \Xoopsmembers\Helper $helper */
     $helper       = Xoopsmembers\Helper::getInstance();
     $utility      = new Xoopsmembers\Utility();
     $configurator = new Xoopsmembers\Common\Configurator();
@@ -69,8 +66,8 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
 
     // default Permission Settings ----------------------
     global $xoopsModule;
-    $moduleId     = $xoopsModule->getVar('mid');
-    $moduleId2    = $helper->getModule()->mid();
+    $moduleId = $xoopsModule->getVar('mid');
+    // $moduleId2        = $helper->getModule()->mid();
     $grouppermHandler = xoops_getHandler('groupperm');
     // access rights ------------------------------------------
     $grouppermHandler->addRight($moduleDirName . '_approve', 1, XOOPS_GROUP_ADMIN, $moduleId);
@@ -89,15 +86,15 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
 
     //  ---  COPY blank.png FILES ---------------
     if (count($configurator->copyBlankFiles) > 0) {
-        $file =  dirname(__DIR__) . '/assets/images/blank.png';
+        $file = dirname(__DIR__) . '/assets/images/blank.png';
         foreach (array_keys($configurator->copyBlankFiles) as $i) {
             $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
             $utility::copyFile($file, $dest);
         }
     }
     //delete .html entries from the tpl table
-    $sql = 'DELETE FROM ' . $xoopsDB->prefix('tplfile') . " WHERE `tpl_module` = '" . $xoopsModule->getVar('dirname', 'n') . "' AND `tpl_file` LIKE '%.html%'";
-    $xoopsDB->queryF($sql);
+    $sql = 'DELETE FROM ' . $GLOBALS['xoopsDB']->prefix('tplfile') . " WHERE `tpl_module` = '" . $xoopsModule->getVar('dirname', 'n') . "' AND `tpl_file` LIKE '%.html%'";
+    $GLOBALS['xoopsDB']->queryF($sql);
 
     return true;
 }
