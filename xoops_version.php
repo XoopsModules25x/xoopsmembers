@@ -84,3 +84,8 @@ $modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.tpl',
 $modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.tpl',
     'description' => ''
     );
+
+// Search
+$modversion['hasSearch'] = 1;
+$modversion['search']['file'] = "include/search.inc.php";
+$modversion['search']['func'] = "member_search";
