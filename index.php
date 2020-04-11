@@ -27,7 +27,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
 $op = ( isset( $_POST['op'] ) && $_POST['op'] == 'submit' ) ? 'submit' : 'form';
 
 if ( $op == 'form' ) {
-    $xoopsOption['template_main'] = 'xoopsmembers_searchform.html';
+    $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
     $member_handler = &xoops_gethandler( 'member' );
@@ -113,7 +113,7 @@ if ( $op == 'form' ) {
 }
 
 if ( $op == 'submit' ) {
-    $xoopsOption['template_main'] = 'xoopsmembers_searchresults.html';
+    $xoopsOption['template_main'] = 'xoopsmembers_searchresults.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;

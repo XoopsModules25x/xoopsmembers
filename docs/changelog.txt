@@ -2,6 +2,8 @@
 	--------------------
 	->Changed : Update and rename language definition (liomj)
 	->Changed : Change image location to assets (liomj)
+	->Changed : Change html template to tpl
+	
 	
 	=>version 1.02
 	--------------------

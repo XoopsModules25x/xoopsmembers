@@ -65,9 +65,9 @@ $modversion['hasMain'] = 1;
 /**
  * Module Templates
  */
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.html',
+$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.tpl',
     'description' => ''
     );
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.html',
+$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.tpl',
     'description' => ''
     );
