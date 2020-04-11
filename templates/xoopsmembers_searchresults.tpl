@@ -1,21 +1,21 @@
-<a href="index.php"><{$smarty.const._XO_LA_SEARCH}></a>
+<a href="index.php"><{$smarty.const._MD_XM_SEARCH}></a>
 
-&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<{$smarty.const._XO_LA_RESULTS}><br /><br />
+&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<{$smarty.const._MD_XM_RESULTS}><br /><br />
 
 <{if $total_found != 0}>
 <table class="outer" cellspacing="1" cellpadding="4">
   <tr>
-    <th align="center"><{$smarty.const._XO_LA_AVATAR}></th>
-	<th align="center"><{$smarty.const._XO_LA_UNAME}></th>
-	<th align="center"><{$smarty.const._XO_LA_REALNAME}></th>
-	<th align="center"><{$smarty.const._XO_LA_EMAIL}></th>
-	<th align="center"><{$smarty.const._XO_LA_PM}></th>
-	<th align="center"><{$smarty.const._XO_LA_URL}></th>
-	<th align="center"><{$smarty.const._XO_LA_REGDATE}></th
-	><th align="center"><{$smarty.const._XO_LA_LASTLOGIN}></th>
-	<th align="center"><{$smarty.const._XO_LA_POSTS}></th>
+    <th align="center"><{$smarty.const._MD_XM_AVATAR}></th>
+	<th align="center"><{$smarty.const._MD_XM_UNAME}></th>
+	<th align="center"><{$smarty.const._MD_XM_REALNAME}></th>
+	<th align="center"><{$smarty.const._MD_XM_EMAIL}></th>
+	<th align="center"><{$smarty.const._MD_XM_PM}></th>
+	<th align="center"><{$smarty.const._MD_XM_URL}></th>
+	<th align="center"><{$smarty.const._MD_XM_REGDATE}></th
+	><th align="center"><{$smarty.const._MD_XM_LASTLOGIN}></th>
+	<th align="center"><{$smarty.const._MD_XM_POSTS}></th>
     <{if $is_admin == true}>
-    <th align="center"><{$smarty.const._XO_LA_ADMIN}></th>
+    <th align="center"><{$smarty.const._MD_XM_ADMIN}></th>
     <{/if}>
   </tr>
   <{section name=i loop=$users}>
@@ -40,5 +40,5 @@
   <{$lang_numfound}>
 </div>
 <{else}>
-  <{$smarty.const._XO_LA_NOFOUND}>
+  <{$smarty.const._MD_XM_NOFOUND}>
 <{/if}>

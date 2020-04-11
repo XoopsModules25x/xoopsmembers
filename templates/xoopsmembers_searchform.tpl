@@ -1,6 +1,6 @@
-<h4><{$smarty.const._XO_LA_SEARCH}></h4>
+<h4><{$smarty.const._MD_XM_SEARCH}></h4>
 
-( <span style="color:#ff0000;"><{$smarty.const._XO_LA_TOTALUSERS}> <{$totalmember}></span> )
+( <span style="color:#ff0000;"><{$smarty.const._MD_XM_TOTALUSERS}> <{$totalmember}></span> )
 
 <{$searchform.javascript}>
 <b><{$searchform.title}></b>

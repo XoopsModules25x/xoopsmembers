@@ -24,7 +24,96 @@ include dirname( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR . 'mainf
 global $xoopsModule;
 $pathIcon16 = $xoopsModule->getInfo('icons16');
 
-    $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
+$op = ( isset( $_POST['op'] ) && $_POST['op'] == 'submit' ) ? 'submit' : 'form';
+
+if ( $op == 'form' ) {
+    $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
+    include XOOPS_ROOT_PATH . '/header.php';
+
+    $member_handler = &xoops_gethandler( 'member' );
+    $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
+
+    include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
+
+    $form = new XoopsThemeForm( '', 'searchform', 'index.php' );
+    $uname_text = new XoopsFormText( '', 'user_uname', 30, 60 );
+    $uname_match = new XoopsFormSelectMatchOption( '', 'user_uname_match' );
+    $uname_tray = new XoopsFormElementTray( _MD_XM_UNAME, '&nbsp;' );
+    $uname_tray->addElement( $uname_match );
+    $uname_tray->addElement( $uname_text );
+    $form->addElement( $uname_tray );
+
+    $name_text = new XoopsFormText( '', 'user_name', 30, 60 );
+    $name_match = new XoopsFormSelectMatchOption( '', 'user_name_match' );
+    $name_tray = new XoopsFormElementTray( _MD_XM_REALNAME, '&nbsp;' );
+    $name_tray->addElement( $name_match );
+    $name_tray->addElement( $name_text );
+    $form->addElement( $name_tray );
+
+    $email_text = new XoopsFormText( '', 'user_email', 30, 60 );
+    $email_match = new XoopsFormSelectMatchOption( '', 'user_email_match' );
+    $email_tray = new XoopsFormElementTray( _MD_XM_EMAIL, '&nbsp;' );
+    $email_tray->addElement( $email_match );
+    $email_tray->addElement( $email_text );
+    $form->addElement( $email_tray );
+
+    $form->addElement( new XoopsFormText( _MD_XM_URLC, 'user_url', 30, 100 ) );
+
+    $icq_text = new XoopsFormText( '', 'user_icq', 30, 100 );
+    $icq_match = new XoopsFormSelectMatchOption( '', 'user_icq_match' );
+    $icq_tray = new XoopsFormElementTray( _MD_XM_ICQ, '&nbsp;' );
+    $icq_tray->addElement( $icq_match );
+    $icq_tray->addElement( $icq_text );
+    $form->addElement( $icq_tray );
+
+    $aim_text = new XoopsFormText( '', 'user_aim', 30, 100 );
+    $aim_match = new XoopsFormSelectMatchOption( '', 'user_aim_match' );
+    $aim_tray = new XoopsFormElementTray( _MD_XM_AIM, '&nbsp;' );
+    $aim_tray->addElement( $aim_match );
+    $aim_tray->addElement( $aim_text );
+    $form->addElement( $aim_tray );
+
+    $yim_text = new XoopsFormText( '', 'user_yim', 30, 100 );
+    $yim_match = new XoopsFormSelectMatchOption( '', 'user_yim_match' );
+    $yim_tray = new XoopsFormElementTray( _MD_XM_YIM, '&nbsp;' );
+    $yim_tray->addElement( $yim_match );
+    $yim_tray->addElement( $yim_text );
+    $form->addElement( $yim_tray );
+
+    $msnm_text = new XoopsFormText( '', 'user_msnm', 30, 100 );
+    $msnm_match = new XoopsFormSelectMatchOption( '', 'user_msnm_match' );
+    $msnm_tray = new XoopsFormElementTray( _MD_XM_MSNM, '&nbsp;' );
+    $msnm_tray->addElement( $msnm_match );
+    $msnm_tray->addElement( $msnm_text );
+    $form->addElement( $msnm_tray );
+
+    $form->addElement( new XoopsFormText( _MD_XM_LOCATION, 'user_from', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_OCCUPATION, 'user_occ', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_INTEREST, 'user_intrest', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_LASTLOGMORE, 'user_lastlog_more', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_LASTLOGLESS, 'user_lastlog_less', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_REGMORE, 'user_reg_more', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_REGLESS, 'user_reg_less', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_POSTSMORE, 'user_posts_more', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_POSTSLESS, 'user_posts_less', 10, 5 ) );
+
+    $sort_select = new XoopsFormSelect( _MD_XM_SORT, 'user_sort' );
+    $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'email' => _MD_XM_EMAIL, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
+    $form->addElement( $sort_select );
+
+    $order_select = new XoopsFormSelect( _MD_XM_ORDER, 'user_order' );
+    $order_select->addOptionArray( array( 'ASC' => _MD_XM_ASC, 'DESC' => _MD_XM_DESC ) );
+    $form->addElement( $order_select );
+
+    $form->addElement( new XoopsFormText( _MD_XM_LIMIT, 'limit', 6, 2 ) );
+    $form->addElement( new XoopsFormHidden( 'op', 'submit' ) );
+    $form->addElement( new XoopsFormButton( '', 'user_submit', _SUBMIT, 'submit' ) );
+    $form->assign( $xoopsTpl );
+    $xoopsTpl->assign( 'totalmember', $total );
+}
+
+if ( $op == 'submit' ) {
+    $xoopsOption['template_main'] = 'xoopsmembers_searchresults.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
@@ -236,7 +325,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
             $xoopsTpl->assign( 'lang_numfound', sprintf( _MD_XM_USERSFOUND, $total ) );
         }
     }
-
+}
 
 include_once XOOPS_ROOT_PATH . '/footer.php';
 exit();

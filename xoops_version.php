@@ -21,34 +21,33 @@
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 
-$modversion = array( 'name' => _XO_MI_MEMBERS_NAME,
-    'description' => _XO_MI_MEMBERS_DESC,
+$modversion = array( 'name' => _MI_XM_MEMBERS_NAME,
+    'description' => _MI_XM_MEMBERS_DESC,
     'author' => 'John Neill, Kazumi Ono',
     'license' => 'GNU GPL 2.0',
     'license_url' => "www.gnu.org/licenses/gpl-2.0.html",
     'help' => 'page=help',
     'contributors' => '',
     'credits' => 'The Xoops Module Development Team',
-    'version' => 1.02,
-    'module_status' => "Final",
-//	'releasedate' => 'Friday 10.4.2009',
+    'version' => 1.03,
+    'module_status' => "Alpha",
     'official' => 1,
-    'image' => 'images/slogo.png',
+    'image' => 'assets/images/slogo.png',
     'dirname' => basename( dirname( __FILE__ ) ),
     'dirmoduleadmin' => '/Frameworks/moduleclasses/moduleadmin',
     'icons16' =>  '../../Frameworks/moduleclasses/icons/16',
     'icons32' =>  '../../Frameworks/moduleclasses/icons/32',
 
     //about
-    'author_website_url' => 'http://xoops.org',
+    'author_website_url' => 'https://www.xoops.org',
     'author_website_name' => 'XOOPS',
-    'module_website_url' => 'http://xoops.org',
+    'module_website_url' => 'https://www.xoops.org',
     'module_website_name' => 'XOOPS',
-    'release_date' => '2013/04/29',
-    'min_php' => '5.2.0',
-    'min_xoops' => '2.5.6',
-    'min_db' => array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7'),
-    'min_admin' => '1.1'
+    'release_date' => '2020',
+    'min_php' => '7.3.0',
+    'min_xoops' => '2.5.10',
+    'min_db' => array('mysql'=>'5.6', 'mysqli'=>'5.6'),
+    'min_admin' => '1.2'
     );
 
 /**
@@ -61,14 +60,32 @@ $modversion['adminmenu'] = 'admin/menu.php';
 /**
  * Module Main Main
  */
-$modversion['hasMain'] = 1;
+$modversion['hasMain']             = 1;
+$modversion['sub']                 = [
+        [
+            'name' => _MI_XM_MEMBERSLIST,
+            'url'  => 'index.php',
+        ],
+		[
+            'name' => _MI_XM_ADVANCEDSEARCH,
+            'url'  => 'searchmembers.php',
+        ]
+    ];
 
 /**
  * Module Templates
  */
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.html',
+$modversion['templates'][] = array( 'file' => 'xoopsmembers_index.tpl',
     'description' => ''
     );
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.html',
+$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.tpl',
     'description' => ''
     );
+$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.tpl',
+    'description' => ''
+    );
+
+// Search
+$modversion['hasSearch'] = 1;
+$modversion['search']['file'] = "include/search.inc.php";
+$modversion['search']['func'] = "member_search";

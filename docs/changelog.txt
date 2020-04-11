@@ -1,3 +1,12 @@
+    =>version 1.03
+	--------------------
+	->Added   : Search Members Using XOOPS Search System (liomj)
+	->Changed : Change index.php to Member List (liomj)
+	->Added   : Duplicate index.php to searchmembers.php (liomj)
+	->Changed : Change html template to tpl (liomj)
+    ->Changed : Change image location to assets (liomj)
+	->Changed : Update and rename language definition (liomj)
+
 	=>version 1.02
 	--------------------
 	->Added: icons for Edit/Delete (Mamba)
