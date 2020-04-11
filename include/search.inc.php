@@ -2,11 +2,14 @@
 
 function member_search($queryarray, $andor, $limit, $offset, $userid)   
 {   
-    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("users") ."";  
+    $sql = "SELECT * FROM " . $GLOBALS['xoopsDB']->prefix("users") ." WHERE level > 0";  
+	if ( $userid != 0 ) {
+        $sql .=" AND uid='0'";
+    }
     // because count() returns 1 even if a supplied variable  
     // is not an array, we must check if $querryarray is really an array  
     if ( is_array($queryarray) && $count = count($queryarray) ) {  
-        $sql .= " WHERE ((uname LIKE '%{$queryarray[0]}%' OR name LIKE '%{$queryarray[0]}%')";
+        $sql .= " AND ((uname LIKE '%{$queryarray[0]}%' OR name LIKE '%{$queryarray[0]}%')";
         for ( $i=1; $i<$count; $i++ ) {  
             $sql .= " $andor ";  
             $sql .= "(uname LIKE '%{$queryarray[$i]}%' OR name LIKE '%{$queryarray[$i]}%')";
