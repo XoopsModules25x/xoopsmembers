@@ -55,3 +55,6 @@ define('_MD_XM_ASC','Ascending order');
 define('_MD_XM_DESC','Descending order');
 define('_MD_XM_LIMIT','Number of members per page');
 define('_MD_XM_RESULTS','Search results');
+
+// 1.03
+define('_MD_XM_MEMBERSLIST','Members List');
