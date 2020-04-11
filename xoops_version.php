@@ -39,11 +39,11 @@ $modversion = array( 'name' => _MI_XM_MEMBERS_NAME,
     'icons32' =>  '../../Frameworks/moduleclasses/icons/32',
 
     //about
-    'author_website_url' => 'http://xoops.org',
+    'author_website_url' => 'https://www.xoops.org',
     'author_website_name' => 'XOOPS',
-    'module_website_url' => 'http://xoops.org',
+    'module_website_url' => 'https://www.xoops.org',
     'module_website_name' => 'XOOPS',
- // 'release_date' => '2013/04/29',
+    'release_date' => '2020',
     'min_php' => '7.3.0',
     'min_xoops' => '2.5.10',
     'min_db' => array('mysql'=>'5.6', 'mysqli'=>'5.6'),
@@ -60,11 +60,24 @@ $modversion['adminmenu'] = 'admin/menu.php';
 /**
  * Module Main Main
  */
-$modversion['hasMain'] = 1;
+$modversion['hasMain']             = 1;
+$modversion['sub']                 = [
+        [
+            'name' => _MI_XM_MEMBERSLIST,
+            'url'  => 'index.php',
+        ],
+		[
+            'name' => _MI_XM_ADVANCEDSEARCH,
+            'url'  => 'searchmembers.php',
+        ]
+    ];
 
 /**
  * Module Templates
  */
+$modversion['templates'][] = array( 'file' => 'xoopsmembers_index.tpl',
+    'description' => ''
+    );
 $modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.tpl',
     'description' => ''
     );

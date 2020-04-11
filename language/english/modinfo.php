@@ -24,3 +24,9 @@ defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access');
  */
 define('_MI_XM_MEMBERS_NAME','Members');
 define('_MI_XM_MEMBERS_DESC','Shows a list of registered users');
+
+
+// 1.03
+define('_MI_XM_MEMBERSLIST','Members List');
+define('_MI_XM_SEARCH','Search Members');
+define('_MI_XM_ADVANCEDSEARCH','Advanced Member Search');
