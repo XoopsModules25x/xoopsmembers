@@ -21,8 +21,8 @@
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 
-$modversion = array( 'name' => _XO_MI_MEMBERS_NAME,
-    'description' => _XO_MI_MEMBERS_DESC,
+$modversion = array( 'name' => _MI_XM_MEMBERS_NAME,
+    'description' => _MI_XM_MEMBERS_DESC,
     'author' => 'John Neill, Kazumi Ono',
     'license' => 'GNU GPL 2.0',
     'license_url' => "www.gnu.org/licenses/gpl-2.0.html",

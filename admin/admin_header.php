@@ -41,5 +41,5 @@ $pathModuleAdmin = $xoopsModule->getInfo('dirmoduleadmin');
 if ( file_exists($GLOBALS['xoops']->path($pathModuleAdmin.'/moduleadmin.php'))){
         include_once $GLOBALS['xoops']->path($pathModuleAdmin.'/moduleadmin.php');
     }else{
-        redirect_header("../../../admin.php", 5, _AM_XOOPSMEMBERS_MODULEADMIN_MISSING, false);
+        redirect_header("../../../admin.php", 5, _AM_XM_MODULEADMIN_MISSING, false);
     }

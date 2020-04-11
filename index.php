@@ -38,74 +38,74 @@ if ( $op == 'form' ) {
     $form = new XoopsThemeForm( '', 'searchform', 'index.php' );
     $uname_text = new XoopsFormText( '', 'user_uname', 30, 60 );
     $uname_match = new XoopsFormSelectMatchOption( '', 'user_uname_match' );
-    $uname_tray = new XoopsFormElementTray( _XO_LA_UNAME, '&nbsp;' );
+    $uname_tray = new XoopsFormElementTray( _MD_XM_UNAME, '&nbsp;' );
     $uname_tray->addElement( $uname_match );
     $uname_tray->addElement( $uname_text );
     $form->addElement( $uname_tray );
 
     $name_text = new XoopsFormText( '', 'user_name', 30, 60 );
     $name_match = new XoopsFormSelectMatchOption( '', 'user_name_match' );
-    $name_tray = new XoopsFormElementTray( _XO_LA_REALNAME, '&nbsp;' );
+    $name_tray = new XoopsFormElementTray( _MD_XM_REALNAME, '&nbsp;' );
     $name_tray->addElement( $name_match );
     $name_tray->addElement( $name_text );
     $form->addElement( $name_tray );
 
     $email_text = new XoopsFormText( '', 'user_email', 30, 60 );
     $email_match = new XoopsFormSelectMatchOption( '', 'user_email_match' );
-    $email_tray = new XoopsFormElementTray( _XO_LA_EMAIL, '&nbsp;' );
+    $email_tray = new XoopsFormElementTray( _MD_XM_EMAIL, '&nbsp;' );
     $email_tray->addElement( $email_match );
     $email_tray->addElement( $email_text );
     $form->addElement( $email_tray );
 
-    $form->addElement( new XoopsFormText( _XO_LA_URLC, 'user_url', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_URLC, 'user_url', 30, 100 ) );
 
     $icq_text = new XoopsFormText( '', 'user_icq', 30, 100 );
     $icq_match = new XoopsFormSelectMatchOption( '', 'user_icq_match' );
-    $icq_tray = new XoopsFormElementTray( _XO_LA_ICQ, '&nbsp;' );
+    $icq_tray = new XoopsFormElementTray( _MD_XM_ICQ, '&nbsp;' );
     $icq_tray->addElement( $icq_match );
     $icq_tray->addElement( $icq_text );
     $form->addElement( $icq_tray );
 
     $aim_text = new XoopsFormText( '', 'user_aim', 30, 100 );
     $aim_match = new XoopsFormSelectMatchOption( '', 'user_aim_match' );
-    $aim_tray = new XoopsFormElementTray( _XO_LA_AIM, '&nbsp;' );
+    $aim_tray = new XoopsFormElementTray( _MD_XM_AIM, '&nbsp;' );
     $aim_tray->addElement( $aim_match );
     $aim_tray->addElement( $aim_text );
     $form->addElement( $aim_tray );
 
     $yim_text = new XoopsFormText( '', 'user_yim', 30, 100 );
     $yim_match = new XoopsFormSelectMatchOption( '', 'user_yim_match' );
-    $yim_tray = new XoopsFormElementTray( _XO_LA_YIM, '&nbsp;' );
+    $yim_tray = new XoopsFormElementTray( _MD_XM_YIM, '&nbsp;' );
     $yim_tray->addElement( $yim_match );
     $yim_tray->addElement( $yim_text );
     $form->addElement( $yim_tray );
 
     $msnm_text = new XoopsFormText( '', 'user_msnm', 30, 100 );
     $msnm_match = new XoopsFormSelectMatchOption( '', 'user_msnm_match' );
-    $msnm_tray = new XoopsFormElementTray( _XO_LA_MSNM, '&nbsp;' );
+    $msnm_tray = new XoopsFormElementTray( _MD_XM_MSNM, '&nbsp;' );
     $msnm_tray->addElement( $msnm_match );
     $msnm_tray->addElement( $msnm_text );
     $form->addElement( $msnm_tray );
 
-    $form->addElement( new XoopsFormText( _XO_LA_LOCATION, 'user_from', 30, 100 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_OCCUPATION, 'user_occ', 30, 100 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_INTEREST, 'user_intrest', 30, 100 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_LASTLOGMORE, 'user_lastlog_more', 10, 5 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_LASTLOGLESS, 'user_lastlog_less', 10, 5 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_REGMORE, 'user_reg_more', 10, 5 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_REGLESS, 'user_reg_less', 10, 5 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_POSTSMORE, 'user_posts_more', 10, 5 ) );
-    $form->addElement( new XoopsFormText( _XO_LA_POSTSLESS, 'user_posts_less', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_LOCATION, 'user_from', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_OCCUPATION, 'user_occ', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_INTEREST, 'user_intrest', 30, 100 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_LASTLOGMORE, 'user_lastlog_more', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_LASTLOGLESS, 'user_lastlog_less', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_REGMORE, 'user_reg_more', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_REGLESS, 'user_reg_less', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_POSTSMORE, 'user_posts_more', 10, 5 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_POSTSLESS, 'user_posts_less', 10, 5 ) );
 
-    $sort_select = new XoopsFormSelect( _XO_LA_SORT, 'user_sort' );
-    $sort_select->addOptionArray( array( 'uname' => _XO_LA_UNAME, 'email' => _XO_LA_EMAIL, 'last_login' => _XO_LA_LASTLOGIN, 'user_regdate' => _XO_LA_REGDATE, 'posts' => _XO_LA_POSTS ) );
+    $sort_select = new XoopsFormSelect( _MD_XM_SORT, 'user_sort' );
+    $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'email' => _MD_XM_EMAIL, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
     $form->addElement( $sort_select );
 
-    $order_select = new XoopsFormSelect( _XO_LA_ORDER, 'user_order' );
-    $order_select->addOptionArray( array( 'ASC' => _XO_LA_ASC, 'DESC' => _XO_LA_DESC ) );
+    $order_select = new XoopsFormSelect( _MD_XM_ORDER, 'user_order' );
+    $order_select->addOptionArray( array( 'ASC' => _MD_XM_ASC, 'DESC' => _MD_XM_DESC ) );
     $form->addElement( $order_select );
 
-    $form->addElement( new XoopsFormText( _XO_LA_LIMIT, 'limit', 6, 2 ) );
+    $form->addElement( new XoopsFormText( _MD_XM_LIMIT, 'limit', 6, 2 ) );
     $form->addElement( new XoopsFormHidden( 'op', 'submit' ) );
     $form->addElement( new XoopsFormButton( '', 'user_submit', _SUBMIT, 'submit' ) );
     $form->assign( $xoopsTpl );
@@ -298,7 +298,7 @@ if ( $op == 'submit' ) {
             }
             $prev = $start - $limit;
             if ( $start - $limit >= 0 ) {
-                $hiddenform .= '<a href="#0" onclick="javascript:document.findnext.start.value=' . $prev . ';document.findnext.submit();">' . _XO_LA_PREVIOUS . '</a>&nbsp;';
+                $hiddenform .= '<a href="#0" onclick="javascript:document.findnext.start.value=' . $prev . ';document.findnext.submit();">' . _MD_XM_PREVIOUS . '</a>&nbsp;';
             }
             $counter = 1;
             $currentpage = ( $start + $limit ) / $limit;
@@ -318,11 +318,11 @@ if ( $op == 'submit' ) {
             }
             $next = $start + $limit;
             if ( $total > $next ) {
-                $hiddenform .= '&nbsp;<a href="#' . $total . '" onclick="javascript:document.findnext.start.value=' . $next . ';document.findnext.submit();">' . _XO_LA_NEXT . '</a>';
+                $hiddenform .= '&nbsp;<a href="#' . $total . '" onclick="javascript:document.findnext.start.value=' . $next . ';document.findnext.submit();">' . _MD_XM_NEXT . '</a>';
             }
             $hiddenform .= '</form>';
             $xoopsTpl->assign( 'pagenav', $hiddenform );
-            $xoopsTpl->assign( 'lang_numfound', sprintf( _XO_LA_USERSFOUND, $total ) );
+            $xoopsTpl->assign( 'lang_numfound', sprintf( _MD_XM_USERSFOUND, $total ) );
         }
     }
 }

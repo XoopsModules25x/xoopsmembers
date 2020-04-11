@@ -22,5 +22,5 @@ defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access');
 /**
  * Module Menu Items
  */
-define('_XO_MI_MEMBERS_NAME','Members');
-define('_XO_MI_MEMBERS_DESC','Shows a list of registered users');
+define('_MI_XM_MEMBERS_NAME','Members');
+define('_MI_XM_MEMBERS_DESC','Shows a list of registered users');
