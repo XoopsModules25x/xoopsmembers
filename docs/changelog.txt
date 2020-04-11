@@ -1,3 +1,8 @@
+    =>version 1.03
+	--------------------
+	->Changed : Update and rename language definition (liomj)
+	->Changed : Change image location to assets (liomj)
+	
 	=>version 1.02
 	--------------------
 	->Added: icons for Edit/Delete (Mamba)

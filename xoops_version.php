@@ -29,9 +29,8 @@ $modversion = array( 'name' => _MI_XM_MEMBERS_NAME,
     'help' => 'page=help',
     'contributors' => '',
     'credits' => 'The Xoops Module Development Team',
-    'version' => 1.02,
-    'module_status' => "Final",
-//	'releasedate' => 'Friday 10.4.2009',
+    'version' => 1.03,
+    'module_status' => "Alpha",
     'official' => 1,
     'image' => 'assets/images/slogo.png',
     'dirname' => basename( dirname( __FILE__ ) ),
@@ -44,11 +43,11 @@ $modversion = array( 'name' => _MI_XM_MEMBERS_NAME,
     'author_website_name' => 'XOOPS',
     'module_website_url' => 'http://xoops.org',
     'module_website_name' => 'XOOPS',
-    'release_date' => '2013/04/29',
-    'min_php' => '5.2.0',
-    'min_xoops' => '2.5.6',
-    'min_db' => array('mysql'=>'5.0.7', 'mysqli'=>'5.0.7'),
-    'min_admin' => '1.1'
+ // 'release_date' => '2013/04/29',
+    'min_php' => '7.3.0',
+    'min_xoops' => '2.5.10',
+    'min_db' => array('mysql'=>'5.6', 'mysqli'=>'5.6'),
+    'min_admin' => '1.2'
     );
 
 /**
