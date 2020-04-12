@@ -10,39 +10,36 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright::  The XOOPS Project http://sourceforge.net/projects/xoops/
- * @license::    {@link http://www.fsf.org/copyleft/gpl.html GNU public license}
- * @package::    xoopsmembers
+ * @copyright ::  XOOPS Project (https://xoops.org)
+ * @license   ::    {@link http://www.fsf.org/copyleft/gpl.html GNU public license}
+ * @package   ::    xoopsmembers
  * @subpackage:: Xoops Members Adminisration
- * @since::      1.02
- * @author::     John Neill
- * @version::    $Id: menu.php 8571 2011-12-26 22:51:57Z beckmi $
+ * @since     ::      1.02
+ * @author    ::     John Neill
  */
-defined("XOOPS_ROOT_PATH") or die("XOOPS root path not defined");
 
-$path = dirname(dirname(dirname(dirname(__FILE__))));
-include_once $path . '/mainfile.php';
+use XoopsModules\Xoopsmembers;
 
-$dirname         = basename(dirname(dirname(__FILE__)));
-$module_handler  = xoops_gethandler('module');
-$module          = $module_handler->getByDirname($dirname);
-$pathIcon32      = $module->getInfo('icons32');
-$pathModuleAdmin = $module->getInfo('dirmoduleadmin');
-$pathLanguage    = $path . $pathModuleAdmin;
+// require_once  dirname(__DIR__) . '/class/Helper.php';
+//require_once  dirname(__DIR__) . '/include/common.php';
+/** @var \Xoopsmembers\Helper $helper */
+$helper = Xoopsmembers\Helper::getInstance();
+$helper->loadLanguage('common');
+$helper->loadLanguage('feedback');
 
-if (!file_exists($fileinc = $pathLanguage . '/language/' . $GLOBALS['xoopsConfig']['language'] . '/' . 'main.php')) {
-    $fileinc = $pathLanguage . '/language/english/main.php';
+$pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
+if (is_object($helper->getModule())) {
+    $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 }
 
-include_once $fileinc;
+$adminmenu[] = [
+    'title' => _MI_XOOPSMEMBERS_MENU_HOME,
+    'link'  => 'admin/index.php',
+    'icon'  => $pathIcon32 . '/home.png',
+];
 
-$adminmenu = array();
-$i = 1;
-$adminmenu[$i]["title"] = _AM_MODULEADMIN_HOME;
-$adminmenu[$i]["link"]  = "admin/index.php";
-$adminmenu[$i]["icon"] = $pathIcon32.'/home.png';
-
-$i++;
-$adminmenu[$i]["title"] = _AM_MODULEADMIN_ABOUT;
-$adminmenu[$i]["link"]  = "admin/about.php";
-$adminmenu[$i]["icon"] = $pathIcon32.'/about.png';
+$adminmenu[] = [
+    'title' => _MI_XOOPSMEMBERS_MENU_ABOUT,
+    'link'  => 'admin/about.php',
+    'icon'  => $pathIcon32 . '/about.png',
+];

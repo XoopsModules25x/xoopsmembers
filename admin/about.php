@@ -1,4 +1,5 @@
 <?php
+
 /**
  * XoopsMembers module
  * Description: Category Admin file
@@ -10,22 +11,18 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright::  The XOOPS Project (http://www.xoops.org)
- * @license::    {@link http://www.fsf.org/copyleft/gpl.html GNU public license}
- * @package::    xoopsmembers
+ * @copyright ::  The XOOPS Project (https://xoops.org)
+ * @license   ::    {@link http://www.fsf.org/copyleft/gpl.html GNU public license}
+ * @package   ::    xoopsmembers
  * @subpackage:: admin
- * @since::      1.02
- * @author::     Mamba
- * @version::    $Id $
+ * @since     ::      1.02
+ * @author    ::     Mamba
  **/
-
- include_once dirname(__FILE__) . '/admin_header.php';
-
+require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 
-$aboutAdmin = new ModuleAdmin();
+$adminObject->displayNavigation(basename(__FILE__));
+$adminObject::setPaypal('xoopsfoundation@gmail.com');
+$adminObject->displayAbout(false);
 
-echo $aboutAdmin->addNavigation('about.php');
-echo $aboutAdmin->renderAbout('xoopsfoundation@gmail.com', false);
-
-include 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';
