@@ -140,7 +140,8 @@ if (0 == $total) {
         }
     }
 
-require_once  __DIR__ . '/header.php';
+include 'footer.php';
+include_once XOOPS_ROOT_PATH . '/footer.php';
 exit();
 
 /**
