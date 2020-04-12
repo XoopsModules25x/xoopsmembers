@@ -1,4 +1,9 @@
-<h5>1.03 Beta 2  [NOT RELEASED]</h5>  Dev: Xoops 2.5.9, PHP 7.2.3
+<h5>1.04 Alpha 2  [2020-04-11]</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
+<hr>
+- fixed bugs (mamba)
+
+
+<h5>1.04 Alpha 1  [2020-04-11]</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
 <hr>
 - XOOPS 2.5.10, PHP 7 (mamba)
 - PSR-2 code cosmetics (mamba)
@@ -16,18 +21,18 @@
     &nbsp;&nbsp;- updated addInfoBoxLine entries (mamba)
     &nbsp;&nbsp;- displayNavigation(basename(__FILE__))  (mamba)
     &nbsp;&nbsp;- changed to ->displayButton('left') (mamba)
-->Added   : Preferences to enable and disable fields (liomj)    
-	->Removed : Remove outdated icq, aim, msnm, yim fields (liomj)
-	->Added   : Add sort by, order by and members per page options for index page in preference (liomj)
-	->Changed : Replace sort by email to sort by real name (liomj)
-	->Changed : Fix Notice: Only variables should be assigned by reference in index.php and searchmembers.php (liomj)
-	->Changed : Fix members name appearing in profile modules recent activity (liomj)
-	->Added   : Search Members Using XOOPS Search System (liomj)
-	->Changed : Change index.php to Member List (liomj)
-	->Added   : Duplicate index.php to searchmembers.php (liomj)
-	->Changed : Change html template to tpl (liomj)
-    ->Changed : Change image location to assets (liomj)
-	->Changed : Update and rename language definition (liomj)
+- Added   : Preferences to enable and disable fields (liomj)
+- Removed : Remove outdated icq, aim, msnm, yim fields (liomj)
+- Added   : Add sort by, order by and members per page options for index page in preference (liomj)
+- Changed : Replace sort by email to sort by real name (liomj)
+- Changed : Fix Notice: Only variables should be assigned by reference in index.php and searchmembers.php (liomj)
+- Changed : Fix members name appearing in profile modules recent activity (liomj)
+- Added   : Search Members Using XOOPS Search System (liomj)
+- Changed : Change index.php to Member List (liomj)
+- Added   : Duplicate index.php to searchmembers.php (liomj)
+- Changed : Change html template to tpl (liomj)
+- Changed : Change image location to assets (liomj)
+- Changed : Update and rename language definition (liomj)
 
 
 <h5>1.03 Beta 1        [2016-06-10]</h5>

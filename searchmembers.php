@@ -29,8 +29,8 @@ if ('form' == $op) {
     $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
-    $member_handler = xoops_getHandler('member');
-    $total          = $member_handler->getUserCount(new Criteria('level', 0, '>'));
+    $memberHandler = xoops_getHandler('member');
+    $total          = $memberHandler->getUserCount(new Criteria('level', 0, '>'));
 
     include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 
@@ -199,8 +199,8 @@ if ('submit' == $op) {
     }
 
     $start          = (!empty($_POST['start'])) ? (int)$_POST['start'] : 0;
-    $member_handler = xoops_getHandler('member');
-    $total          = $member_handler->getUserCount($criteria);
+    $memberHandler = xoops_getHandler('member');
+    $total          = $memberHandler->getUserCount($criteria);
     $xoopsTpl->assign('total_found', $total);
 
     if (0 == $total) {
@@ -212,7 +212,7 @@ if ('submit' == $op) {
         $criteria->setOrder($order);
         $criteria->setStart($start);
         $criteria->setLimit($limit);
-        $foundusers = $member_handler->getUsers($criteria, true);
+        $foundusers = $memberHandler->getUsers($criteria, true);
         foreach (array_keys($foundusers) as $j) {
             $userdata['avatar']   = $foundusers[$j]->getVar('user_avatar') ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar('user_avatar') . '" alt="" />' : '&nbsp;';
             $userdata['realname'] = $foundusers[$j]->getVar('name') ?: '&nbsp;';
