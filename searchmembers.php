@@ -16,11 +16,9 @@
  * @since     2.3.0
  * @author    onokazu
  * @author    John Neill
- * @version   $Id: searchmembers.php catzwolf$
  */
-include dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'mainfile.php';
-//include_once 'header.php';
-//global $pathIcon16;
+
+require_once  __DIR__ . '/header.php';
 
 global $xoopsModule;
 $pathIcon16 = $xoopsModule->getInfo('icons16');

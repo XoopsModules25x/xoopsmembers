@@ -10,7 +10,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @copyright XOOPS Project (https://xoops.org)
  * @license   http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package   Xoops Members
  * @since     2.3.0
@@ -18,7 +18,7 @@
  * @author    John Neill
  * @version   $Id: index.php catzwolf$
  */
-defined('XOOPS_ROOT_PATH') or die('Restricted access');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 /**
  * Module Menu Items
@@ -73,3 +73,10 @@ define('_MI_XOOPSMEMBERS_OVERVIEW', 'Overview');
 define('_MI_XOOPSMEMBERS_DISCLAIMER', 'Disclaimer');
 define('_MI_XOOPSMEMBERS_LICENSE', 'License');
 define('_MI_XOOPSMEMBERS_SUPPORT', 'Support');
+
+define('_MI_XOOPSMEMBERS_HOME', 'Home');
+define('_MI_XOOPSMEMBERS_ABOUT', 'About');
+
+define('_MI_XOOPSMEMBERS_MEMBERSLIST', 'Members List');
+define('_MI_XOOPSMEMBERS_SEARCH', 'Search Members');
+define('_MI_XOOPSMEMBERS_ADVANCEDSEARCH', 'Advanced Member Search');

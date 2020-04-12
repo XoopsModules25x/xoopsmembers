@@ -11,16 +11,15 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright  The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @copyright  XOOPS Project (https://xoops.org)
  * @license    http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package    : XOOPS
  * @Module     :
  * @subpackage :
  * @since      2.3.0
  * @author     John Neill
- * @version    $Id: xoops_version.php 11483 2013-04-30 08:14:19Z beckmi $
  */
-defined('XOOPS_ROOT_PATH') or die('Restricted access');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 $modversion = [
     'version'             => 1.03,
@@ -40,17 +39,23 @@ $modversion = [
     'modicons16'          => 'assets/images/icons/16',
     'modicons32'          => 'assets/images/icons/32',
     //about
-    'author_website_url'  => 'https://www.xoops.org',
+    'author_website_url'  => 'https://xoops.org',
     'author_website_name' => 'XOOPS',
-    'module_website_url'  => 'https://www.xoops.org',
+    'module_website_url'  => 'https://xoops.org',
     'module_website_name' => 'XOOPS',
-    'release_date'        => '2020',
-    'min_php'             => '7.3.0',
+    'min_php'             => '7.1',
     'min_xoops'           => '2.5.10',
-    'min_db'              => ['mysql' => '5.6', 'mysqli' => '5.6'],
+    'min_db'              => ['mysql' => '5.5'],
     'min_admin'           => '1.2',
 ];
 
+// ------------------- Help files ------------------- //
+$modversion['helpsection'] = [
+    ['name' => _MI_XOOPSMEMBERS_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_XOOPSMEMBERS_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_XOOPSMEMBERS_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_XOOPSMEMBERS_SUPPORT, 'link' => 'page=support'],
+];
 /**
  * Module Admin
  */
