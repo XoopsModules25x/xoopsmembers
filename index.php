@@ -42,12 +42,12 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     if ( isset( $xoopsModuleConfig['membersorder'] ) && 'DESC' == $xoopsModuleConfig['membersorder']) {
         $order = 'DESC';
     }
-    $limit = ( !empty( $xoopsModuleConfig['membersperpage'] ) ) ? intval( $xoopsModuleConfig['membersperpage'] ) : 20;
+    $limit = ( !empty( $xoopsModuleConfig['membersperpage'] ) ) ? (int)$xoopsModuleConfig['membersperpage'] : 20;
 	if (0 == $limit || $limit > 50 ) {
         $limit = 50;
     }
 
-    $start = ( !empty( $_POST['start'] ) ) ? intval( $_POST['start'] ) : 0;
+    $start = ( !empty( $_POST['start'] ) ) ? (int)$_POST['start'] : 0;
     $member_handler = xoops_getHandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
 	$xoopsTpl->assign( 'totalmember', $total );
