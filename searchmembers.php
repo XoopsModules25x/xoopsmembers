@@ -25,9 +25,9 @@ include dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'mainfile.php';
 global $xoopsModule;
 $pathIcon16 = $xoopsModule->getInfo('icons16');
 
-$op = (isset($_POST['op']) && $_POST['op'] == 'submit') ? 'submit' : 'form';
+$op = (isset($_POST['op']) && 'submit' == $_POST['op']) ? 'submit' : 'form';
 
-if ($op == 'form') {
+if ('form' == $op) {
     $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
@@ -113,7 +113,7 @@ if ($op == 'form') {
     $xoopsTpl->assign('totalmember', $total);
 }
 
-if ($op == 'submit') {
+if ('submit' == $op) {
     $xoopsOption['template_main'] = 'xoopsmembers_searchresults.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
@@ -227,11 +227,11 @@ if ($op == 'submit') {
     $validsort = ['uname', 'email', 'last_login', 'user_regdate', 'posts'];
     $sort      = (!in_array($_POST['user_sort'], $validsort)) ? 'uname' : $_POST['user_sort'];
     $order     = 'ASC';
-    if (isset($_POST['user_order']) && $_POST['user_order'] == 'DESC') {
+    if (isset($_POST['user_order']) && 'DESC' == $_POST['user_order']) {
         $order = 'DESC';
     }
     $limit = (!empty($_POST['limit'])) ? (int)$_POST['limit'] : 20;
-    if ($limit == 0 || $limit > 50) {
+    if (0 == $limit || $limit > 50) {
         $limit = 50;
     }
 
@@ -240,7 +240,7 @@ if ($op == 'submit') {
     $total          = $member_handler->getUserCount($criteria);
     $xoopsTpl->assign('total_found', $total);
 
-    if ($total == 0) {
+    if (0 == $total) {
     } elseif ($start < $total) {
         if ($iamadmin) {
             $xoopsTpl->assign('is_admin', true);
@@ -255,7 +255,7 @@ if ($op == 'submit') {
             $userdata['realname'] = $foundusers[$j]->getVar('name') ?: '&nbsp;';
             $userdata['name']     = $foundusers[$j]->getVar('uname');
             $userdata['id']       = $foundusers[$j]->getVar('uid');
-            if ($foundusers[$j]->getVar('user_viewemail') == 1 || $iamadmin) {
+            if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
                 $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '" /></a>';
             } else {
                 $userdata['email'] = '&nbsp;';
@@ -271,13 +271,13 @@ if ($op == 'submit') {
             } else {
                 $userdata['pmlink'] = '&nbsp;';
             }
-            if ($foundusers[$j]->getVar('url', 'e') != '') {
+            if ('' != $foundusers[$j]->getVar('url', 'e')) {
                 $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" /></a>';
             } else {
                 $userdata['website'] = '&nbsp;';
             }
             $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
-            if ($foundusers[$j]->getVar('last_login') != 0) {
+            if (0 != $foundusers[$j]->getVar('last_login')) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');
             } else {
                 $userdata['lastlogin'] = '&nbsp;';
@@ -312,12 +312,12 @@ if ($op == 'submit') {
             while ($counter <= $totalpages) {
                 if ($counter == $currentpage) {
                     $hiddenform .= '<b>' . $counter . '</b> ';
-                } elseif (($counter > $currentpage - 4 && $counter < $currentpage + 4) || $counter == 1 || $counter == $totalpages) {
+                } elseif (($counter > $currentpage - 4 && $counter < $currentpage + 4) || 1 == $counter || $counter == $totalpages) {
                     if ($counter == $totalpages && $currentpage < $totalpages - 4) {
                         $hiddenform .= '... ';
                     }
                     $hiddenform .= '<a href="#' . $counter . '" onclick="javascript:document.findnext.start.value=' . ($counter - 1) * $limit . ';document.findnext.submit();">' . $counter . '</a> ';
-                    if ($counter == 1 && $currentpage > 5) {
+                    if (1 == $counter && $currentpage > 5) {
                         $hiddenform .= '... ';
                     }
                 }

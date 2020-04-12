@@ -11,7 +11,7 @@
 function member_search($queryarray, $andor, $limit, $offset, $userid)
 {
     $sql = 'SELECT * FROM ' . $GLOBALS['xoopsDB']->prefix('users') . ' WHERE level > 0';
-    if ($userid != 0) {
+    if (0 != $userid) {
         $sql .= " AND uid='0'";
     }
     // because count() returns 1 even if a supplied variable  
