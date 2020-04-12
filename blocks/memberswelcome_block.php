@@ -40,27 +40,27 @@ function show_memberswelcome_block($options)
  */
 function memberswelcome_edit($options)
 {
-    $form = _MB_XOOPSMEMBERS_SHOWMEMBERSRANK . "&nbsp;";
+    $form = _MB_XOOPSMEMBERS_SHOWMEMBERSRANK . '&nbsp;';
     if ($options[0] == 1) {
         $chk = " checked='checked'";
     }
-    $form .= "<input type='radio' name='options[0]' value='1'" . $chk . " />&nbsp;" . _YES . "";
-    $chk  = "";
+    $form .= "<input type='radio' name='options[0]' value='1'" . $chk . ' />&nbsp;' . _YES . '';
+    $chk  = '';
     if ($options[0] == 0) {
         $chk = " checked='checked'";
     }
-    $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . " />" . _NO . "<br />";
+    $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . ' />' . _NO . '<br />';
 
-    $form .= _MB_XOOPSMEMBERS_USEREALNAME . "&nbsp;";
+    $form .= _MB_XOOPSMEMBERS_USEREALNAME . '&nbsp;';
     if ($options[1] == 1) {
         $chk = " checked='checked'";
     }
-    $form .= "<input type='radio' name='options[1]' value='1'" . $chk . " />&nbsp;" . _YES . "";
-    $chk  = "";
+    $form .= "<input type='radio' name='options[1]' value='1'" . $chk . ' />&nbsp;' . _YES . '';
+    $chk  = '';
     if ($options[1] == 0) {
         $chk = " checked='checked'";
     }
-    $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . " />" . _NO . "<br />";
+    $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . ' />' . _NO . '<br />';
 
     return $form;
 }

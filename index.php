@@ -51,9 +51,9 @@ $total = $memberHandler->getUserCount($criteria);
 $xoopsTpl->assign('totalmember', $total);
 
 //Show last member
-$result = $GLOBALS['xoopsDB']->query("SELECT uid, uname FROM " . $GLOBALS['xoopsDB']->prefix("users") . " WHERE level > 0 ORDER BY uid DESC", 1, 0);
+$result = $GLOBALS['xoopsDB']->query('SELECT uid, uname FROM ' . $GLOBALS['xoopsDB']->prefix('users') . ' WHERE level > 0 ORDER BY uid DESC', 1, 0);
 list($latestuid, $latestuser) = $GLOBALS['xoopsDB']->fetchRow($result);
-$xoopsTpl->assign('latestmember', " <a href='" . XOOPS_URL . "/userinfo.php?uid=" . $latestuid . "'>" . $latestuser . "</a>");
+$xoopsTpl->assign('latestmember', " <a href='" . XOOPS_URL . '/userinfo.php?uid=' . $latestuid . "'>" . $latestuser . '</a>');
 $xoopsTpl->assign('welcomemessage', $xoopsModuleConfig['welcomemessage']);
 
 if (0 == $total) {

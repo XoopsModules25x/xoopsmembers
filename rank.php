@@ -10,7 +10,7 @@ global $xoopsModule;
 
 $db= XoopsDatabaseFactory::getDatabaseConnection();
 
-$result = $db->query("SELECT * FROM ".$db->prefix("ranks")." ORDER BY rank_id");
+$result = $db->query('SELECT * FROM ' . $db->prefix('ranks') . ' ORDER BY rank_id');
 $ranks = [];
 $sranks = [];
 
@@ -30,4 +30,4 @@ $xoopsTpl->assign('ranks', $ranks);
 $xoopsTpl->assign('sranks', $sranks);
 
 include 'footer.php';
-include_once XOOPS_ROOT_PATH."/footer.php";
+include_once XOOPS_ROOT_PATH . '/footer.php';

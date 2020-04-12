@@ -17,7 +17,7 @@ function show_memberslastlogin_block($options)
     $hours  = 24;
     $time   = (intval($hours) > 0) ? time() - (intval($hours) * 3600) : (time() - 24 * 3600);
     $block  = [];
-    $sql    = "SELECT distinct uid, name, uname, user_avatar, last_login FROM " . $GLOBALS['xoopsDB']->prefix("users") . " WHERE level > 0 AND last_login >= '" . $time . "' ORDER BY last_login DESC LIMIT " . $options[3] . "";
+    $sql    = 'SELECT distinct uid, name, uname, user_avatar, last_login FROM ' . $GLOBALS['xoopsDB']->prefix('users') . " WHERE level > 0 AND last_login >= '" . $time . "' ORDER BY last_login DESC LIMIT " . $options[3] . '';
     $result = $GLOBALS['xoopsDB']->query($sql);
     while (list($uid, $name, $uname, $user_avatar, $last_login) = $GLOBALS['xoopsDB']->fetchRow($result)) {
         $sincelastlogin = ' ' . timeDifference($last_login, $now, 'hours') . ' ago ';
@@ -102,40 +102,40 @@ function timeDifference($start,$end,$return='days') {
  */
 function memberslastlogin_edit($options)
 {
-    $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . "&nbsp;";
+    $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . '&nbsp;';
     if ($options[0] == 1) {
         $chk = " checked='checked'";
     }
-    $form .= "<input type='radio' name='options[0]' value='1'" . $chk . " />&nbsp;" . _YES . "";
-    $chk  = "";
+    $form .= "<input type='radio' name='options[0]' value='1'" . $chk . ' />&nbsp;' . _YES . '';
+    $chk  = '';
     if ($options[0] == 0) {
         $chk = " checked='checked'";
     }
-    $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . " />" . _NO . "<br />";
+    $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . ' />' . _NO . '<br />';
 
-    $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINAVATAR . "&nbsp;";
+    $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINAVATAR . '&nbsp;';
     if ($options[1] == 1) {
         $chk = " checked='checked'";
     }
-    $form .= "<input type='radio' name='options[1]' value='1'" . $chk . " />&nbsp;" . _YES . "";
-    $chk  = "";
+    $form .= "<input type='radio' name='options[1]' value='1'" . $chk . ' />&nbsp;' . _YES . '';
+    $chk  = '';
     if ($options[1] == 0) {
         $chk = " checked='checked'";
     }
-    $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . " />" . _NO . "<br />";
+    $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . ' />' . _NO . '<br />';
 
-    $form .= _MB_XOOPSMEMBERS_USEREALNAME . "&nbsp;";
+    $form .= _MB_XOOPSMEMBERS_USEREALNAME . '&nbsp;';
     if ($options[2] == 1) {
         $chk = " checked='checked'";
     }
-    $form .= "<input type='radio' name='options[2]' value='1'" . $chk . " />&nbsp;" . _YES . "";
-    $chk  = "";
+    $form .= "<input type='radio' name='options[2]' value='1'" . $chk . ' />&nbsp;' . _YES . '';
+    $chk  = '';
     if ($options[2] == 0) {
         $chk = " checked='checked'";
     }
-    $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . " />" . _NO . "<br />";
+    $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . ' />' . _NO . '<br />';
 
-    $form .= _MB_XOOPSMEMBERS_MEMBERDISPLAY . "&nbsp;";
+    $form .= _MB_XOOPSMEMBERS_MEMBERDISPLAY . '&nbsp;';
     $form .= "<input type='text' name='options[3]' value='" . $options[3] . "'/>";
     return $form;
 }
