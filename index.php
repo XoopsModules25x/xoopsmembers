@@ -18,12 +18,13 @@
  * @author    John Neill
  * @version   $Id: index.php catzwolf$
  */
-include dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'mainfile.php';
-//include_once 'header.php';
+
+include_once 'header.php';
 //global $pathIcon16;
 
 global $xoopsModule;
-$pathIcon16 = $xoopsModule->getInfo('icons16');
+
+$pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
 
 $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
@@ -118,7 +119,7 @@ if (0 == $total) {
         }
         $prev = $start - $limit;
         if ($start - $limit >= 0) {
-            $hiddenform .= '<a href="#0" onclick="javascript:document.findnext.start.value=' . $prev . ';document.findnext.submit();">' . _MD_XM_PREVIOUS . '</a>&nbsp;';
+            $hiddenform .= '<a href="#0" onclick="javascript:document.findnext.start.value=' . $prev . ';document.findnext.submit();">' . _MD_XOOPSMEMBERS_PREVIOUS . '</a>&nbsp;';
         }
         $counter     = 1;
         $currentpage = ($start + $limit) / $limit;
@@ -138,11 +139,11 @@ if (0 == $total) {
         }
         $next = $start + $limit;
         if ($total > $next) {
-            $hiddenform .= '&nbsp;<a href="#' . $total . '" onclick="javascript:document.findnext.start.value=' . $next . ';document.findnext.submit();">' . _MD_XM_NEXT . '</a>';
+            $hiddenform .= '&nbsp;<a href="#' . $total . '" onclick="javascript:document.findnext.start.value=' . $next . ';document.findnext.submit();">' . _MD_XOOPSMEMBERS_NEXT . '</a>';
         }
         $hiddenform .= '</form>';
         $xoopsTpl->assign('pagenav', $hiddenform);
-        $xoopsTpl->assign('lang_numfound', sprintf(_MD_XM_USERSFOUND, $total));
+        $xoopsTpl->assign('lang_numfound', sprintf(_MD_XOOPSMEMBERS_USERSFOUND, $total));
     }
 }
 

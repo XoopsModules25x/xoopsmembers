@@ -23,23 +23,22 @@
 defined('XOOPS_ROOT_PATH') or die('Restricted access');
 
 $modversion = [
-    'name'                => _MI_XM_MEMBERS_NAME,
-    'description'         => _MI_XM_MEMBERS_DESC,
+    'version'             => 1.03,
+    'module_status'       => 'Alpha 1',
+    'release_date'        => '2020/04/11',
+    'name'                => _MI_XOOPSMEMBERS_NAME,
+    'description'         => _MI_XOOPSMEMBERS_DESC,
     'author'              => 'John Neill, Kazumi Ono',
     'license'             => 'GNU GPL 2.0',
     'license_url'         => 'www.gnu.org/licenses/gpl-2.0.html',
     'help'                => 'page=help',
     'contributors'        => '',
     'credits'             => 'The Xoops Module Development Team',
-    'version'             => 1.03,
-    'module_status'       => 'Alpha',
     'official'            => 1,
-    'image'               => 'assets/images/slogo.png',
     'dirname'             => basename(__DIR__),
-    'dirmoduleadmin'      => '/Frameworks/moduleclasses/moduleadmin',
-    'icons16'             => '../../Frameworks/moduleclasses/icons/16',
-    'icons32'             => '../../Frameworks/moduleclasses/icons/32',
-
+    'image'               => 'assets/images/logoModule.png',
+    'modicons16'          => 'assets/images/icons/16',
+    'modicons32'          => 'assets/images/icons/32',
     //about
     'author_website_url'  => 'https://www.xoops.org',
     'author_website_name' => 'XOOPS',
@@ -65,11 +64,11 @@ $modversion['adminmenu']   = 'admin/menu.php';
 $modversion['hasMain'] = 1;
 $modversion['sub']     = [
     [
-        'name' => _MI_XM_MEMBERSLIST,
+        'name' => _MI_XOOPSMEMBERS_MEMBERSLIST,
         'url'  => 'index.php',
     ],
     [
-        'name' => _MI_XM_ADVANCEDSEARCH,
+        'name' => _MI_XOOPSMEMBERS_ADVANCEDSEARCH,
         'url'  => 'searchmembers.php',
     ],
 ];
@@ -98,8 +97,8 @@ $modversion['search']['func'] = 'member_search';
 // Config categories
 
 $modversion['configcat']['index'] = [
-    'name'        => _MI_XM_CONFCAT_INDEX,
-    'description' => _MI_XM_CONFCAT_INDEX_DSC,
+    'name'        => _MI_XOOPSMEMBERS_CONFCAT_INDEX,
+    'description' => _MI_XOOPSMEMBERS_CONFCAT_INDEX_DSC,
 ];
 
 //Configs
@@ -107,8 +106,8 @@ $modversion['configcat']['index'] = [
 // group header
 $modversion['config'][] = [
     'name'        => 'indexsearch_configs',
-    'title'       => '_MI_XM_CONFCAT_INDEXPAGE',
-    'description' => '_MI_XM_CONFCAT_INDEXPAGEDSC',
+    'title'       => '_MI_XOOPSMEMBERS_CONFCAT_INDEXPAGE',
+    'description' => '_MI_XOOPSMEMBERS_CONFCAT_INDEXPAGEDSC',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
     'default'     => 'even',
@@ -117,8 +116,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'membersperpage',
-    'title'       => '_MI_XM_INDEXMPAGE',
-    'description' => '_MI_XM_INDEXMPAGE_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXMPAGE',
+    'description' => '_MI_XOOPSMEMBERS_INDEXMPAGE_DSC',
     'formtype'    => 'textbox',
     'valuetype'   => 'int',
     'default'     => 15,
@@ -127,31 +126,31 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'sortmembers',
-    'title'       => '_MI_XM_INDEXSORT',
-    'description' => '_MI_XM_INDEXSORT_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXSORT',
+    'description' => '_MI_XOOPSMEMBERS_INDEXSORT_DSC',
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'default'     => 'uname',
     'options'     => [
-        _MI_XM_UNAME     => 'uname',
-        _MI_XM_REALNAME  => 'name',
-        _MI_XM_LASTLOGIN => 'last_login',
-        _MI_XM_REGDATE   => 'user_regdate',
-        _MI_XM_POSTS     => 'posts',
+        _MI_XOOPSMEMBERS_UNAME     => 'uname',
+        _MI_XOOPSMEMBERS_REALNAME  => 'name',
+        _MI_XOOPSMEMBERS_LASTLOGIN => 'last_login',
+        _MI_XOOPSMEMBERS_REGDATE   => 'user_regdate',
+        _MI_XOOPSMEMBERS_POSTS     => 'posts',
     ],
     'category'    => 'index',
 ];
 
 $modversion['config'][] = [
     'name'        => 'membersorder',
-    'title'       => '_MI_XM_INDEXORDER',
-    'description' => '_MI_XM_INDEXORDER_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXORDER',
+    'description' => '_MI_XOOPSMEMBERS_INDEXORDER_DSC',
     'formtype'    => 'select',
     'valuetype'   => 'text',
     'default'     => 'ASC',
     'options'     => [
-        _MI_XM_ASC  => 'ASC',
-        _MI_XM_DESC => 'DESC',
+        _MI_XOOPSMEMBERS_ORDER_ASC  => 'ASC',
+        _MI_XOOPSMEMBERS_ORDER_DESC => 'DESC',
     ],
     'category'    => 'index',
 ];

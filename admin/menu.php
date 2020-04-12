@@ -33,13 +33,13 @@ if (is_object($helper->getModule())) {
 }
 
 $adminmenu[] = [
-    'title' => _MI_XOOPSMEMBERS_HOME,
+    'title' => _MI_XOOPSMEMBERS_MENU_HOME,
     'link'  => 'admin/index.php',
     'icon'  => $pathIcon32 . '/home.png',
 ];
 
 $adminmenu[] = [
-    'title' => _MI_XOOPSMEMBERS_ABOUT,
+    'title' => _MI_XOOPSMEMBERS_MENU_ABOUT,
     'link'  => 'admin/about.php',
     'icon'  => $pathIcon32 . '/about.png',
 ];
