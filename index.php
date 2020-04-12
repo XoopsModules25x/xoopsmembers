@@ -51,6 +51,12 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
 	$xoopsTpl->assign( 'totalmember', $total );
+	
+	//Show last member
+	$result = $GLOBALS['xoopsDB']->query("SELECT uid, uname FROM ".$GLOBALS['xoopsDB']->prefix("users")." WHERE level > 0 ORDER BY uid DESC",1,0);
+	list($latestuid, $latestuser) = $GLOBALS['xoopsDB']->fetchRow($result);
+	$xoopsTpl->assign('latestmember', " <a href='".XOOPS_URL."/userinfo.php?uid=".$latestuid."'>".$latestuser."</a>");
+	$xoopsTpl->assign('welcomemessage', $xoopsModuleConfig['welcomemessage']);
 
     if ( $total == 0 ) {
     } elseif ( $start < $total ) {

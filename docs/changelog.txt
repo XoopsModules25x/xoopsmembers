@@ -1,5 +1,11 @@
     =>version 1.03
 	--------------------
+	->Changed : Update templates (liomj)
+	->Changed : Hide PM link for non-user (liomj)
+	->Added   : Add option to enable and disable breadcrumb,welcome message, latest member and total member (liomj)
+	->Added   : Add Welcome Message in Index Page (liomj)
+	->Added	  : Add Latest Member Registered in Index Page (liomj)
+	->Added   : Add Breadcrumb in Search Members Page (liomj) 
     ->Added   : Preferences to enable and disable fields (liomj)
 	->Removed : Remove outdated icq, aim, msnm, yim fields (liomj)
 	->Added   : Add sort by, order by and members per page options for index page in preference (liomj)

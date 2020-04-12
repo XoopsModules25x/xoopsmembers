@@ -25,3 +25,7 @@ $xoopsTpl->assign('displayposts', $xoopsModuleConfig['displayposts']);
 $xoopsTpl->assign('displaylastlogin', $xoopsModuleConfig['displaylastlogin']);
 $xoopsTpl->assign('displayoccupation', $xoopsModuleConfig['displayoccupation']);
 $xoopsTpl->assign('displayinterest', $xoopsModuleConfig['displayinterest']);
+$xoopsTpl->assign('displaylatestmember', $xoopsModuleConfig['displaylatestmember']);
+$xoopsTpl->assign('displaywelcomemessage', $xoopsModuleConfig['displaywelcomemessage']);
+$xoopsTpl->assign('displaybreadcrumb', $xoopsModuleConfig['displaybreadcrumb']);
+$xoopsTpl->assign('displaytotalmember', $xoopsModuleConfig['displaytotalmember']);

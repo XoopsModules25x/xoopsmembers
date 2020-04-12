@@ -54,3 +54,5 @@ define('_MD_XM_RESULTS','Search results');
 
 // 1.03
 define('_MD_XM_MEMBERSLIST','Members List');
+define("_MD_XM_LATESTMEMBER","Latest Member");
+define("_MD_XM_WELCOMETO","Welcome to Members Directory");

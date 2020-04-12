@@ -113,8 +113,38 @@ $modversion['config'][] = [
     'description' => '_MI_XM_CONFCAT_INDEXPAGEDSC',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
-    'default'     => 'even',
+    'default'     => 'odd',
     'category'    => 'group_header',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaywelcomemessage',
+    'title'       => '_MI_XM_INDEXDISPLAYWELCOMEMSG',
+    'description' => '_MI_XM_INDEXDISPLAYWELCOMEMSG_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'index',
+];
+
+$modversion['config'][] = [
+    'name'        => 'welcomemessage',
+    'title'       => '_MI_XM_INDEXWELCOMEMSG',
+    'description' => '_MI_XM_INDEXWELCOMEMSGDSC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => _MI_XM_INDEXDEFAULTWELCOMEMSG,
+    'category'    => 'index',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaylatestmember',
+    'title'       => '_MI_XM_INDEXLATESTMEMBER',
+    'description' => '_MI_XM_INDEXLATESTMEMBER_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'index',
 ];
 
 $modversion['config'][] = [
@@ -169,6 +199,29 @@ $modversion['config'][] = [
     'default'     => 'even',
     'category'    => 'group_header',
 ];
+
+
+$modversion['config'][] = [
+    'name'        => 'displaybreadcrumb',
+    'title'       => '_MI_XM_DISPLAYBREADCRUMB',
+    'description' => '_MI_XM_DISPLAYBREADCRUMB_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displaytotalmember',
+    'title'       => '_MI_XM_DISPLAYTOTALMEMBER',
+    'description' => '_MI_XM_DISPLAYTOTALMEMBER_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
 
 $modversion['config'][] = [
     'name'        => 'displayavatar',
@@ -248,7 +301,7 @@ $modversion['config'][] = [
     'description' => '_MI_XM_DISPLAYPOSTS_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
-    'default'     => 1,
+    'default'     => 0,
     'category'    => 'indexsearch',
 ];
 
