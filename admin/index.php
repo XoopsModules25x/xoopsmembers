@@ -1,4 +1,5 @@
 <?php
+
 /**
  * XoopsMembers module
  * Description: Category Admin file
@@ -10,22 +11,20 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright::  The XOOPS Project (http://www.xoops.org)
- * @license::    {@link http://www.fsf.org/copyleft/gpl.html GNU public license}
- * @package::    xoopsmembers
+ * @copyright ::  The XOOPS Project (https://xoops.org)
+ * @license   ::    {@link http://www.fsf.org/copyleft/gpl.html GNU public license}
+ * @package   ::    xoopsmembers
  * @subpackage:: admin
- * @since::      1.02
- * @author::     Mamba
- * @version::    $Id $
+ * @since     ::      1.02
+ * @author    ::     Mamba
  **/
-
-include_once 'admin_header.php';
+require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 
-$index_admin = new ModuleAdmin();
+$adminObject = \Xmf\Module\Admin::getInstance();
 
-echo $index_admin->addNavigation('index.php');
-echo $index_admin->renderIndex();
+$adminObject->displayNavigation(basename(__FILE__));
+$adminObject->displayIndex();
 
-include 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';
 xoops_cp_footer();

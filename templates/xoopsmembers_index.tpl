@@ -12,38 +12,37 @@
 	<{if $displaylatestmember == 1}>
 		 <{$smarty.const._MD_XM_LATESTMEMBER}>: <{$latestmember}> <br><br>
 	<{/if}>   
-
-
+  
 <table class="table table-bordered table-striped table-hover">
   <thead>
   <tr>
     <{if $displayavatar == 1}>
-		<th align="center"><{$smarty.const._MD_XM_AVATAR}></th>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_AVATAR}></th>
 	<{/if}>
-	<th align="center"><{$smarty.const._MD_XM_UNAME}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_UNAME}></th>
     <{if $displayrealname == 1}>
-		<th align="center"><{$smarty.const._MD_XM_REALNAME}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}></th>
 	<{/if}>
 	<{if $displayemail == 1}>
-		<th align="center"><{$smarty.const._MD_XM_EMAIL}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></th>
 	<{/if}>
 	<{if $xoops_isuser AND $displaypm == 1}>
 		<th align="center"><{$smarty.const._MD_XM_PM}></th>
 	<{/if}>
     <{if $displayurl == 1}>
-		<th align="center"><{$smarty.const._MD_XM_URL}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_URL}></th>
 	<{/if}>
     <{if $displayregdate == 1}>
-		<th align="center"><{$smarty.const._MD_XM_REGDATE}></th>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REGDATE}></th>
 	<{/if}>
     <{if $displaylastlogin == 1}>
-		<th align="center"><{$smarty.const._MD_XM_LASTLOGIN}></th>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}></th>
 	<{/if}>
 	<{if $displayposts == 1}>
-		<th align="center"><{$smarty.const._MD_XM_POSTS}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_POSTS}></th>
     <{/if}>
-	<{if $is_admin == true}>
-    <th align="center"><{$smarty.const._MD_XM_ADMIN}></th>
+    <{if $is_admin == true}>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_ADMIN}></th>
     <{/if}>
   </tr>
   </thead>

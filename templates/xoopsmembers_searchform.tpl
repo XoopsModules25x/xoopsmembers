@@ -9,20 +9,20 @@
 
 <{$searchform.javascript}>
 <b><{$searchform.title}></b>
-<br /><br />
+<br><br>
 <form name="<{$searchform.name}>" action="<{$searchform.action}>" method="<{$searchform.method}>" <{$searchform.extra}>>
-  <table class="outer" cellpadding="4" cellspacing="1">
-    <!-- start of form elements loop -->
-    <{foreach item=element from=$searchform.elements}>
-      <{if $element.hidden != true}>
-      <tr>
-        <td class="head"><b><{$element.caption}></b></td>
-        <td class="<{cycle values="even,odd"}>"><{$element.body}></td>
-      </tr>
-      <{else}>
-      <{$element.body}>
-      <{/if}>
-    <{/foreach}>
-    <!-- end of form elements loop -->
-  </table>
+    <table class="outer" cellpadding="4" cellspacing="1">
+        <!-- start of form elements loop -->
+        <{foreach item=element from=$searchform.elements}>
+            <{if $element.hidden != true}>
+                <tr>
+                    <td class="head"><b><{$element.caption}></b></td>
+                    <td class="<{cycle values="even,odd"}>"><{$element.body}></td>
+                </tr>
+            <{else}>
+                <{$element.body}>
+            <{/if}>
+        <{/foreach}>
+        <!-- end of form elements loop -->
+    </table>
 </form>
