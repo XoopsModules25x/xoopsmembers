@@ -1,8 +1,8 @@
 <a href="index.php"><{$smarty.const._MD_XM_MEMBERSLIST}></a>
 
 &nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XM_MEMBERSLIST}><br /><br />
+<span style="color:#ff0000;"><{$smarty.const._MD_XM_TOTALUSERS}> <{$totalmember}></span>
 
-<{if $total_found != 0}>
 <table class="outer" cellspacing="1" cellpadding="4">
   <tr>
     <th align="center"><{$smarty.const._MD_XM_AVATAR}></th>
@@ -37,8 +37,4 @@
 </table>
 <div style="text-align:center">
   <{$pagenav}>
-  <{$lang_numfound}>
 </div>
-<{else}>
-  <{$smarty.const._MD_XM_NOFOUND}>
-<{/if}>

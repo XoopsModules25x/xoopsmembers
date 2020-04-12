@@ -15,7 +15,7 @@
  * @since 2.3.0
  * @author onokazu
  * @author John Neill
- * @version $Id: index.php catzwolf$
+ * @version $Id: searchmembers.php catzwolf$
  */
 include dirname( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR . 'mainfile.php';
 //include_once 'header.php';
@@ -30,12 +30,12 @@ if ( $op == 'form' ) {
     $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
-    $member_handler = &xoops_gethandler( 'member' );
+    $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
     include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
 
-    $form = new XoopsThemeForm( '', 'searchform', 'index.php' );
+    $form = new XoopsThemeForm( '', 'searchform', 'searchmembers.php' );
     $uname_text = new XoopsFormText( '', 'user_uname', 30, 60 );
     $uname_match = new XoopsFormSelectMatchOption( '', 'user_uname_match' );
     $uname_tray = new XoopsFormElementTray( _MD_XM_UNAME, '&nbsp;' );
@@ -58,35 +58,6 @@ if ( $op == 'form' ) {
     $form->addElement( $email_tray );
 
     $form->addElement( new XoopsFormText( _MD_XM_URLC, 'user_url', 30, 100 ) );
-
-    $icq_text = new XoopsFormText( '', 'user_icq', 30, 100 );
-    $icq_match = new XoopsFormSelectMatchOption( '', 'user_icq_match' );
-    $icq_tray = new XoopsFormElementTray( _MD_XM_ICQ, '&nbsp;' );
-    $icq_tray->addElement( $icq_match );
-    $icq_tray->addElement( $icq_text );
-    $form->addElement( $icq_tray );
-
-    $aim_text = new XoopsFormText( '', 'user_aim', 30, 100 );
-    $aim_match = new XoopsFormSelectMatchOption( '', 'user_aim_match' );
-    $aim_tray = new XoopsFormElementTray( _MD_XM_AIM, '&nbsp;' );
-    $aim_tray->addElement( $aim_match );
-    $aim_tray->addElement( $aim_text );
-    $form->addElement( $aim_tray );
-
-    $yim_text = new XoopsFormText( '', 'user_yim', 30, 100 );
-    $yim_match = new XoopsFormSelectMatchOption( '', 'user_yim_match' );
-    $yim_tray = new XoopsFormElementTray( _MD_XM_YIM, '&nbsp;' );
-    $yim_tray->addElement( $yim_match );
-    $yim_tray->addElement( $yim_text );
-    $form->addElement( $yim_tray );
-
-    $msnm_text = new XoopsFormText( '', 'user_msnm', 30, 100 );
-    $msnm_match = new XoopsFormSelectMatchOption( '', 'user_msnm_match' );
-    $msnm_tray = new XoopsFormElementTray( _MD_XM_MSNM, '&nbsp;' );
-    $msnm_tray->addElement( $msnm_match );
-    $msnm_tray->addElement( $msnm_text );
-    $form->addElement( $msnm_tray );
-
     $form->addElement( new XoopsFormText( _MD_XM_LOCATION, 'user_from', 30, 100 ) );
     $form->addElement( new XoopsFormText( _MD_XM_OCCUPATION, 'user_occ', 30, 100 ) );
     $form->addElement( new XoopsFormText( _MD_XM_INTEREST, 'user_intrest', 30, 100 ) );
@@ -98,7 +69,7 @@ if ( $op == 'form' ) {
     $form->addElement( new XoopsFormText( _MD_XM_POSTSLESS, 'user_posts_less', 10, 5 ) );
 
     $sort_select = new XoopsFormSelect( _MD_XM_SORT, 'user_sort' );
-    $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'email' => _MD_XM_EMAIL, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
+    $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'name' => _MD_XM_REALNAME, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
     $form->addElement( $sort_select );
 
     $order_select = new XoopsFormSelect( _MD_XM_ORDER, 'user_order' );
@@ -117,7 +88,7 @@ if ( $op == 'submit' ) {
     include XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
-    $myts = &MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
     $criteria = new CriteriaCompo();
 
     if ( !empty( $_POST['user_uname'] ) ) {
@@ -144,30 +115,6 @@ if ( $op == 'submit' ) {
     if ( !empty( $_POST['user_url'] ) ) {
         $url = formatURL( trim( $_POST['user_url'] ) );
         $criteria->add( new Criteria( 'url', $myts->addSlashes( $url ) . '%', 'LIKE' ) );
-    }
-
-    if ( !empty( $_POST['user_icq'] ) ) {
-        $match = ( !empty( $_POST['user_icq_match'] ) ) ? intval( $_POST['user_icq_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_icq'] ) );
-        xoops_Criteria( $criteria, 'user_icq', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_aim'] ) ) {
-        $match = ( !empty( $_POST['user_aim_match'] ) ) ? intval( $_POST['user_aim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_aim'] ) );
-        xoops_Criteria( $criteria, 'user_aim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_yim'] ) ) {
-        $match = ( !empty( $_POST['user_yim_match'] ) ) ? intval( $_POST['user_yim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_yim'] ) );
-        xoops_Criteria( $criteria, 'user_yim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_msnm'] ) ) {
-        $match = ( !empty( $_POST['user_msnm_match'] ) ) ? intval( $_POST['user_msnm_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_msnm'] ) );
-        xoops_Criteria( $criteria, 'user_msnm', $ret, $match );
     }
 
     if ( !empty( $_POST['user_from'] ) ) {
@@ -235,7 +182,7 @@ if ( $op == 'submit' ) {
     }
 
     $start = ( !empty( $_POST['start'] ) ) ? intval( $_POST['start'] ) : 0;
-    $member_handler = &xoops_gethandler( 'member' );
+    $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
     $xoopsTpl->assign( 'total_found', $total );
 
@@ -248,7 +195,7 @@ if ( $op == 'submit' ) {
         $criteria->setOrder( $order );
         $criteria->setStart( $start );
         $criteria->setLimit( $limit );
-        $foundusers = &$member_handler->getUsers( $criteria, true );
+        $foundusers = $member_handler->getUsers( $criteria, true );
         foreach ( array_keys( $foundusers ) as $j ) {
             $userdata["avatar"] = $foundusers[$j]->getVar( 'user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar( 'user_avatar' ) . '" alt="" />' : '&nbsp;';
             $userdata["realname"] = $foundusers[$j]->getVar( 'name' ) ? $foundusers[$j]->getVar( 'name' ) : '&nbsp;';
@@ -286,7 +233,7 @@ if ( $op == 'submit' ) {
 
         $totalpages = ceil( $total / $limit );
         if ( $totalpages > 1 ) {
-            $hiddenform = '<form name="findnext" action="index.php" method="post">';
+            $hiddenform = '<form name="findnext" action="searchmembers.php" method="post">';
             foreach ( $_POST as $k => $v ) {
                 $hiddenform .= '<input type="hidden" name="' . $myts->htmlSpecialChars( $k ) . '" value="' . $myts->previewTarea( $v ) . '" />';
             }

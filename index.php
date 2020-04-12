@@ -26,129 +26,31 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
 
     $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
+	
+	$member_handler = xoops_gethandler('member');
+    $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
     $iamadmin = $xoopsUserIsAdmin;
-    $myts = &MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
     $criteria = new CriteriaCompo();
 
-    if ( !empty( $_POST['user_uname'] ) ) {
-        $match = ( !empty( $_POST['user_uname_match'] ) ) ? intval( $_POST['user_uname_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_uname'] ) );
-        xoops_Criteria( $criteria, 'uname', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_name'] ) ) {
-        $match = ( !empty( $_POST['user_name_match'] ) ) ? intval( $_POST['user_name_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_uname'] ) );
-        xoops_Criteria( $criteria, 'name', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_email'] ) ) {
-        $match = ( !empty( $_POST['user_email_match'] ) ) ? intval( $_POST['user_email_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_email'] ) );
-        xoops_Criteria( $criteria, 'name', $ret, $match );
-        if ( !$iamadmin ) {
-            $criteria->add( new Criteria( 'user_viewemail', 1 ) );
-        }
-    }
-
-    if ( !empty( $_POST['user_url'] ) ) {
-        $url = formatURL( trim( $_POST['user_url'] ) );
-        $criteria->add( new Criteria( 'url', $myts->addSlashes( $url ) . '%', 'LIKE' ) );
-    }
-
-    if ( !empty( $_POST['user_icq'] ) ) {
-        $match = ( !empty( $_POST['user_icq_match'] ) ) ? intval( $_POST['user_icq_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_icq'] ) );
-        xoops_Criteria( $criteria, 'user_icq', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_aim'] ) ) {
-        $match = ( !empty( $_POST['user_aim_match'] ) ) ? intval( $_POST['user_aim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_aim'] ) );
-        xoops_Criteria( $criteria, 'user_aim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_yim'] ) ) {
-        $match = ( !empty( $_POST['user_yim_match'] ) ) ? intval( $_POST['user_yim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_yim'] ) );
-        xoops_Criteria( $criteria, 'user_yim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_msnm'] ) ) {
-        $match = ( !empty( $_POST['user_msnm_match'] ) ) ? intval( $_POST['user_msnm_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_msnm'] ) );
-        xoops_Criteria( $criteria, 'user_msnm', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_from'] ) ) {
-        $criteria->add( new Criteria( 'user_from', '%' . $myts->addSlashes( trim( $_POST['user_from'] ) ) . '%', 'LIKE' ) );
-    }
-
-    if ( !empty( $_POST['user_intrest'] ) ) {
-        $criteria->add( new Criteria( 'user_intrest', '%' . $myts->addSlashes( trim( $_POST['user_intrest'] ) ) . '%', 'LIKE' ) );
-    }
-
-    if ( !empty( $_POST['user_occ'] ) ) {
-        $criteria->add( new Criteria( 'user_occ', '%' . $myts->addSlashes( trim( $_POST['user_occ'] ) ) . '%', 'LIKE' ) );
-    }
-
-    if ( !empty( $_POST['user_lastlog_more'] ) && is_numeric( $_POST['user_lastlog_more'] ) ) {
-        $f_user_lastlog_more = intval( trim( $_POST['user_lastlog_more'] ) );
-        $time = time() - ( 60 * 60 * 24 * $f_user_lastlog_more );
-        if ( $time > 0 ) {
-            $criteria->add( new Criteria( 'last_login', $time, '<' ) );
-        }
-    }
-
-    if ( !empty( $_POST['user_lastlog_less'] ) && is_numeric( $_POST['user_lastlog_less'] ) ) {
-        $f_user_lastlog_less = intval( trim( $_POST['user_lastlog_less'] ) );
-        $time = time() - ( 60 * 60 * 24 * $f_user_lastlog_less );
-        if ( $time > 0 ) {
-            $criteria->add( new Criteria( 'last_login', $time, '>' ) );
-        }
-    }
-
-    if ( !empty( $_POST['user_reg_more'] ) && is_numeric( $_POST['user_reg_more'] ) ) {
-        $f_user_reg_more = intval( trim( $_POST['user_reg_more'] ) );
-        $time = time() - ( 60 * 60 * 24 * $f_user_reg_more );
-        if ( $time > 0 ) {
-            $criteria->add( new Criteria( 'user_regdate', $time, '<' ) );
-        }
-    }
-
-    if ( !empty( $_POST['user_reg_less'] ) && is_numeric( $_POST['user_reg_less'] ) ) {
-        $f_user_reg_less = intval( $_POST['user_reg_less'] );
-        $time = time() - ( 60 * 60 * 24 * $f_user_reg_less );
-        if ( $time > 0 ) {
-            $criteria->add( new Criteria( 'user_regdate', $time, '>' ) );
-        }
-    }
-
-    if ( isset( $_POST['user_posts_more'] ) && is_numeric( $_POST['user_posts_more'] ) ) {
-        $criteria->add( new Criteria( 'posts', intval( $_POST['user_posts_more'] ), '>' ) );
-    }
-
-    if ( !empty( $_POST['user_posts_less'] ) && is_numeric( $_POST['user_posts_less'] ) ) {
-        $criteria->add( new Criteria( 'posts', intval( $_POST['user_posts_less'] ), '<' ) );
-    }
-
     $criteria->add( new Criteria( 'level', 0, '>' ) );
-    $validsort = array( 'uname', 'email', 'last_login', 'user_regdate', 'posts' );
-    $sort = ( !in_array( $_POST['user_sort'], $validsort ) ) ? 'uname' : $_POST['user_sort'];
-    $order = 'ASC';
-    if ( isset( $_POST['user_order'] ) && $_POST['user_order'] == 'DESC' ) {
+    $validsort = array( 'uname', 'name', 'last_login', 'user_regdate', 'posts' );
+    $sort = ( !in_array( $xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' : $xoopsModuleConfig['sortmembers'];
+    
+	$order = 'ASC';
+    if ( isset( $xoopsModuleConfig['membersorder'] ) && $xoopsModuleConfig['membersorder'] == 'DESC' ) {
         $order = 'DESC';
     }
-    $limit = ( !empty( $_POST['limit'] ) ) ? intval( $_POST['limit'] ) : 20;
-    if ( $limit == 0 || $limit > 50 ) {
+    $limit = ( !empty( $xoopsModuleConfig['membersperpage'] ) ) ? intval( $xoopsModuleConfig['membersperpage'] ) : 20;
+	if ( $limit == 0 || $limit > 50 ) {
         $limit = 50;
     }
 
     $start = ( !empty( $_POST['start'] ) ) ? intval( $_POST['start'] ) : 0;
-    $member_handler = &xoops_gethandler( 'member' );
+    $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
-    $xoopsTpl->assign( 'total_found', $total );
+	$xoopsTpl->assign( 'totalmember', $total );
 
     if ( $total == 0 ) {
     } elseif ( $start < $total ) {
@@ -159,7 +61,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
         $criteria->setOrder( $order );
         $criteria->setStart( $start );
         $criteria->setLimit( $limit );
-        $foundusers = &$member_handler->getUsers( $criteria, true );
+        $foundusers = $member_handler->getUsers( $criteria, true );
         foreach ( array_keys( $foundusers ) as $j ) {
             $userdata["avatar"] = $foundusers[$j]->getVar( 'user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar( 'user_avatar' ) . '" alt="" />' : '&nbsp;';
             $userdata["realname"] = $foundusers[$j]->getVar( 'name' ) ? $foundusers[$j]->getVar( 'name' ) : '&nbsp;';

@@ -89,3 +89,65 @@ $modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.tpl',
 $modversion['hasSearch'] = 1;
 $modversion['search']['file'] = "include/search.inc.php";
 $modversion['search']['func'] = "member_search";
+
+
+// Config categories
+
+$modversion['configcat']['index']      = [
+    'name'        => _MI_XM_CONFCAT_INDEX,
+    'description' => _MI_XM_CONFCAT_INDEX_DSC,
+];
+
+//Configs
+
+// group header
+$modversion['config'][] = [
+    'name'        => 'indexsearch_configs',
+    'title'       => '_MI_XM_CONFCAT_INDEXPAGE',
+    'description' => '_MI_XM_CONFCAT_INDEXPAGEDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'even',
+    'category'    => 'group_header',
+];
+
+$modversion['config'][] = [
+    'name'        => 'membersperpage',
+    'title'       => '_MI_XM_INDEXMPAGE',
+    'description' => '_MI_XM_INDEXMPAGE_DSC',
+    'formtype'    => 'textbox',
+    'valuetype'   => 'int',
+    'default'     => 15,
+    'category'    => 'index',
+];
+
+$modversion['config'][] = [
+    'name'        => 'sortmembers',
+    'title'       => '_MI_XM_INDEXSORT',
+    'description' => '_MI_XM_INDEXSORT_DSC',
+    'formtype'    => 'select',
+    'valuetype'   => 'text',
+    'default'     => 'uname',
+    'options'     => [
+        _MI_XM_UNAME      => 'uname',
+		_MI_XM_REALNAME   => 'name',
+        _MI_XM_LASTLOGIN  => 'last_login',
+        _MI_XM_REGDATE    => 'user_regdate',
+        _MI_XM_POSTS      => 'posts',
+    ],
+    'category'    => 'index'	
+];
+
+$modversion['config'][] = [
+    'name'        => 'membersorder',
+    'title'       => '_MI_XM_INDEXORDER',
+    'description' => '_MI_XM_INDEXORDER_DSC',
+    'formtype'    => 'select',
+    'valuetype'   => 'text',
+    'default'     => 'ASC',
+    'options'     => [
+        _MI_XM_ASC      => 'ASC',
+		_MI_XM_DESC     => 'DESC',    
+	],
+    'category'    => 'index'	
+];
