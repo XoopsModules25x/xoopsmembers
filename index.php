@@ -35,7 +35,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     $criteria = new CriteriaCompo();
 
     $criteria->add( new Criteria( 'level', 0, '>' ) );
-    $validsort = array( 'uname', 'name', 'last_login', 'user_regdate', 'posts' );
+    $validsort = ['uname', 'name', 'last_login', 'user_regdate', 'posts'];
     $sort = ( !in_array( $xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' : $xoopsModuleConfig['sortmembers'];
     
 	$order = 'ASC';

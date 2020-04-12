@@ -21,34 +21,35 @@
  */
 defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
 
-$modversion = array( 'name' => _MI_XM_MEMBERS_NAME,
-    'description' => _MI_XM_MEMBERS_DESC,
-    'author' => 'John Neill, Kazumi Ono',
-    'license' => 'GNU GPL 2.0',
-    'license_url' => "www.gnu.org/licenses/gpl-2.0.html",
-    'help' => 'page=help',
-    'contributors' => '',
-    'credits' => 'The Xoops Module Development Team',
-    'version' => 1.03,
-    'module_status' => "Alpha",
-    'official' => 1,
+$modversion = [
+    'name'                => _MI_XM_MEMBERS_NAME,
+    'description'         => _MI_XM_MEMBERS_DESC,
+    'author'              => 'John Neill, Kazumi Ono',
+    'license'             => 'GNU GPL 2.0',
+    'license_url'         => "www.gnu.org/licenses/gpl-2.0.html",
+    'help'                => 'page=help',
+    'contributors'        => '',
+    'credits'             => 'The Xoops Module Development Team',
+    'version'             => 1.03,
+    'module_status'       => "Alpha",
+    'official'            => 1,
     'image' => 'assets/images/slogo.png',
     'dirname' => basename( dirname( __FILE__ ) ),
     'dirmoduleadmin' => '/Frameworks/moduleclasses/moduleadmin',
     'icons16' =>  '../../Frameworks/moduleclasses/icons/16',
-    'icons32' =>  '../../Frameworks/moduleclasses/icons/32',
+    'icons32'             =>  '../../Frameworks/moduleclasses/icons/32',
 
     //about
-    'author_website_url' => 'https://www.xoops.org',
+    'author_website_url'  => 'https://www.xoops.org',
     'author_website_name' => 'XOOPS',
-    'module_website_url' => 'https://www.xoops.org',
+    'module_website_url'  => 'https://www.xoops.org',
     'module_website_name' => 'XOOPS',
-    'release_date' => '2020',
-    'min_php' => '7.3.0',
-    'min_xoops' => '2.5.10',
-    'min_db' => array('mysql'=>'5.6', 'mysqli'=>'5.6'),
-    'min_admin' => '1.2'
-    );
+    'release_date'        => '2020',
+    'min_php'             => '7.3.0',
+    'min_xoops'           => '2.5.10',
+    'min_db'              => ['mysql' =>'5.6', 'mysqli' =>'5.6'],
+    'min_admin'           => '1.2'
+];
 
 /**
  * Module Admin
@@ -75,15 +76,18 @@ $modversion['sub']                 = [
 /**
  * Module Templates
  */
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_index.tpl',
+$modversion['templates'][] = [
+    'file'        => 'xoopsmembers_index.tpl',
     'description' => ''
-    );
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchform.tpl',
+];
+$modversion['templates'][] = [
+    'file'        => 'xoopsmembers_searchform.tpl',
     'description' => ''
-    );
-$modversion['templates'][] = array( 'file' => 'xoopsmembers_searchresults.tpl',
+];
+$modversion['templates'][] = [
+    'file'        => 'xoopsmembers_searchresults.tpl',
     'description' => ''
-    );
+];
 
 // Search
 $modversion['hasSearch'] = 1;
