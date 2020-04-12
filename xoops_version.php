@@ -121,8 +121,38 @@ $modversion['config'][] = [
     'description' => '_MI_XOOPSMEMBERS_CONFCAT_INDEXPAGEDSC',
     'formtype'    => 'line_break',
     'valuetype'   => 'textbox',
-    'default'     => 'even',
+    'default'     => 'odd',
     'category'    => 'group_header',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaywelcomemessage',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXDISPLAYWELCOMEMSG',
+    'description' => '_MI_XOOPSMEMBERS_INDEXDISPLAYWELCOMEMSG_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'index',
+];
+
+$modversion['config'][] = [
+    'name'        => 'welcomemessage',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXWELCOMEMSG',
+    'description' => '_MI_XOOPSMEMBERS_INDEXWELCOMEMSGDSC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'text',
+    'default'     => _MI_XOOPSMEMBERS_INDEXDEFAULTWELCOMEMSG,
+    'category'    => 'index',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaylatestmember',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXLATESTMEMBER',
+    'description' => '_MI_XOOPSMEMBERS_INDEXLATESTMEMBER_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'index',
 ];
 
 $modversion['config'][] = [
@@ -160,8 +190,8 @@ $modversion['config'][] = [
     'valuetype'   => 'text',
     'default'     => 'ASC',
     'options'     => [
-        _MI_XOOPSMEMBERS_ORDER_ASC  => 'ASC',
-        _MI_XOOPSMEMBERS_ORDER_DESC => 'DESC',
+        _MI_XOOPSMEMBERS_ASCORDER  => 'ASC',
+        _MI_XOOPSMEMBERS_DESCORDER => 'DESC',
     ],
     'category'    => 'index',
 ];
@@ -178,6 +208,29 @@ $modversion['config'][] = [
     'default'     => 'even',
     'category'    => 'group_header',
 ];
+
+
+$modversion['config'][] = [
+    'name'        => 'displaybreadcrumb',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displaytotalmember',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
 
 $modversion['config'][] = [
     'name'        => 'displayavatar',
@@ -257,7 +310,7 @@ $modversion['config'][] = [
     'description' => '_MI_XOOPSMEMBERS_DISPLAYPOSTS_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
-    'default'     => 1,
+    'default'     => 0,
     'category'    => 'indexsearch',
 ];
 
