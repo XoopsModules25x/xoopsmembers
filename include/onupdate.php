@@ -44,10 +44,7 @@ function tableExists($tablename)
  */
 function xoops_module_pre_update_xoopsmembers(\XoopsModule $module)
 {
-    $moduleDirName = basename(dirname(__DIR__));
-    /** @var Xoopsmembers    \Helper $helper */
-    /** @var Xoopsmembers    \Utility $utility */
-    $helper  = Xoopsmembers\Helper::getInstance();
+    /** @var Xoopsmembers\Utility $utility */
     $utility = new Xoopsmembers\Utility();
 
     $xoopsSuccess = $utility::checkVerXoops($module);
@@ -68,13 +65,12 @@ function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-    /** @var Xoopsmembers    \Helper $helper */ /** @var Xoopsmembers    \Utility $utility */
-    /** @var Xoopsmembers    \Common\Configurator $configurator */
-    $helper       = Xoopsmembers\Helper::getInstance();
+    /** @var Xoopsmembers\Utility $utility */
+    /** @var Xoopsmembers\Common\Configurator $configurator */
     $utility      = new Xoopsmembers\Utility();
     $configurator = new Xoopsmembers\Common\Configurator();
 
-    if ($previousVersion < 240) {
+    if ($previousVersion < 105) {
         //delete old HTML templates
         if (count($configurator->templateFolders) > 0) {
             foreach ($configurator->templateFolders as $folder) {

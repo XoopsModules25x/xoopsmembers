@@ -25,10 +25,10 @@ $moduleDirName      = basename(dirname(__DIR__));
 $moduleDirNameUpper = mb_strtoupper($moduleDirName); //$capsDirName
 
 /** @var \XoopsDatabase $db */
-/** @var Xoopsmembers    \Helper $helper */
-/** @var Xoopsmembers    \Utility $utility */
+/** @var Xoopsmembers\Helper $helper */
+/** @var Xoopsmembers\Utility $utility */
 $db = \XoopsDatabaseFactory::getDatabaseConnection();
-/** @var Xoopsmembers    \Helper $helper */
+/** @var Xoopsmembers\Helper $helper */
 $helper  = Xoopsmembers\Helper::getInstance();
 $utility = new Xoopsmembers\Utility();
 //$configurator = new Xoopsmembers\Common\Configurator();

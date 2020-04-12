@@ -23,7 +23,7 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 $modversion = [
     'version'             => 1.04,
-    'module_status'       => 'Alpha 3',
+    'module_status'       => 'Beta 1',
     'release_date'        => '2020/04/12',
     'name'                => _MI_XOOPSMEMBERS_NAME,
     'description'         => _MI_XOOPSMEMBERS_DESC,

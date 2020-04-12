@@ -297,7 +297,7 @@ exit();
 /**
  * xoops_Criteria()
  *
- * @param        $criteria
+ * @param \CriteriaCompo $criteria
  * @param string $name
  * @param string $ret
  * @param string $match
