@@ -29,5 +29,5 @@ while ( $rank = $db->fetchArray($result) ) {
 $xoopsTpl->assign('ranks', $ranks);
 $xoopsTpl->assign('sranks', $sranks);
 
-include 'footer.php';
-include_once XOOPS_ROOT_PATH . '/footer.php';
+require __DIR__ . '/footer.php';
+require_once XOOPS_ROOT_PATH . '/footer.php';
