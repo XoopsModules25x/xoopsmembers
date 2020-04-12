@@ -168,7 +168,7 @@ class SysUtility
         }
 
         if (null === $helper) {
-            $helper = Helper::getInstance();
+            $helper = Xoopsmembers\Helper::getInstance();
         }
 
         $isAdmin = $helper->isUserAdmin();
