@@ -43,32 +43,50 @@ if ( $op == 'form' ) {
     $uname_tray->addElement( $uname_text );
     $form->addElement( $uname_tray );
 
+    if ($xoopsModuleConfig['displayrealname'] == 1){
     $name_text = new XoopsFormText( '', 'user_name', 30, 60 );
     $name_match = new XoopsFormSelectMatchOption( '', 'user_name_match' );
     $name_tray = new XoopsFormElementTray( _MD_XM_REALNAME, '&nbsp;' );
     $name_tray->addElement( $name_match );
     $name_tray->addElement( $name_text );
     $form->addElement( $name_tray );
-
+    }
+	
+	if ($xoopsModuleConfig['displayemail'] == 1){
     $email_text = new XoopsFormText( '', 'user_email', 30, 60 );
     $email_match = new XoopsFormSelectMatchOption( '', 'user_email_match' );
     $email_tray = new XoopsFormElementTray( _MD_XM_EMAIL, '&nbsp;' );
     $email_tray->addElement( $email_match );
     $email_tray->addElement( $email_text );
     $form->addElement( $email_tray );
-
+    }
+	
+	if ($xoopsModuleConfig['displayurl'] == 1){
     $form->addElement( new XoopsFormText( _MD_XM_URLC, 'user_url', 30, 100 ) );
-    $form->addElement( new XoopsFormText( _MD_XM_LOCATION, 'user_from', 30, 100 ) );
+    }
+	if ($xoopsModuleConfig['displayfrom'] == 1){
+	$form->addElement( new XoopsFormText( _MD_XM_LOCATION, 'user_from', 30, 100 ) );
+	}
+	if ($xoopsModuleConfig['displayoccupation'] == 1){
     $form->addElement( new XoopsFormText( _MD_XM_OCCUPATION, 'user_occ', 30, 100 ) );
+	}
+	if ($xoopsModuleConfig['displayinterest'] == 1){
     $form->addElement( new XoopsFormText( _MD_XM_INTEREST, 'user_intrest', 30, 100 ) );
+	}
+	if ($xoopsModuleConfig['displaylastlogin'] == 1){
     $form->addElement( new XoopsFormText( _MD_XM_LASTLOGMORE, 'user_lastlog_more', 10, 5 ) );
     $form->addElement( new XoopsFormText( _MD_XM_LASTLOGLESS, 'user_lastlog_less', 10, 5 ) );
+	}
+	if ($xoopsModuleConfig['displayregdate'] == 1){
     $form->addElement( new XoopsFormText( _MD_XM_REGMORE, 'user_reg_more', 10, 5 ) );
     $form->addElement( new XoopsFormText( _MD_XM_REGLESS, 'user_reg_less', 10, 5 ) );
+	}
+	if ($xoopsModuleConfig['displayposts'] == 1){
     $form->addElement( new XoopsFormText( _MD_XM_POSTSMORE, 'user_posts_more', 10, 5 ) );
     $form->addElement( new XoopsFormText( _MD_XM_POSTSLESS, 'user_posts_less', 10, 5 ) );
-
-    $sort_select = new XoopsFormSelect( _MD_XM_SORT, 'user_sort' );
+	}
+    
+	$sort_select = new XoopsFormSelect( _MD_XM_SORT, 'user_sort' );
     $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'name' => _MD_XM_REALNAME, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
     $form->addElement( $sort_select );
 
@@ -274,6 +292,7 @@ if ( $op == 'submit' ) {
     }
 }
 
+include 'footer.php';
 include_once XOOPS_ROOT_PATH . '/footer.php';
 exit();
 

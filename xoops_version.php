@@ -98,6 +98,12 @@ $modversion['configcat']['index']      = [
     'description' => _MI_XM_CONFCAT_INDEX_DSC,
 ];
 
+$modversion['configcat']['indexsearch']      = [
+    'name'        => _MI_XM_CONFCAT_INDEXSEARCH,
+    'description' => _MI_XM_CONFCAT_INDEXSEARCH_DSC,
+];
+
+
 //Configs
 
 // group header
@@ -151,3 +157,128 @@ $modversion['config'][] = [
 	],
     'category'    => 'index'	
 ];
+
+
+// group header
+$modversion['config'][] = [
+    'name'        => 'indexsearch_configs',
+    'title'       => '_MI_XM_CONFCAT_INDEXSEARCHPAGE',
+    'description' => '_MI_XM_CONFCAT_INDEXSEARCHPAGEDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'even',
+    'category'    => 'group_header',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayavatar',
+    'title'       => '_MI_XM_DISPLAYAVATAR',
+    'description' => '_MI_XM_DISPLAYAVATAR_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayrealname',
+    'title'       => '_MI_XM_DISPLAYREALNAME',
+    'description' => '_MI_XM_DISPLAYREALNAME_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayemail',
+    'title'       => '_MI_XM_DISPLAYEMAIL',
+    'description' => '_MI_XM_DISPLAYEMAIL_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaypm',
+    'title'       => '_MI_XM_DISPLAYPM',
+    'description' => '_MI_XM_DISPLAYPM_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displayurl',
+    'title'       => '_MI_XM_DISPLAYURL',
+    'description' => '_MI_XM_DISPLAYURL_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displayregdate',
+    'title'       => '_MI_XM_DISPLAYREGDATE',
+    'description' => '_MI_XM_DISPLAYREGDATE_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayfrom',
+    'title'       => '_MI_XM_DISPLAYFROM',
+    'description' => '_MI_XM_DISPLAYFROM_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayposts',
+    'title'       => '_MI_XM_DISPLAYPOSTS',
+    'description' => '_MI_XM_DISPLAYPOSTS_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaylastlogin',
+    'title'       => '_MI_XM_DISPLAYLASTLOGIN',
+    'description' => '_MI_XM_DISPLAYLASTLOGIN_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayoccupation',
+    'title'       => '_MI_XM_DISPLAYOCC',
+    'description' => '_MI_XM_DISPLAYOCC_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayinterest',
+    'title'       => '_MI_XM_DISPLAYINTEREST',
+    'description' => '_MI_XM_DISPLAYINTEREST_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+

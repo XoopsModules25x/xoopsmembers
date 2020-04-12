@@ -139,7 +139,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
         }
     }
 
-
+include 'footer.php';
 include_once XOOPS_ROOT_PATH . '/footer.php';
 exit();
 
