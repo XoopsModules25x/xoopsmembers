@@ -18,6 +18,7 @@
  * @author John Neill
  */
 
+$xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
 require_once  __DIR__ . '/header.php';
 //global $pathIcon16;
 
@@ -25,8 +26,7 @@ global $xoopsModule;
 
 $pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
 
-    $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
-    include XOOPS_ROOT_PATH . '/header.php';
+
 	
 $memberHandler = xoops_getHandler('member');
     $total = $memberHandler->getUserCount( new Criteria( 'level', 0, '>' ) );
@@ -37,10 +37,11 @@ $criteria = new \CriteriaCompo();
 
 $criteria->add(new \Criteria('level', 0, '>'));
 $validsort = ['uname', 'name', 'last_login', 'user_regdate', 'posts'];
-    $sort = ( !in_array( $xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' : $xoopsModuleConfig['sortmembers'];
+$sort      = (!in_array($helper->getModule()->getInfo('sortmembers'), $validsort)) ? 'uname' : $helper->getModule()->getInfo('sortmembers');
     
 	$order = 'ASC';
-if (isset($xoopsModuleConfig['membersorder']) && 'DESC' == $xoopsModuleConfig['membersorder']) {
+$temp  = $helper->getModule()->getInfo('membersorder');
+if (isset($temp) && 'DESC' == $temp) {
         $order = 'DESC';
     }
     $limit = \Xmf\Request::getInt('limit', 20, 'POST');
