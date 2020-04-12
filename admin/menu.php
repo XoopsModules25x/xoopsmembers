@@ -22,10 +22,13 @@ use XoopsModules\Xoopsmembers;
 
 include dirname(__DIR__) . '/preloads/autoloader.php';
 
+$moduleDirName = basename(dirname(__DIR__));
+$moduleDirNameUpper = mb_strtoupper($moduleDirName);
+
 /** @var \Xoopsmembers\Helper $helper */
 $helper = Xoopsmembers\Helper::getInstance();
 $helper->loadLanguage('common');
-$helper->loadLanguage('feedback');
+$helper->loadLanguage('blocksadmin');
 
 $pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
 if (is_object($helper->getModule())) {
@@ -36,6 +39,13 @@ $adminmenu[] = [
     'title' => _MI_XOOPSMEMBERS_MENU_HOME,
     'link'  => 'admin/index.php',
     'icon'  => $pathIcon32 . '/home.png',
+];
+
+// Blocks Admin
+$adminmenu[] = [
+    'title' => constant('CO_' . $moduleDirNameUpper . '_' . 'BLOCKS'),
+    'link' => 'admin/blocksadmin.php',
+    'icon' => $pathIcon32 . '/block.png',
 ];
 
 $adminmenu[] = [
