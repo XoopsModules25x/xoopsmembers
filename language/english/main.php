@@ -57,7 +57,8 @@ define('_MD_XOOPSMEMBERS_RESULTS', 'Search results');
 define('_MD_XOOPSMEMBERS_MEMBERSLIST', 'Members List');
 define("_MD_XOOPSMEMBERS_LATESTMEMBER", "Latest Member");
 define("_MD_XOOPSMEMBERS_WELCOMETO", "Welcome to Members Directory");
-
+define('_MD_XOOPSMEMBERS_NEVERLOGIN', 'Never Login');
+define('_MD_XOOPSMEMBERS_MEMBERSINCE', 'Member Since');
 //rank.php
 define("_MD_XOOPSMEMBERS_USERRANK","Members Rank");
 define("_MD_XOOPSMEMBERS_MRANK","System Members Ranks");

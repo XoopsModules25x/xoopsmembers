@@ -213,8 +213,8 @@ if ('submit' == $op) {
         $criteria->setLimit($limit);
         $foundusers = $memberHandler->getUsers($criteria, true);
         foreach (array_keys($foundusers) as $j) {
-            $userdata['avatar']   = $foundusers[$j]->getVar('user_avatar') ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar('user_avatar') . '" alt="" />' : '&nbsp;';
-            $userdata['realname'] = $foundusers[$j]->getVar('name') ?: '&nbsp;';
+            $userdata['avatar']   = $foundusers[$j]->getVar('user_avatar');
+            $userdata['realname'] = $foundusers[$j]->getVar('name');
             $userdata['name']     = $foundusers[$j]->getVar('uname');
             $userdata['id']       = $foundusers[$j]->getVar('uid');
             if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
@@ -242,7 +242,7 @@ if ('submit' == $op) {
             if ($iamadmin) {
                 $userdata['adminlink'] = '<a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;uid=' . $foundusers[$j]->getVar('uid') . '&amp;op=users_edit">' . '<img src=' . $pathIcon16 . '/edit.png' . " alt='" . _EDIT . "' title='" . _EDIT . "' />"
 
-                                         . '</a> | <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' />" . '</a>';
+                                         . '</a>  <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' />" . '</a>';
             }
             $xoopsTpl->append('users', $userdata);
         }

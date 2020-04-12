@@ -1,5 +1,7 @@
 <{if $displaybreadcrumb == 1}>
-	<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="searchmembers.php"><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></a><br />
+	<div class="breadcrumb">
+		<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="searchmembers.php"><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></a><br />
+	</div>
 <{/if}>
 
 <h4><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></h4>
