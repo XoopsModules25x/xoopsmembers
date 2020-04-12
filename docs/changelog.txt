@@ -1,3 +1,22 @@
+<h5>1.04 Beta 1  [2020-04-12]</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
+<hr>
+- RGB color function instead of #HEX representation (mamba)
+- tabs to spaces (mamba)
+- Case mismatch in method call or class usage (mamba)
+- Redundant closing tag (mamba)
+- XoopsDatabaseFactory (mamba)
+- Traditional syntax array (mamba)
+- PhpDoc (mamba)
+- Unnecessary double quotes (mamba)
+- Yoda (mamba)
+- Type casting (mamba)
+- Adding __DIR__ (mamba)
+- Pass parameter by reference (mamba)
+- cosmetics (mamba)
+- Undefined method (mamba)
+- fix timeDifference  (mamba)
+
+
 <h5>1.04 Alpha 3  [2020-04-12]</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
 <hr>
 - Update Index and Search template to Bootstrap 4 based on xswatch4 theme (liomj)
