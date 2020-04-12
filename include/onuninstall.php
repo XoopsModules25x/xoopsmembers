@@ -34,10 +34,10 @@ function xoops_module_uninstall_xoopsmembers(\XoopsModule $module)
 
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = mb_strtoupper($moduleDirName);
-    /** @var \Xoopsmembers\Helper $helper */
+    /** @var Xoopsmembers    \Helper $helper */
     $helper = Xoopsmembers\Helper::getInstance();
 
-    /** @var \Xoopsmembers\Utility $utility */
+    /** @var Xoopsmembers    \Utility $utility */
     $utility = new Xoopsmembers\Utility();
 
     $success = true;
