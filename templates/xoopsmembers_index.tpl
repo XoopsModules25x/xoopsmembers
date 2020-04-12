@@ -1,16 +1,16 @@
 	<{if $displaybreadcrumb == 1}>
-		<a href="index.php"><{$smarty.const._MD_XM_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<{$smarty.const._MD_XM_MEMBERSLIST}><br /><br />
+		<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}><br /><br />
 	<{/if}>
 
-	<h4><{$smarty.const._MD_XM_WELCOMETO}></h4>
+	<h4><{$smarty.const._MD_XOOPSMEMBERS_WELCOMETO}></h4>
 	<{if $displaywelcomemessage == 1}><{$welcomemessage}><br><{/if}>
 
 	<{if $displaytotalmember == 1}>
-		<{$smarty.const._MD_XM_TOTALUSERS}>: <{$totalmember}> 
+		<{$smarty.const._MD_XOOPSMEMBERS_TOTALUSERS}>: <{$totalmember}> 
 	<{/if}>
 
 	<{if $displaylatestmember == 1}>
-		 <{$smarty.const._MD_XM_LATESTMEMBER}>: <{$latestmember}> <br><br>
+		 <{$smarty.const._MD_XOOPSMEMBERS_LATESTMEMBER}>: <{$latestmember}> <br><br>
 	<{/if}>   
   
 <table class="table table-bordered table-striped table-hover">
@@ -27,7 +27,7 @@
 	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></th>
 	<{/if}>
 	<{if $xoops_isuser AND $displaypm == 1}>
-		<th align="center"><{$smarty.const._MD_XM_PM}></th>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_PM}></th>
 	<{/if}>
     <{if $displayurl == 1}>
 	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_URL}></th>

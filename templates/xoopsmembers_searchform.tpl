@@ -1,10 +1,10 @@
 <{if $displaybreadcrumb == 1}>
-	<a href="index.php"><{$smarty.const._MD_XM_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<{$smarty.const._MD_XM_SEARCH}>
+	<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_SEARCH}>
 <{/if}>
 
-<h4><{$smarty.const._MD_XM_SEARCH}></h4>
+<h4><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></h4>
 <{if $displaytotalmember == 1}>
-	<{$smarty.const._MD_XM_TOTALUSERS}> <{$totalmember}>
+	<{$smarty.const._MD_XOOPSMEMBERS_TOTALUSERS}> <{$totalmember}>
 <{/if}>
 
 <{$searchform.javascript}>

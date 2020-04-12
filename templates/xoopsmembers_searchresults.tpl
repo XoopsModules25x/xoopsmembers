@@ -1,7 +1,7 @@
 <{if $displaybreadcrumb == 1}>
-	<a href="index.php"><{$smarty.const._MD_XM_SEARCH}></a>&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XM_RESULTS}><br />
+	<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></a>&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_RESULTS}><br />
 <{/if}>
-<h4><{$smarty.const._MD_XM_RESULTS}></h4>
+<h4><{$smarty.const._MD_XOOPSMEMBERS_RESULTS}></h4>
 
 <{if $total_found != 0}>
   <{$lang_numfound}><br>
@@ -19,7 +19,7 @@
             <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></th>
 	<{/if}>
 	<{if $xoops_isuser AND $displaypm == 1}>
-		<th align="center"><{$smarty.const._MD_XM_PM}></th>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_PM}></th>
 	<{/if}>
     <{if $displayurl == 1}>
             <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_URL}></th>

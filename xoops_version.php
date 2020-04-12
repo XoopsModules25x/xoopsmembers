@@ -127,8 +127,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'displaywelcomemessage',
-    'title'       => '_MI_XM_INDEXDISPLAYWELCOMEMSG',
-    'description' => '_MI_XM_INDEXDISPLAYWELCOMEMSG_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXDISPLAYWELCOMEMSG',
+    'description' => '_MI_XOOPSMEMBERS_INDEXDISPLAYWELCOMEMSG_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1,
@@ -137,18 +137,18 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'welcomemessage',
-    'title'       => '_MI_XM_INDEXWELCOMEMSG',
-    'description' => '_MI_XM_INDEXWELCOMEMSGDSC',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXWELCOMEMSG',
+    'description' => '_MI_XOOPSMEMBERS_INDEXWELCOMEMSGDSC',
     'formtype'    => 'textarea',
     'valuetype'   => 'text',
-    'default'     => _MI_XM_INDEXDEFAULTWELCOMEMSG,
+    'default'     => _MI_XOOPSMEMBERS_INDEXDEFAULTWELCOMEMSG,
     'category'    => 'index',
 ];
 
 $modversion['config'][] = [
     'name'        => 'displaylatestmember',
-    'title'       => '_MI_XM_INDEXLATESTMEMBER',
-    'description' => '_MI_XM_INDEXLATESTMEMBER_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXLATESTMEMBER',
+    'description' => '_MI_XOOPSMEMBERS_INDEXLATESTMEMBER_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1,
@@ -190,8 +190,8 @@ $modversion['config'][] = [
     'valuetype'   => 'text',
     'default'     => 'ASC',
     'options'     => [
-        _MI_XOOPSMEMBERS_ORDER_ASC  => 'ASC',
-        _MI_XOOPSMEMBERS_ORDER_DESC => 'DESC',
+        _MI_XOOPSMEMBERS_ASCORDER  => 'ASC',
+        _MI_XOOPSMEMBERS_DESCORDER => 'DESC',
     ],
     'category'    => 'index',
 ];
@@ -212,8 +212,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'displaybreadcrumb',
-    'title'       => '_MI_XM_DISPLAYBREADCRUMB',
-    'description' => '_MI_XM_DISPLAYBREADCRUMB_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1,
@@ -223,8 +223,8 @@ $modversion['config'][] = [
 
 $modversion['config'][] = [
     'name'        => 'displaytotalmember',
-    'title'       => '_MI_XM_DISPLAYTOTALMEMBER',
-    'description' => '_MI_XM_DISPLAYTOTALMEMBER_DSC',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
     'default'     => 1,
