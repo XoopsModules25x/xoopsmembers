@@ -26,7 +26,7 @@ global $xoopsModule;
 
 /** @var \XoopsMemberHandler $memberHandler */
 $memberHandler = xoops_getHandler('member');
-$total         = $memberHandler->getUserCount(new Criteria('level', 0, '>'));
+$total         = $memberHandler->getUserCount(new \Criteria('level', 0, '>'));
 
 $iamadmin = $xoopsUserIsAdmin;
 $myts     = \MyTextSanitizer::getInstance();
