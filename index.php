@@ -39,11 +39,11 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     $sort = ( !in_array( $xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' : $xoopsModuleConfig['sortmembers'];
     
 	$order = 'ASC';
-    if ( isset( $xoopsModuleConfig['membersorder'] ) && $xoopsModuleConfig['membersorder'] == 'DESC' ) {
+    if ( isset( $xoopsModuleConfig['membersorder'] ) && 'DESC' == $xoopsModuleConfig['membersorder']) {
         $order = 'DESC';
     }
     $limit = ( !empty( $xoopsModuleConfig['membersperpage'] ) ) ? intval( $xoopsModuleConfig['membersperpage'] ) : 20;
-	if ( $limit == 0 || $limit > 50 ) {
+	if (0 == $limit || $limit > 50 ) {
         $limit = 50;
     }
 
@@ -52,7 +52,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     $total = $member_handler->getUserCount( $criteria );
 	$xoopsTpl->assign( 'totalmember', $total );
 
-    if ( $total == 0 ) {
+    if (0 == $total) {
     } elseif ( $start < $total ) {
         if ( $iamadmin ) {
             $xoopsTpl->assign( 'is_admin', true );
@@ -67,7 +67,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
             $userdata['realname'] = $foundusers[$j]->getVar('name' ) ? $foundusers[$j]->getVar('name' ) : '&nbsp;';
             $userdata['name'] = $foundusers[$j]->getVar('uname' );
             $userdata['id'] = $foundusers[$j]->getVar('uid' );
-            if ( $foundusers[$j]->getVar( 'user_viewemail' ) == 1 || $iamadmin ) {
+            if (1 == $foundusers[$j]->getVar('user_viewemail' ) || $iamadmin ) {
                 $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email' ) . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e') ) . '" /></a>';
             } else {
                 $userdata['email'] = '&nbsp;';
@@ -79,13 +79,13 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
             } else {
                 $userdata['pmlink'] = '&nbsp;';
             }
-            if ( $foundusers[$j]->getVar('url', 'e') != '' ) {
+            if ('' != $foundusers[$j]->getVar('url', 'e')) {
                 $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" /></a>';
             } else {
                 $userdata['website'] = '&nbsp;';
             }
             $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate' ), 's' );
-            if ( $foundusers[$j]->getVar( 'last_login' ) != 0 ) {
+            if (0 != $foundusers[$j]->getVar('last_login' )) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login' ), 'm');
             } else {
                 $userdata['lastlogin'] = '&nbsp;';
@@ -120,12 +120,12 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
             while ( $counter <= $totalpages ) {
                 if ( $counter == $currentpage ) {
                     $hiddenform .= '<b>' . $counter . '</b> ';
-                } elseif ( ( $counter > $currentpage-4 && $counter < $currentpage + 4 ) || $counter == 1 || $counter == $totalpages ) {
+                } elseif ( ( $counter > $currentpage-4 && $counter < $currentpage + 4 ) || 1 == $counter || $counter == $totalpages ) {
                     if ( $counter == $totalpages && $currentpage < $totalpages-4 ) {
                         $hiddenform .= '... ';
                     }
                     $hiddenform .= '<a href="#' . $counter . '" onclick="javascript:document.findnext.start.value=' . ( $counter-1 ) * $limit . ';document.findnext.submit();">' . $counter . '</a> ';
-                    if ( $counter == 1 && $currentpage > 5 ) {
+                    if (1 == $counter && $currentpage > 5 ) {
                         $hiddenform .= '... ';
                     }
                 }
