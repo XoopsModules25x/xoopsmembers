@@ -8,7 +8,7 @@ require_once  __DIR__ . '/header.php';
 
 global $xoopsModule;
 
-$db=Database::getInstance();
+$db= XoopsDatabaseFactory::getDatabaseConnection();
 
 $result = $db->query("SELECT * FROM ".$db->prefix("ranks")." ORDER BY rank_id");
 $ranks = array();
