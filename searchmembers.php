@@ -23,13 +23,13 @@ require_once __DIR__ . '/header.php';
 global $xoopsModule;
 
 $op = (isset($_POST['op']) && 'submit' == $_POST['op']) ? 'submit' : 'form';
+/** @var \XoopsMemberHandler $memberHandler */
+$memberHandler = xoops_getHandler('member');
 
 if ('form' == $op) {
     $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
-    /** @var \XoopsMemberHandler $memberHandler */
-    $memberHandler = xoops_getHandler('member');
     $total         = $memberHandler->getUserCount(new Criteria('level', 0, '>'));
 
     include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
