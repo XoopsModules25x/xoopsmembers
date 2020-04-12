@@ -17,7 +17,7 @@
  * @author John Neill
  * @version $Id: searchmembers.php catzwolf$
  */
-include dirname( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR . 'mainfile.php';
+include dirname( dirname(__DIR__) ) . DIRECTORY_SEPARATOR . 'mainfile.php';
 //include_once 'header.php';
 //global $pathIcon16;
 
