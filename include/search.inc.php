@@ -29,7 +29,7 @@ function member_search($queryarray, $andor, $limit, $offset, $userid)
     $result = $GLOBALS['xoopsDB']->query($sql, (int)$limit, (int)$offset);
     $ret    = [];
     $i      = 0;
-    while ($myrow = $GLOBALS['xoopsDB']->fetchArray($result)) {
+    while (false !== ($myrow = $GLOBALS['xoopsDB']->fetchArray($result))) {
         $ret[$i]['link']  = '' . XOOPS_URL . "\userinfo.php?uid=" . $myrow['uid'] . '';
         $ret[$i]['title'] = '' . htmlspecialchars($myrow['uname']) . ' / ' . htmlspecialchars($myrow['name']) . '';
         $ret[$i]['time']  = '' . $myrow['user_regdate'] . '';
