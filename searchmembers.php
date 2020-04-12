@@ -58,35 +58,6 @@ if ( $op == 'form' ) {
     $form->addElement( $email_tray );
 
     $form->addElement( new XoopsFormText( _MD_XM_URLC, 'user_url', 30, 100 ) );
-
-    $icq_text = new XoopsFormText( '', 'user_icq', 30, 100 );
-    $icq_match = new XoopsFormSelectMatchOption( '', 'user_icq_match' );
-    $icq_tray = new XoopsFormElementTray( _MD_XM_ICQ, '&nbsp;' );
-    $icq_tray->addElement( $icq_match );
-    $icq_tray->addElement( $icq_text );
-    $form->addElement( $icq_tray );
-
-    $aim_text = new XoopsFormText( '', 'user_aim', 30, 100 );
-    $aim_match = new XoopsFormSelectMatchOption( '', 'user_aim_match' );
-    $aim_tray = new XoopsFormElementTray( _MD_XM_AIM, '&nbsp;' );
-    $aim_tray->addElement( $aim_match );
-    $aim_tray->addElement( $aim_text );
-    $form->addElement( $aim_tray );
-
-    $yim_text = new XoopsFormText( '', 'user_yim', 30, 100 );
-    $yim_match = new XoopsFormSelectMatchOption( '', 'user_yim_match' );
-    $yim_tray = new XoopsFormElementTray( _MD_XM_YIM, '&nbsp;' );
-    $yim_tray->addElement( $yim_match );
-    $yim_tray->addElement( $yim_text );
-    $form->addElement( $yim_tray );
-
-    $msnm_text = new XoopsFormText( '', 'user_msnm', 30, 100 );
-    $msnm_match = new XoopsFormSelectMatchOption( '', 'user_msnm_match' );
-    $msnm_tray = new XoopsFormElementTray( _MD_XM_MSNM, '&nbsp;' );
-    $msnm_tray->addElement( $msnm_match );
-    $msnm_tray->addElement( $msnm_text );
-    $form->addElement( $msnm_tray );
-
     $form->addElement( new XoopsFormText( _MD_XM_LOCATION, 'user_from', 30, 100 ) );
     $form->addElement( new XoopsFormText( _MD_XM_OCCUPATION, 'user_occ', 30, 100 ) );
     $form->addElement( new XoopsFormText( _MD_XM_INTEREST, 'user_intrest', 30, 100 ) );
@@ -144,30 +115,6 @@ if ( $op == 'submit' ) {
     if ( !empty( $_POST['user_url'] ) ) {
         $url = formatURL( trim( $_POST['user_url'] ) );
         $criteria->add( new Criteria( 'url', $myts->addSlashes( $url ) . '%', 'LIKE' ) );
-    }
-
-    if ( !empty( $_POST['user_icq'] ) ) {
-        $match = ( !empty( $_POST['user_icq_match'] ) ) ? intval( $_POST['user_icq_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_icq'] ) );
-        xoops_Criteria( $criteria, 'user_icq', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_aim'] ) ) {
-        $match = ( !empty( $_POST['user_aim_match'] ) ) ? intval( $_POST['user_aim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_aim'] ) );
-        xoops_Criteria( $criteria, 'user_aim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_yim'] ) ) {
-        $match = ( !empty( $_POST['user_yim_match'] ) ) ? intval( $_POST['user_yim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_yim'] ) );
-        xoops_Criteria( $criteria, 'user_yim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_msnm'] ) ) {
-        $match = ( !empty( $_POST['user_msnm_match'] ) ) ? intval( $_POST['user_msnm_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_msnm'] ) );
-        xoops_Criteria( $criteria, 'user_msnm', $ret, $match );
     }
 
     if ( !empty( $_POST['user_from'] ) ) {

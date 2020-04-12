@@ -60,30 +60,6 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
         $criteria->add( new Criteria( 'url', $myts->addSlashes( $url ) . '%', 'LIKE' ) );
     }
 
-    if ( !empty( $_POST['user_icq'] ) ) {
-        $match = ( !empty( $_POST['user_icq_match'] ) ) ? intval( $_POST['user_icq_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_icq'] ) );
-        xoops_Criteria( $criteria, 'user_icq', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_aim'] ) ) {
-        $match = ( !empty( $_POST['user_aim_match'] ) ) ? intval( $_POST['user_aim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_aim'] ) );
-        xoops_Criteria( $criteria, 'user_aim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_yim'] ) ) {
-        $match = ( !empty( $_POST['user_yim_match'] ) ) ? intval( $_POST['user_yim_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_yim'] ) );
-        xoops_Criteria( $criteria, 'user_yim', $ret, $match );
-    }
-
-    if ( !empty( $_POST['user_msnm'] ) ) {
-        $match = ( !empty( $_POST['user_msnm_match'] ) ) ? intval( $_POST['user_msnm_match'] ) : XOOPS_MATCH_START;
-        $ret = $myts->addSlashes( trim( $_POST['user_msnm'] ) );
-        xoops_Criteria( $criteria, 'user_msnm', $ret, $match );
-    }
-
     if ( !empty( $_POST['user_from'] ) ) {
         $criteria->add( new Criteria( 'user_from', '%' . $myts->addSlashes( trim( $_POST['user_from'] ) ) . '%', 'LIKE' ) );
     }
