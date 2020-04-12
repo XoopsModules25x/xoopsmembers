@@ -101,10 +101,10 @@ if ($GLOBALS['xoopsUser']->isAdmin($xoopsModule->mid())) {
              . constant('CO_' . $moduleDirNameUpper . '_' . 'ACTION')
              . '</th></tr>
         ';
-        $block_arr = \XoopsBlock::getByModule($xoopsModule->mid());
+        $block_arr   = \XoopsBlock::getByModule($xoopsModule->mid());
         $block_count = count($block_arr);
-        $class = 'even';
-        $cachetimes = [
+        $class       = 'even';
+        $cachetimes  = [
             '0' => _NOCACHE,
             '30' => sprintf(_SECONDS, 30),
             '60' => _MINUTE,
@@ -283,6 +283,9 @@ if ($GLOBALS['xoopsUser']->isAdmin($xoopsModule->mid())) {
         require_once __DIR__ . '/admin_header.php';
         //require_once __DIR__ . '/admin_header.php';
         xoops_cp_header();
+
+        $moduleDirName = basename(dirname(__DIR__));
+        $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
         xoops_loadLanguage('admin', 'system');
         xoops_loadLanguage('admin/blocksadmin', 'system');
