@@ -76,6 +76,10 @@ $modversion['sub']     = [
         'name' => _MI_XOOPSMEMBERS_ADVANCEDSEARCH,
         'url'  => 'searchmembers.php',
     ],
+	    [
+        'name' => _MI_XOOPSMEMBERS_USERRANK,
+        'url'  => 'rank.php',
+    ],
 ];
 
 /**
@@ -93,7 +97,10 @@ $modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchresults.tpl',
     'description' => '',
 ];
-
+$modversion['templates'][] = [
+    'file'        => 'xoopsmembers_rank.tpl',
+    'description' => '',
+];
 // Search
 $modversion['hasSearch']      = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
@@ -342,4 +349,36 @@ $modversion['config'][] = [
     'valuetype'   => 'int',
     'default'     => 1,
     'category'    => 'indexsearch',
+];
+
+
+// ------------------- Blocks -------------------
+$modversion['blocks'][] = [
+    'file'        => 'membersstats_block.php',
+    'name'        => _MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_TITLE,
+    'description' => _MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_DSC,
+    'show_func'   => 'show_membersstats_block',
+    'edit_func'   => 'membersstats_edit',
+    'options'     => '1|1|0|1|0',
+    'template'    => 'xoopsmembers_block_membersstats.tpl',
+];
+
+$modversion['blocks'][] = [
+    'file'        => 'memberslastlogin_block.php',
+    'name'        => _MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_TITLE,
+    'description' => _MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC,
+    'show_func'   => 'show_memberslastlogin_block',
+    'edit_func'   => 'memberslastlogin_edit',
+	'options'     => '0|1|0|10',
+    'template'    => 'xoopsmembers_block_memberslastlogin.tpl',
+];
+
+$modversion['blocks'][] = [
+    'file'        => 'memberswelcome_block.php',
+    'name'        => _MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_TITLE,
+    'description' => _MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_DSC,
+    'show_func'   => 'show_memberswelcome_block',
+    'edit_func'   => 'memberswelcome_edit',
+	'options'     => '1|0',
+    'template'    => 'xoopsmembers_block_memberswelcome.tpl',
 ];

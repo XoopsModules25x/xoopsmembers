@@ -85,6 +85,15 @@ define('_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB', 'Display Breadcrumb');
 define('_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB_DSC', 'Hide or Display Breadcrumb');
 define('_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER', 'Display Total Member');
 define('_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER_DSC', 'Hide or Display Total Member');
+define('_MI_XOOPSMEMBERS_USERRANK','Members Rank');
+define('_MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_TITLE','Members Online');
+define('_MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_DSC','Display Members Online Block');
+define('_MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_TITLE','Membership Statistics');
+define('_MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_DSC','Display Statistic of Membership');
+define('_MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_TITLE', 'Last Logon Member');
+define('_MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC', 'To Display Last Logon User');
+define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_TITLE', 'Welcome Member');
+define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_DSC', 'To Display Welcome User Block');
 
 //Menu
 define('_MI_XOOPSMEMBERS_MENU_HOME', 'Home');

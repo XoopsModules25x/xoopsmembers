@@ -57,3 +57,13 @@ define('_MD_XOOPSMEMBERS_RESULTS', 'Search results');
 define('_MD_XOOPSMEMBERS_MEMBERSLIST', 'Members List');
 define("_MD_XOOPSMEMBERS_LATESTMEMBER", "Latest Member");
 define("_MD_XOOPSMEMBERS_WELCOMETO", "Welcome to Members Directory");
+
+//rank.php
+define("_MD_XOOPSMEMBERS_USERRANK","Members Rank");
+define("_MD_XOOPSMEMBERS_MRANK","System Members Ranks");
+define("_MD_XOOPSMEMBERS_RANK","Rank");
+define("_MD_XOOPSMEMBERS_SRANK","Special Rank");
+define("_MD_XOOPSMEMBERS_MINPOST","Minimum Post");
+define("_MD_XOOPSMEMBERS_MAXPOST","Maximum Post");
+define("_MD_XOOPSMEMBERS_IMAGE","Image");
+

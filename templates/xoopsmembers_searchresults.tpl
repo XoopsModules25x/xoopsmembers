@@ -5,7 +5,8 @@
 
 <{if $total_found != 0}>
   <{$lang_numfound}><br>
-<table class="table table-bordered table-striped table-hover">
+<div class="table-responsive">
+<table class="table table-striped table-hover">
   <thead>
   <tr>
     <{if $displayavatar == 1}>
@@ -73,6 +74,7 @@
   <{/section}> 
   </tbody>
 </table>
+</div>
 <br>
   <{$pagenav}>
 <{else}>
