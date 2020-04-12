@@ -86,7 +86,7 @@ function show_membersstats_block($options) {
         
         $block['total_online'] = $total;
         
-        if ($options[4]=='1' && $lastrealname!='')
+        if ('1' == $options[4] && '' != $lastrealname)
           {
             $block['latestmember'] = $lastrealname; 
           }
@@ -137,57 +137,57 @@ function show_membersstats_block($options) {
 function membersstats_edit($options) {
 
     $form = _MB_XOOPSMEMBERS_SHOWTOTALPOST . '&nbsp;';
-    if ( $options[0] == 1 ) {
+    if (1 == $options[0]) {
         $chk = " checked='checked'";
     }
     $form .= "<input type='radio' name='options[0]' value='1'".$chk . ' />&nbsp;' . _YES . '';
     $chk = '';
-    if ( $options[0] == 0 ) {
+    if (0 == $options[0]) {
         $chk = " checked='checked'";
     }
     $form .= "&nbsp;<input type='radio' name='options[0]' value='0'".$chk . ' />' . _NO . '<br />';
 
 
     $form .= _MB_XOOPSMEMBERS_SHOWTOTALONLINE . '&nbsp;';
-    if ( $options[1] == 1 ) {
+    if (1 == $options[1]) {
         $chk = " checked='checked'";
     }
     $form .= "<input type='radio' name='options[1]' value='1'".$chk . ' />&nbsp;' . _YES . '';
     $chk = '';
-    if ( $options[1] == 0 ) {
+    if (0 == $options[1]) {
         $chk = " checked='checked'";
     }
     $form .= "&nbsp;<input type='radio' name='options[1]' value='0'".$chk . ' />' . _NO . '<br />';
 
     $form .= _MB_XOOPSMEMBERS_SHOWREGHISTORY . '&nbsp;';
-    if ( $options[2] == 1 ) {
+    if (1 == $options[2]) {
         $chk = " checked='checked'";
     }
     $form .= "<input type='radio' name='options[2]' value='1'".$chk . ' />&nbsp;' . _YES . '';
     $chk = '';
-    if ( $options[2] == 0 ) {
+    if (0 == $options[2]) {
         $chk = " checked='checked'";
     }
     $form .= "&nbsp;<input type='radio' name='options[2]' value='0'".$chk . ' />' . _NO . '<br />';
 
     $form .= _MB_XOOPSMEMBERS_SHOWNEWMEMBER . '&nbsp;';
-    if ( $options[3] == 1 ) {
+    if (1 == $options[3]) {
         $chk = " checked='checked'";
     }
     $form .= "<input type='radio' name='options[3]' value='1'".$chk . ' />&nbsp;' . _YES . '';
     $chk = '';
-    if ( $options[3] == 0 ) {
+    if (0 == $options[3]) {
         $chk = " checked='checked'";
     }
     $form .= "&nbsp;<input type='radio' name='options[3]' value='0'".$chk . ' />' . _NO . '<br />';
 
     $form .= _MB_XOOPSMEMBERS_USEREALNAME . '&nbsp;';
-    if ( $options[4] == 1 ) {
+    if (1 == $options[4]) {
         $chk = " checked='checked'";
     }
     $form .= "<input type='radio' name='options[4]' value='1'".$chk . ' />&nbsp;' . _YES . '';
     $chk = '';
-    if ( $options[4] == 0 ) {
+    if (0 == $options[4]) {
         $chk = " checked='checked'";
     }
     $form .= "&nbsp;<input type='radio' name='options[4]' value='0'".$chk . ' />' . _NO . '<br />';
