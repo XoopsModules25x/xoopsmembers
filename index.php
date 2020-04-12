@@ -27,7 +27,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 	
-	$member_handler = xoops_gethandler('member');
+	$member_handler = xoops_getHandler('member');
     $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
     $iamadmin = $xoopsUserIsAdmin;
@@ -48,7 +48,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     }
 
     $start = ( !empty( $_POST['start'] ) ) ? intval( $_POST['start'] ) : 0;
-    $member_handler = xoops_gethandler( 'member' );
+    $member_handler = xoops_getHandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
 	$xoopsTpl->assign( 'totalmember', $total );
 
@@ -82,9 +82,9 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
             } else {
                 $userdata["website"] = '&nbsp;';
             }
-            $userdata["registerdate"] = formatTimeStamp( $foundusers[$j]->getVar( 'user_regdate' ), 's' );
+            $userdata["registerdate"] = formatTimestamp( $foundusers[$j]->getVar( 'user_regdate' ), 's' );
             if ( $foundusers[$j]->getVar( 'last_login' ) != 0 ) {
-                $userdata["lastlogin"] = formatTimeStamp( $foundusers[$j]->getVar( 'last_login' ), "m" );
+                $userdata["lastlogin"] = formatTimestamp( $foundusers[$j]->getVar( 'last_login' ), "m" );
             } else {
                 $userdata["lastlogin"] = '&nbsp;';
             }
