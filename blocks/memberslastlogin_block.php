@@ -15,7 +15,7 @@ function show_memberslastlogin_block($options)
     $x      = 0;
     $now    = time();
     $hours  = 24;
-    $time   = (intval($hours) > 0) ? time() - (intval($hours) * 3600) : (time() - 24 * 3600);
+    $time   = ((int)$hours > 0) ? time() - ((int)$hours * 3600) : (time() - 24 * 3600);
     $block  = [];
     $sql    = 'SELECT distinct uid, name, uname, user_avatar, last_login FROM ' . $GLOBALS['xoopsDB']->prefix('users') . " WHERE level > 0 AND last_login >= '" . $time . "' ORDER BY last_login DESC LIMIT " . $options[3] . '';
     $result = $GLOBALS['xoopsDB']->query($sql);
