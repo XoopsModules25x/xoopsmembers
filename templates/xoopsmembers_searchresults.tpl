@@ -21,7 +21,7 @@
 		<a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><img src='<{$xoops_url}>/uploads/<{$users[i].avatar}>' class='rounded-circle float-left' title='<{$users[i].name}>' alt='<{$users[i].name}>' style='padding:10px' width='100' height='100'></a>
 	<{/if}>
 	<{if $displayrealname == 1 && $users[i].realname!=''}>  
-		<span class="text-muted"><a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><b><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}></b> : <{$users[i].realname}></a></span>
+		<span class="text-muted"><b><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}> :</b> <a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].realname}></a></span>
 	<{/if}>
 	<{if $displayregdate == 1}>
 		<br><span class='text-muted'><small><b><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSINCE}> :</b> <{$users[i].registerdate}></small></span>
