@@ -31,7 +31,7 @@ function member_search($queryarray, $andor, $limit, $offset, $userid)
     $i      = 0;
     while (false !== ($myrow = $GLOBALS['xoopsDB']->fetchArray($result))) {
         $ret[$i]['link']  = '' . XOOPS_URL . "\userinfo.php?uid=" . $myrow['uid'] . '';
-        $ret[$i]['title'] = '' . htmlspecialchars($myrow['uname']) . ' / ' . htmlspecialchars($myrow['name']) . '';
+        $ret[$i]['title'] = '' . htmlspecialchars($myrow['uname'], ENT_QUOTES | ENT_HTML5) . ' / ' . htmlspecialchars($myrow['name'], ENT_QUOTES | ENT_HTML5) . '';
         $ret[$i]['time']  = '' . $myrow['user_regdate'] . '';
         $ret[$i]['uid']   = '' . $myrow['uid'] . '';
         $i++;
