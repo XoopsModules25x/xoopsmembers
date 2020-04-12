@@ -186,5 +186,3 @@ function membersstats_edit($options) {
 
     return $form;
 }
-
-?>
