@@ -1,5 +1,9 @@
     =>version 1.03
 	--------------------
+	->Added   : Add sort by, order by and members per page options for index page in preference (liomj)
+	->Changed : Replace sort by email to sort by real name (liomj)
+	->Changed : Fix Notice: Only variables should be assigned by reference in index.php and searchmembers.php (liomj)
+	->Changed : Fix members name appearing in profile modules recent activity (liomj)
 	->Added   : Search Members Using XOOPS Search System (liomj)
 	->Changed : Change index.php to Member List (liomj)
 	->Added   : Duplicate index.php to searchmembers.php (liomj)

@@ -15,7 +15,7 @@
  * @since 2.3.0
  * @author onokazu
  * @author John Neill
- * @version $Id: index.php catzwolf$
+ * @version $Id: searchmembers.php catzwolf$
  */
 include dirname( dirname( dirname( __FILE__ ) ) ) . DIRECTORY_SEPARATOR . 'mainfile.php';
 //include_once 'header.php';
@@ -30,12 +30,12 @@ if ( $op == 'form' ) {
     $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
-    $member_handler = &xoops_gethandler( 'member' );
+    $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
     include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
 
-    $form = new XoopsThemeForm( '', 'searchform', 'index.php' );
+    $form = new XoopsThemeForm( '', 'searchform', 'searchmembers.php' );
     $uname_text = new XoopsFormText( '', 'user_uname', 30, 60 );
     $uname_match = new XoopsFormSelectMatchOption( '', 'user_uname_match' );
     $uname_tray = new XoopsFormElementTray( _MD_XM_UNAME, '&nbsp;' );
@@ -98,7 +98,7 @@ if ( $op == 'form' ) {
     $form->addElement( new XoopsFormText( _MD_XM_POSTSLESS, 'user_posts_less', 10, 5 ) );
 
     $sort_select = new XoopsFormSelect( _MD_XM_SORT, 'user_sort' );
-    $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'email' => _MD_XM_EMAIL, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
+    $sort_select->addOptionArray( array( 'uname' => _MD_XM_UNAME, 'name' => _MD_XM_REALNAME, 'last_login' => _MD_XM_LASTLOGIN, 'user_regdate' => _MD_XM_REGDATE, 'posts' => _MD_XM_POSTS ) );
     $form->addElement( $sort_select );
 
     $order_select = new XoopsFormSelect( _MD_XM_ORDER, 'user_order' );
@@ -117,7 +117,7 @@ if ( $op == 'submit' ) {
     include XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
-    $myts = &MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
     $criteria = new CriteriaCompo();
 
     if ( !empty( $_POST['user_uname'] ) ) {
@@ -235,7 +235,7 @@ if ( $op == 'submit' ) {
     }
 
     $start = ( !empty( $_POST['start'] ) ) ? intval( $_POST['start'] ) : 0;
-    $member_handler = &xoops_gethandler( 'member' );
+    $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
     $xoopsTpl->assign( 'total_found', $total );
 
@@ -248,7 +248,7 @@ if ( $op == 'submit' ) {
         $criteria->setOrder( $order );
         $criteria->setStart( $start );
         $criteria->setLimit( $limit );
-        $foundusers = &$member_handler->getUsers( $criteria, true );
+        $foundusers = $member_handler->getUsers( $criteria, true );
         foreach ( array_keys( $foundusers ) as $j ) {
             $userdata["avatar"] = $foundusers[$j]->getVar( 'user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar( 'user_avatar' ) . '" alt="" />' : '&nbsp;';
             $userdata["realname"] = $foundusers[$j]->getVar( 'name' ) ? $foundusers[$j]->getVar( 'name' ) : '&nbsp;';
@@ -286,7 +286,7 @@ if ( $op == 'submit' ) {
 
         $totalpages = ceil( $total / $limit );
         if ( $totalpages > 1 ) {
-            $hiddenform = '<form name="findnext" action="index.php" method="post">';
+            $hiddenform = '<form name="findnext" action="searchmembers.php" method="post">';
             foreach ( $_POST as $k => $v ) {
                 $hiddenform .= '<input type="hidden" name="' . $myts->htmlSpecialChars( $k ) . '" value="' . $myts->previewTarea( $v ) . '" />';
             }

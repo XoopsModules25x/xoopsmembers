@@ -26,9 +26,12 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
 
     $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
+	
+	$member_handler = xoops_gethandler('member');
+    $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
     $iamadmin = $xoopsUserIsAdmin;
-    $myts = &MyTextSanitizer::getInstance();
+    $myts = MyTextSanitizer::getInstance();
     $criteria = new CriteriaCompo();
 
     if ( !empty( $_POST['user_uname'] ) ) {
@@ -134,21 +137,23 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
     }
 
     $criteria->add( new Criteria( 'level', 0, '>' ) );
-    $validsort = array( 'uname', 'email', 'last_login', 'user_regdate', 'posts' );
-    $sort = ( !in_array( $_POST['user_sort'], $validsort ) ) ? 'uname' : $_POST['user_sort'];
-    $order = 'ASC';
-    if ( isset( $_POST['user_order'] ) && $_POST['user_order'] == 'DESC' ) {
+    $validsort = array( 'uname', 'name', 'last_login', 'user_regdate', 'posts' );
+    $sort = ( !in_array( $xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' : $xoopsModuleConfig['sortmembers'];
+    
+	$order = 'ASC';
+    if ( isset( $xoopsModuleConfig['membersorder'] ) && $xoopsModuleConfig['membersorder'] == 'DESC' ) {
         $order = 'DESC';
     }
-    $limit = ( !empty( $_POST['limit'] ) ) ? intval( $_POST['limit'] ) : 20;
-    if ( $limit == 0 || $limit > 50 ) {
+    $limit = ( !empty( $xoopsModuleConfig['membersperpage'] ) ) ? intval( $xoopsModuleConfig['membersperpage'] ) : 20;
+	if ( $limit == 0 || $limit > 50 ) {
         $limit = 50;
     }
 
     $start = ( !empty( $_POST['start'] ) ) ? intval( $_POST['start'] ) : 0;
-    $member_handler = &xoops_gethandler( 'member' );
+    $member_handler = xoops_gethandler( 'member' );
     $total = $member_handler->getUserCount( $criteria );
     $xoopsTpl->assign( 'total_found', $total );
+	$xoopsTpl->assign( 'totalmember', $total );
 
     if ( $total == 0 ) {
     } elseif ( $start < $total ) {
@@ -159,7 +164,7 @@ $pathIcon16 = $xoopsModule->getInfo('icons16');
         $criteria->setOrder( $order );
         $criteria->setStart( $start );
         $criteria->setLimit( $limit );
-        $foundusers = &$member_handler->getUsers( $criteria, true );
+        $foundusers = $member_handler->getUsers( $criteria, true );
         foreach ( array_keys( $foundusers ) as $j ) {
             $userdata["avatar"] = $foundusers[$j]->getVar( 'user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar( 'user_avatar' ) . '" alt="" />' : '&nbsp;';
             $userdata["realname"] = $foundusers[$j]->getVar( 'name' ) ? $foundusers[$j]->getVar( 'name' ) : '&nbsp;';
