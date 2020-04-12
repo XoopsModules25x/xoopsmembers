@@ -6,6 +6,10 @@ if (!defined('XOOPS_ROOT_PATH')) {
     exit;
 }
 
+/**
+ * @param $options
+ * @return mixed
+ */
 function show_memberswelcome_block($options)
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule, $xoopsDB, $_SERVER;
@@ -30,6 +34,10 @@ function show_memberswelcome_block($options)
     return $block;
 }
 
+/**
+ * @param $options
+ * @return string
+ */
 function memberswelcome_edit($options)
 {
     $form = _MB_XOOPSMEMBERS_SHOWMEMBERSRANK . "&nbsp;";

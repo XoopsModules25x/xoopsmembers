@@ -6,6 +6,10 @@ if (!defined('XOOPS_ROOT_PATH')) {
     exit;
 }
 
+/**
+ * @param $options
+ * @return array
+ */
 function show_memberslastlogin_block($options)
 {
     $x      = 0;
@@ -39,6 +43,12 @@ function show_memberslastlogin_block($options)
     return $block;
 }
 
+/**
+ * @param        $start
+ * @param        $end
+ * @param string $return
+ * @return string
+ */
 function timeDifference($start,$end,$return='days') {
     //change times to Unix timestamp.
     //$start = strtotime($start);
@@ -86,6 +96,10 @@ function timeDifference($start,$end,$return='days') {
     }
 }
 
+/**
+ * @param $options
+ * @return string
+ */
 function memberslastlogin_edit($options)
 {
     $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . "&nbsp;";

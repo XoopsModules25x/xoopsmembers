@@ -5,6 +5,10 @@
 
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
+/**
+ * @param $options
+ * @return array|bool
+ */
 function show_membersstats_block($options) {
     global $xoopsConfig, $xoopsUser, $xoopsModule, $xoopsDB, $_SERVER;
     /* @var XoopsOnlineHandler $online_handler */
@@ -126,6 +130,10 @@ function show_membersstats_block($options) {
     }    
 }
 
+/**
+ * @param $options
+ * @return string
+ */
 function membersstats_edit($options) {
 
     $form = _MB_XOOPSMEMBERS_SHOWTOTALPOST."&nbsp;";
