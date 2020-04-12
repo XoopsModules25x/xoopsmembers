@@ -23,14 +23,13 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 $modversion = [
     'version'             => 1.04,
-    'module_status'       => 'Alpha 2',
-    'release_date'        => '2020/04/11',
+    'module_status'       => 'Alpha 3',
+    'release_date'        => '2020/04/12',
     'name'                => _MI_XOOPSMEMBERS_NAME,
     'description'         => _MI_XOOPSMEMBERS_DESC,
-    'author'              => 'John Neill, Kazumi Ono',
+    'author'              => 'John Neill, Kazumi Ono, Liomj, Mamba',
     'license'             => 'GNU GPL 2.0',
     'license_url'         => 'www.gnu.org/licenses/gpl-2.0.html',
-    'help'                => 'page=help',
     'contributors'        => '',
     'credits'             => 'The Xoops Module Development Team',
     'official'            => 1,
@@ -50,6 +49,7 @@ $modversion = [
 ];
 
 // ------------------- Help files ------------------- //
+$modversion['help']        = 'page=help';
 $modversion['helpsection'] = [
     ['name' => _MI_XOOPSMEMBERS_OVERVIEW, 'link' => 'page=help'],
     ['name' => _MI_XOOPSMEMBERS_DISCLAIMER, 'link' => 'page=disclaimer'],
@@ -85,21 +85,11 @@ $modversion['sub']     = [
 /**
  * Module Templates
  */
-$modversion['templates'][] = [
-    'file'        => 'xoopsmembers_index.tpl',
-    'description' => '',
-];
-$modversion['templates'][] = [
-    'file'        => 'xoopsmembers_searchform.tpl',
-    'description' => '',
-];
-$modversion['templates'][] = [
-    'file'        => 'xoopsmembers_searchresults.tpl',
-    'description' => '',
-];
-$modversion['templates'][] = [
-    'file'        => 'xoopsmembers_rank.tpl',
-    'description' => '',
+$modversion['templates'] = [
+    ['file' => 'xoopsmembers_index.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_searchform.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_searchresults.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_rank.tpl', 'description' => ''],
 ];
 // Search
 $modversion['hasSearch']      = 1;
