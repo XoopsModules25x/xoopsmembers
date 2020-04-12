@@ -28,8 +28,8 @@ $pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
     $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 	
-$member_handler = xoops_getHandler('member');
-    $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
+$memberHandler = xoops_getHandler('member');
+    $total = $memberHandler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
     $iamadmin = $xoopsUserIsAdmin;
 $myts     = \MyTextSanitizer::getInstance();
