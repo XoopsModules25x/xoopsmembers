@@ -31,7 +31,7 @@ if ($op == 'form') {
     $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
     include XOOPS_ROOT_PATH . '/header.php';
 
-    $member_handler = &xoops_getHandler('member');
+    $member_handler = xoops_getHandler('member');
     $total          = $member_handler->getUserCount(new Criteria('level', 0, '>'));
 
     include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
@@ -118,7 +118,7 @@ if ($op == 'submit') {
     include XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
-    $myts     = &MyTextSanitizer::getInstance();
+    $myts     = MyTextSanitizer::getInstance();
     $criteria = new CriteriaCompo();
 
     if (!empty($_POST['user_uname'])) {
@@ -236,7 +236,7 @@ if ($op == 'submit') {
     }
 
     $start          = (!empty($_POST['start'])) ? (int)$_POST['start'] : 0;
-    $member_handler = &xoops_getHandler('member');
+    $member_handler = xoops_getHandler('member');
     $total          = $member_handler->getUserCount($criteria);
     $xoopsTpl->assign('total_found', $total);
 

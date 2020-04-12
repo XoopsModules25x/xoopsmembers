@@ -30,7 +30,7 @@ $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
 include XOOPS_ROOT_PATH . '/header.php';
 
 $iamadmin = $xoopsUserIsAdmin;
-$myts     = &MyTextSanitizer::getInstance();
+$myts     = MyTextSanitizer::getInstance();
 $criteria = new CriteriaCompo();
 
 if (!empty($_POST['user_uname'])) {
@@ -148,7 +148,7 @@ if ($limit == 0 || $limit > 50) {
 }
 
 $start          = (!empty($_POST['start'])) ? (int)$_POST['start'] : 0;
-$member_handler = &xoops_getHandler('member');
+$member_handler = xoops_getHandler('member');
 $total          = $member_handler->getUserCount($criteria);
 $xoopsTpl->assign('total_found', $total);
 
