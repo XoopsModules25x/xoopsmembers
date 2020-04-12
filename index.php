@@ -146,7 +146,11 @@ exit();
 /**
  * xoops_Criteria()
  *
- * @return
+ * @param        $criteria
+ * @param string $name
+ * @param string $ret
+ * @param string $match
+ * @return void
  */
 function xoops_Criteria( &$criteria, $name = '', $ret = '', $match = '' ) {
     global $criteria;
