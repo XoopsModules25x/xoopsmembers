@@ -1,21 +1,21 @@
-<a href="index.php"><{$smarty.const._MD_XM_MEMBERSLIST}></a>
+<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>
 
-&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XM_MEMBERSLIST}><br /><br />
+&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}><br /><br />
 
 <{if $total_found != 0}>
 <table class="outer" cellspacing="1" cellpadding="4">
   <tr>
-    <th align="center"><{$smarty.const._MD_XM_AVATAR}></th>
-	<th align="center"><{$smarty.const._MD_XM_UNAME}></th>
-	<th align="center"><{$smarty.const._MD_XM_REALNAME}></th>
-	<th align="center"><{$smarty.const._MD_XM_EMAIL}></th>
-	<th align="center"><{$smarty.const._MD_XM_PM}></th>
-	<th align="center"><{$smarty.const._MD_XM_URL}></th>
-	<th align="center"><{$smarty.const._MD_XM_REGDATE}></th
-	><th align="center"><{$smarty.const._MD_XM_LASTLOGIN}></th>
-	<th align="center"><{$smarty.const._MD_XM_POSTS}></th>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_AVATAR}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_UNAME}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_PM}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_URL}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REGDATE}></th
+	><th align="center"><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}></th>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_POSTS}></th>
     <{if $is_admin == true}>
-    <th align="center"><{$smarty.const._MD_XM_ADMIN}></th>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_ADMIN}></th>
     <{/if}>
   </tr>
   <{section name=i loop=$users}>
@@ -40,5 +40,5 @@
   <{$lang_numfound}>
 </div>
 <{else}>
-  <{$smarty.const._MD_XM_NOFOUND}>
+  <{$smarty.const._MD_XOOPSMEMBERS_NOFOUND}>
 <{/if}>
