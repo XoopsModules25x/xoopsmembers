@@ -11,50 +11,50 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @copyright XOOPS Project (https://xoops.org)
- * @license http://www.fsf.org/copyleft/gpl.html GNU public license
- * @package Xoops Members
- * @since 2.3.0
- * @author onokazu
- * @author John Neill
+ * @license   http://www.fsf.org/copyleft/gpl.html GNU public license
+ * @package   Xoops Members
+ * @since     2.3.0
+ * @author    onokazu
+ * @author    John Neill
  */
 
 $xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
-require_once  __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 //global $pathIcon16;
 
 global $xoopsModule;
 
 /** @var \XoopsMemberHandler $memberHandler */
 $memberHandler = xoops_getHandler('member');
-    $total = $memberHandler->getUserCount(new Criteria('level', 0, '>'));
+$total         = $memberHandler->getUserCount(new Criteria('level', 0, '>'));
 
-    $iamadmin = $xoopsUserIsAdmin;
+$iamadmin = $xoopsUserIsAdmin;
 $myts     = \MyTextSanitizer::getInstance();
 $criteria = new \CriteriaCompo();
 
 $criteria->add(new \Criteria('level', 0, '>'));
 $validsort = ['uname', 'name', 'last_login', 'user_regdate', 'posts'];
 $sort      = (!in_array($helper->getModule()->getInfo('sortmembers'), $validsort)) ? 'uname' : $helper->getModule()->getInfo('sortmembers');
-    
-    $order = 'ASC';
+
+$order = 'ASC';
 $temp  = $helper->getModule()->getInfo('membersorder');
 if (isset($temp) && 'DESC' == $temp) {
     $order = 'DESC';
 }
-    $limit = \Xmf\Request::getInt('limit', 20, 'POST');
+$limit = \Xmf\Request::getInt('limit', 20, 'POST');
 if (0 == $limit || $limit > 50) {
     $limit = 50;
 }
 
-    $start         = \Xmf\Request::getInt('start', 0, 'POST');
-    $total         = $memberHandler->getUserCount($criteria);
-    $xoopsTpl->assign('totalmember', $total);
-    
-    //Show last member
-    $result = $GLOBALS['xoopsDB']->query("SELECT uid, uname FROM ".$GLOBALS['xoopsDB']->prefix("users")." WHERE level > 0 ORDER BY uid DESC", 1, 0);
-    list($latestuid, $latestuser) = $GLOBALS['xoopsDB']->fetchRow($result);
-    $xoopsTpl->assign('latestmember', " <a href='".XOOPS_URL."/userinfo.php?uid=".$latestuid."'>".$latestuser."</a>");
-    $xoopsTpl->assign('welcomemessage', $xoopsModuleConfig['welcomemessage']);
+$start = \Xmf\Request::getInt('start', 0, 'POST');
+$total = $memberHandler->getUserCount($criteria);
+$xoopsTpl->assign('totalmember', $total);
+
+//Show last member
+$result = $GLOBALS['xoopsDB']->query("SELECT uid, uname FROM " . $GLOBALS['xoopsDB']->prefix("users") . " WHERE level > 0 ORDER BY uid DESC", 1, 0);
+list($latestuid, $latestuser) = $GLOBALS['xoopsDB']->fetchRow($result);
+$xoopsTpl->assign('latestmember', " <a href='" . XOOPS_URL . "/userinfo.php?uid=" . $latestuid . "'>" . $latestuser . "</a>");
+$xoopsTpl->assign('welcomemessage', $xoopsModuleConfig['welcomemessage']);
 
 if (0 == $total) {
 } elseif ($start < $total) {
@@ -96,7 +96,7 @@ if (0 == $total) {
         if ($iamadmin) {
             $userdata['adminlink'] = '<a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;uid=' . $foundusers[$j]->getVar('uid') . '&amp;op=users_edit">' . '<img src=' . $pathIcon16 . '/edit.png' . " alt='" . _EDIT . "' title='" . _EDIT . "'>"
 
-                                         . '</a> | <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "'>" . '</a>';
+                                     . '</a> | <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "'>" . '</a>';
         }
         $xoopsTpl->append('users', $userdata);
     }
@@ -117,16 +117,16 @@ if (0 == $total) {
         if ($start - $limit >= 0) {
             $hiddenform .= '<a href="#0" onclick="javascript:document.findnext.start.value=' . $prev . ';document.findnext.submit();">' . _MD_XOOPSMEMBERS_PREVIOUS . '</a>&nbsp;';
         }
-        $counter = 1;
+        $counter     = 1;
         $currentpage = ($start + $limit) / $limit;
         while ($counter <= $totalpages) {
             if ($counter == $currentpage) {
                 $hiddenform .= '<b>' . $counter . '</b> ';
             } elseif (($counter > $currentpage - 4 && $counter < $currentpage + 4) || 1 == $counter || $counter == $totalpages) {
-                if ($counter == $totalpages && $currentpage < $totalpages-4) {
+                if ($counter == $totalpages && $currentpage < $totalpages - 4) {
                     $hiddenform .= '... ';
                 }
-                $hiddenform .= '<a href="#' . $counter . '" onclick="javascript:document.findnext.start.value=' . ($counter-1) * $limit . ';document.findnext.submit();">' . $counter . '</a> ';
+                $hiddenform .= '<a href="#' . $counter . '" onclick="javascript:document.findnext.start.value=' . ($counter - 1) * $limit . ';document.findnext.submit();">' . $counter . '</a> ';
                 if (1 == $counter && $currentpage > 5) {
                     $hiddenform .= '... ';
                 }
