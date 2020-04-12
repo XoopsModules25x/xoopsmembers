@@ -224,12 +224,12 @@ if ('submit' == $op) {
             }
             if ($xoopsUser) {
                 $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(
-                        _SENDPMTO,
-                        $foundusers[$j]->getVar(
-                            'uname',
-                            'e'
-                        )
-                    ) . '" /></a>';
+                    _SENDPMTO,
+                    $foundusers[$j]->getVar(
+                        'uname',
+                        'e'
+                    )
+                ) . '" /></a>';
             } else {
                 $userdata['pmlink'] = '&nbsp;';
             }
