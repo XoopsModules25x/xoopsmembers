@@ -13,7 +13,8 @@
 		 <{$smarty.const._MD_XOOPSMEMBERS_LATESTMEMBER}>: <{$latestmember}> <br><br>
 	<{/if}>   
   
-<table class="table table-bordered table-striped table-hover">
+<div class="table-responsive">
+<table class="table table-striped table-hover">
   <thead>
   <tr>
     <{if $displayavatar == 1}>
@@ -81,5 +82,6 @@
   <{/section}> 
   </tbody>
 </table>
+</div>
 <br>
 <{$pagenav}>

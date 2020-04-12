@@ -1,5 +1,9 @@
 <h5>1.04 Alpha 2  [2020-04-11]</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
 <hr>
+- Add Rank List Page from Membership 2.3 Module (liomj)
+- Add Last Logon Member Block (liomj)
+- Add Membership Statistic Blocks (liomj)
+- Add Welcome User Block (liomj)
 - fix breadcrumbs (liomj)
 - fix missing edit/delete icon in searchmembers.php (liomj)
 - fixed bugs (mamba)
