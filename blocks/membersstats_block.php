@@ -50,21 +50,22 @@ function show_membersstats_block($options) {
             $block['online_total'] .= ' (' . sprintf(_ONLINEPHRASEX, $mytotal, $xoopsModule->getVar('name')) . ')';
         }
         // Membership Statistic
-        $member_handler =xoops_getHandler('member');
-        $today = formatTimestamp(time());
-        $level_criteria = new \Criteria('level', 0, '>');
-        $criteria = new \CriteriaCompo($level_criteria);
-        $criteria24 = new \CriteriaCompo($level_criteria);
-        $criteria48 = new \CriteriaCompo($level_criteria);
-        $total_active_users = $member_handler->getUserCount($level_criteria);
+        /** @var \XoopsMemberHandler $memberHandler */
+        $memberHandler      =xoops_getHandler('member');
+        $today              = formatTimestamp(time());
+        $level_criteria     = new \Criteria('level', 0, '>');
+        $criteria           = new \CriteriaCompo($level_criteria);
+        $criteria24         = new \CriteriaCompo($level_criteria);
+        $criteria48         = new \CriteriaCompo($level_criteria);
+        $total_active_users = $memberHandler->getUserCount($level_criteria);
         //Fixing stats for last 24 and 48 hours
-        $users_reg_24 = $member_handler->getUserCount($criteria24->add(new \Criteria('user_regdate', (mktime(0,0,0)-(24*3600)), '>=')),'AND');
-        $users_reg_48 = $member_handler->getUserCount($criteria48->add(new \Criteria('user_regdate', (mktime(0,0,0)-(48*3600)), '>=')),'AND');
+        $users_reg_24 = $memberHandler->getUserCount($criteria24->add(new \Criteria('user_regdate', (mktime(0,0,0)-(24*3600)), '>=')),'AND');
+        $users_reg_48 = $memberHandler->getUserCount($criteria48->add(new \Criteria('user_regdate', (mktime(0,0,0)-(48*3600)), '>=')),'AND');
         $limit = 1;
         $criteria->setOrder('DESC');
         $criteria->setSort('user_regdate');
         $criteria->setLimit($limit);
-        $lastmembers =$member_handler->getUsers($criteria);
+        $lastmembers =$memberHandler->getUsers($criteria);
         $lastusername = $lastmembers[0]->getVar('uname');
         $lastrealname = $lastmembers[0]->getVar('name');
         $lastid = $lastmembers[0]->getVar('uid');
