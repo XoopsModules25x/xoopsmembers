@@ -51,7 +51,7 @@ if ('form' == $op) {
     $form->addElement($name_tray);
     }
 
-	if (1 == $xoopsModuleConfig['displayemail']){
+    if (1 == $xoopsModuleConfig['displayemail']){
     $email_text  = new XoopsFormText('', 'user_email', 30, 60);
     $email_match = new XoopsFormSelectMatchOption('', 'user_email_match');
     $email_tray  = new XoopsFormElementTray(_MD_XOOPSMEMBERS_EMAIL, '&nbsp;');
@@ -60,30 +60,30 @@ if ('form' == $op) {
     $form->addElement($email_tray);
     }
 
-	if (1 == $xoopsModuleConfig['displayurl']){
+    if (1 == $xoopsModuleConfig['displayurl']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_URLC, 'user_url', 30, 100));
     }
-	if (1 == $xoopsModuleConfig['displayfrom']){
+    if (1 == $xoopsModuleConfig['displayfrom']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_LOCATION, 'user_from', 30, 100));
-	}
-	if (1 == $xoopsModuleConfig['displayoccupation']){
+    }
+    if (1 == $xoopsModuleConfig['displayoccupation']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATION, 'user_occ', 30, 100));
-	}
-	if (1 == $xoopsModuleConfig['displayinterest']){
+    }
+    if (1 == $xoopsModuleConfig['displayinterest']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_INTEREST, 'user_intrest', 30, 100));
-	}
-	if (1 == $xoopsModuleConfig['displaylastlogin']){
+    }
+    if (1 == $xoopsModuleConfig['displaylastlogin']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGMORE, 'user_lastlog_more', 10, 5));
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGLESS, 'user_lastlog_less', 10, 5));
-	}
-	if (1 == $xoopsModuleConfig['displayregdate']){
+    }
+    if (1 == $xoopsModuleConfig['displayregdate']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_REGMORE, 'user_reg_more', 10, 5));
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_REGLESS, 'user_reg_less', 10, 5));
-	}
-	if (1 == $xoopsModuleConfig['displayposts']){
+    }
+    if (1 == $xoopsModuleConfig['displayposts']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_POSTSMORE, 'user_posts_more', 10, 5));
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_POSTSLESS, 'user_posts_less', 10, 5));
-	}
+    }
 
     $sort_select = new XoopsFormSelect(_MD_XOOPSMEMBERS_SORT, 'user_sort');
     $sort_select->addOptionArray(['uname' => _MD_XOOPSMEMBERS_UNAME, 'name' => _MD_XOOPSMEMBERS_REALNAME, 'last_login' => _MD_XOOPSMEMBERS_LASTLOGIN, 'user_regdate' => _MD_XOOPSMEMBERS_REGDATE, 'posts' => _MD_XOOPSMEMBERS_POSTS]);

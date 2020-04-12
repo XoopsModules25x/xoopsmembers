@@ -65,31 +65,31 @@ function show_membersstats_block($options) {
         $lastrealname = $lastmembers[0]->getVar('name');
         $lastid = $lastmembers[0]->getVar('uid');
         
-	    //Total Post Count
-		$sql = "SELECT SUM(posts) AS totalposts FROM ".$GLOBALS['xoopsDB']->prefix("users")." WHERE level > 0";
+        //Total Post Count
+        $sql = "SELECT SUM(posts) AS totalposts FROM ".$GLOBALS['xoopsDB']->prefix("users")." WHERE level > 0";
         $result = $GLOBALS['xoopsDB']->query($sql);
-	    $myrow = $GLOBALS['xoopsDB']->fetchArray($result); 	
-		$block['totalposts']=$myrow['totalposts'];
-		
-		// data
+        $myrow = $GLOBALS['xoopsDB']->fetchArray($result);     
+        $block['totalposts']=$myrow['totalposts'];
+        
+        // data
         $block['activeusers'] = $total_active_users;
         $block['todayreg'] = $users_reg_24;
         $block['yesterdayreg'] = $users_reg_48 - $users_reg_24;
         $block['online_names']   = $members;
         $block['online_members'] = $total - $guests;
         $block['online_guests']  = $guests; 
-		$block['lang_more']      = _MB_XOOPSMEMBERS_MORE;
+        $block['lang_more']      = _MB_XOOPSMEMBERS_MORE;
         
-		$block['total_online'] = $total;
+        $block['total_online'] = $total;
         
-		if ($options[4]=='1' && $lastrealname!='')
-		  {
-			$block['latestmember'] = $lastrealname; 
-		  }
-		else {	
-		    $block['latestmember'] = $lastusername;
-		     }
-		$block['latest_id'] = $lastid;
+        if ($options[4]=='1' && $lastrealname!='')
+          {
+            $block['latestmember'] = $lastrealname; 
+          }
+        else {    
+            $block['latestmember'] = $lastusername;
+             }
+        $block['latest_id'] = $lastid;
         
 
         // Language Definition
@@ -104,87 +104,87 @@ function show_membersstats_block($options) {
         $block['list_lang'] = _MB_XOOPSMEMBERS_LIST;
         $block['popup_lang'] = _MB_XOOPSMEMBERS_POPUP;
         $block['latest_lang'] = _MB_XOOPSMEMBERS_LATEST;
-		$block['totalpostmade_lang'] =_MB_XOOPSMEMBERS_TOTALPOSTMADE;
-		$block['totalposts_lang'] =_MB_XOOPSMEMBERS_TOTALPOSTS;
-		$block['totalpost_lang']  =_MB_XOOPSMEMBERS_TOTALPOST;
-		$block['wehave_lang'] =_MB_XOOPSMEMBERS_WEHAVE;
-		$block['currentonline_lang'] =_MB_XOOPSMEMBERS_CURRENTONLINE;
-		$block['registeredmembers_lang'] =_MB_XOOPSMEMBERS_REGISTEREDMEMBERS;
-		$block['registeredtoday_lang'] =_MB_XOOPSMEMBERS_REGISTEREDTODAY;
-		$block['registeredyesterday_lang'] =_MB_XOOPSMEMBERS_REGISTEREDYESTERDAY;
-		$block['newestmember_lang'] =_MB_XOOPSMEMBERS_NEWESTMEMBER;
+        $block['totalpostmade_lang'] =_MB_XOOPSMEMBERS_TOTALPOSTMADE;
+        $block['totalposts_lang'] =_MB_XOOPSMEMBERS_TOTALPOSTS;
+        $block['totalpost_lang']  =_MB_XOOPSMEMBERS_TOTALPOST;
+        $block['wehave_lang'] =_MB_XOOPSMEMBERS_WEHAVE;
+        $block['currentonline_lang'] =_MB_XOOPSMEMBERS_CURRENTONLINE;
+        $block['registeredmembers_lang'] =_MB_XOOPSMEMBERS_REGISTEREDMEMBERS;
+        $block['registeredtoday_lang'] =_MB_XOOPSMEMBERS_REGISTEREDTODAY;
+        $block['registeredyesterday_lang'] =_MB_XOOPSMEMBERS_REGISTEREDYESTERDAY;
+        $block['newestmember_lang'] =_MB_XOOPSMEMBERS_NEWESTMEMBER;
         $block['and_lang'] =_MB_XOOPSMEMBERS_AND;
         $block['showtotalpost'] = $options[0];
-		$block['showtotalonline'] = $options[1];
-	    $block['showreghistory'] = $options[2];
-		$block['shownewmember'] = $options[3];
-		$block['userealname'] = $options[4];
-		
+        $block['showtotalonline'] = $options[1];
+        $block['showreghistory'] = $options[2];
+        $block['shownewmember'] = $options[3];
+        $block['userealname'] = $options[4];
+        
         return $block;
-	} else {
-		return false;
-	}	
+    } else {
+        return false;
+    }    
 }
 
 function membersstats_edit($options) {
 
-	$form = _MB_XOOPSMEMBERS_SHOWTOTALPOST."&nbsp;";
-	if ( $options[0] == 1 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "<input type='radio' name='options[0]' value='1'".$chk." />&nbsp;"._YES."";
-	$chk = "";
-	if ( $options[0] == 0 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "&nbsp;<input type='radio' name='options[0]' value='0'".$chk." />"._NO."<br />";
+    $form = _MB_XOOPSMEMBERS_SHOWTOTALPOST."&nbsp;";
+    if ( $options[0] == 1 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "<input type='radio' name='options[0]' value='1'".$chk." />&nbsp;"._YES."";
+    $chk = "";
+    if ( $options[0] == 0 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "&nbsp;<input type='radio' name='options[0]' value='0'".$chk." />"._NO."<br />";
 
 
-	$form .= _MB_XOOPSMEMBERS_SHOWTOTALONLINE."&nbsp;";
-	if ( $options[1] == 1 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "<input type='radio' name='options[1]' value='1'".$chk." />&nbsp;"._YES."";
-	$chk = "";
-	if ( $options[1] == 0 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "&nbsp;<input type='radio' name='options[1]' value='0'".$chk." />"._NO."<br />";
+    $form .= _MB_XOOPSMEMBERS_SHOWTOTALONLINE."&nbsp;";
+    if ( $options[1] == 1 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "<input type='radio' name='options[1]' value='1'".$chk." />&nbsp;"._YES."";
+    $chk = "";
+    if ( $options[1] == 0 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "&nbsp;<input type='radio' name='options[1]' value='0'".$chk." />"._NO."<br />";
 
-	$form .= _MB_XOOPSMEMBERS_SHOWREGHISTORY."&nbsp;";
-	if ( $options[2] == 1 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "<input type='radio' name='options[2]' value='1'".$chk." />&nbsp;"._YES."";
-	$chk = "";
-	if ( $options[2] == 0 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "&nbsp;<input type='radio' name='options[2]' value='0'".$chk." />"._NO."<br />";
+    $form .= _MB_XOOPSMEMBERS_SHOWREGHISTORY."&nbsp;";
+    if ( $options[2] == 1 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "<input type='radio' name='options[2]' value='1'".$chk." />&nbsp;"._YES."";
+    $chk = "";
+    if ( $options[2] == 0 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "&nbsp;<input type='radio' name='options[2]' value='0'".$chk." />"._NO."<br />";
 
-	$form .= _MB_XOOPSMEMBERS_SHOWNEWMEMBER."&nbsp;";
-	if ( $options[3] == 1 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;"._YES."";
-	$chk = "";
-	if ( $options[3] == 0 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "&nbsp;<input type='radio' name='options[3]' value='0'".$chk." />"._NO."<br />";
+    $form .= _MB_XOOPSMEMBERS_SHOWNEWMEMBER."&nbsp;";
+    if ( $options[3] == 1 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "<input type='radio' name='options[3]' value='1'".$chk." />&nbsp;"._YES."";
+    $chk = "";
+    if ( $options[3] == 0 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "&nbsp;<input type='radio' name='options[3]' value='0'".$chk." />"._NO."<br />";
 
-	$form .= _MB_XOOPSMEMBERS_USEREALNAME."&nbsp;";
-	if ( $options[4] == 1 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "<input type='radio' name='options[4]' value='1'".$chk." />&nbsp;"._YES."";
-	$chk = "";
-	if ( $options[4] == 0 ) {
-		$chk = " checked='checked'";
-	}
-	$form .= "&nbsp;<input type='radio' name='options[4]' value='0'".$chk." />"._NO."<br />";
+    $form .= _MB_XOOPSMEMBERS_USEREALNAME."&nbsp;";
+    if ( $options[4] == 1 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "<input type='radio' name='options[4]' value='1'".$chk." />&nbsp;"._YES."";
+    $chk = "";
+    if ( $options[4] == 0 ) {
+        $chk = " checked='checked'";
+    }
+    $form .= "&nbsp;<input type='radio' name='options[4]' value='0'".$chk." />"._NO."<br />";
 
-	return $form;
+    return $form;
 }
 
 ?>
