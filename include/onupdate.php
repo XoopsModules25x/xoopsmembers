@@ -45,8 +45,8 @@ function tableExists($tablename)
 function xoops_module_pre_update_xoopsmembers(\XoopsModule $module)
 {
     $moduleDirName = basename(dirname(__DIR__));
-    /** @var \Xoopsmembers\Helper $helper */
-    /** @var \Xoopsmembers\Utility $utility */
+    /** @var Xoopsmembers    \Helper $helper */
+    /** @var Xoopsmembers    \Utility $utility */
     $helper  = Xoopsmembers\Helper::getInstance();
     $utility = new Xoopsmembers\Utility();
 
@@ -68,8 +68,8 @@ function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-    /** @var \Xoopsmembers\Helper $helper */ /** @var \Xoopsmembers\Utility $utility */
-    /** @var \Xoopsmembers\Common\Configurator $configurator */
+    /** @var Xoopsmembers    \Helper $helper */ /** @var Xoopsmembers    \Utility $utility */
+    /** @var Xoopsmembers    \Common\Configurator $configurator */
     $helper       = Xoopsmembers\Helper::getInstance();
     $utility      = new Xoopsmembers\Utility();
     $configurator = new Xoopsmembers\Common\Configurator();

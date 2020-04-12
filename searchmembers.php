@@ -218,17 +218,17 @@ if ('submit' == $op) {
             $userdata['name']     = $foundusers[$j]->getVar('uname');
             $userdata['id']       = $foundusers[$j]->getVar('uid');
             if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
-                $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '" /></a>';
+                $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '" ></a>';
             } else {
                 $userdata['email'] = '&nbsp;';
             }
             if ($xoopsUser) {
-                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '" /></a>';
+                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '" ></a>';
             } else {
                 $userdata['pmlink'] = '&nbsp;';
             }
             if ('' != $foundusers[$j]->getVar('url', 'e')) {
-                $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" /></a>';
+                $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" ></a>';
             } else {
                 $userdata['website'] = '&nbsp;';
             }
@@ -240,9 +240,9 @@ if ('submit' == $op) {
             }
             $userdata['posts'] = $foundusers[$j]->getVar('posts');
             if ($iamadmin) {
-                $userdata['adminlink'] = '<a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;uid=' . $foundusers[$j]->getVar('uid') . '&amp;op=users_edit">' . '<img src=' . $pathIcon16 . '/edit.png' . " alt='" . _EDIT . "' title='" . _EDIT . "' />"
+                $userdata['adminlink'] = '<a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;uid=' . $foundusers[$j]->getVar('uid') . '&amp;op=users_edit">' . '<img src=' . $pathIcon16 . '/edit.png' . " alt='" . _EDIT . "' title='" . _EDIT . "' >"
 
-                                         . '</a>  <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' />" . '</a>';
+                                         . '</a>  <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' >" . '</a>';
             }
             $xoopsTpl->append('users', $userdata);
         }
@@ -251,13 +251,13 @@ if ('submit' == $op) {
         if ($totalpages > 1) {
             $hiddenform = '<form name="findnext" action="searchmembers.php" method="post">';
             foreach ($_POST as $k => $v) {
-                $hiddenform .= '<input type="hidden" name="' . $myts->htmlSpecialChars($k) . '" value="' . $myts->previewTarea($v) . '" />';
+                $hiddenform .= '<input type="hidden" name="' . $myts->htmlSpecialChars($k) . '" value="' . $myts->previewTarea($v) . '" >';
             }
             if (!isset($_POST['limit'])) {
-                $hiddenform .= '<input type="hidden" name="limit" value="' . $limit . '" />';
+                $hiddenform .= '<input type="hidden" name="limit" value="' . $limit . '" >';
             }
             if (!isset($_POST['start'])) {
-                $hiddenform .= '<input type="hidden" name="start" value="' . $start . '" />';
+                $hiddenform .= '<input type="hidden" name="start" value="' . $start . '" >';
             }
             $prev = $start - $limit;
             if ($start - $limit >= 0) {

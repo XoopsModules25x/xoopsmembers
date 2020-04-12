@@ -30,7 +30,7 @@ use XoopsModules\Xoopsmembers;
 function xoops_module_pre_install_xoopsmembers(\XoopsModule $module)
 {
     require_once dirname(__DIR__) . '/preloads/autoloader.php';
-    /** @var \Xoopsmembers\Utility $utility */
+    /** @var Xoopsmembers    \Utility $utility */
     $utility      = new \XoopsModules\Xoopsmembers\Utility();
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
@@ -56,7 +56,7 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
     require_once dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
 
     $moduleDirName = basename(dirname(__DIR__));
-    /** @var \Xoopsmembers\Helper $helper */
+    /** @var Xoopsmembers    \Helper $helper */
     $helper       = Xoopsmembers\Helper::getInstance();
     $utility      = new Xoopsmembers\Utility();
     $configurator = new Xoopsmembers\Common\Configurator();

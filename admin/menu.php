@@ -25,7 +25,7 @@ include dirname(__DIR__) . '/preloads/autoloader.php';
 $moduleDirName = basename(dirname(__DIR__));
 $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-/** @var \Xoopsmembers\Helper $helper */
+/** @var Xoopsmembers\Helper $helper */
 $helper = Xoopsmembers\Helper::getInstance();
 $helper->loadLanguage('common');
 $helper->loadLanguage('blocksadmin');

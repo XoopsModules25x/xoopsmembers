@@ -14,16 +14,16 @@ $result = $db->query('SELECT * FROM ' . $db->prefix('ranks') . ' ORDER BY rank_i
 $ranks = [];
 $sranks = [];
 
-while ( $rank = $db->fetchArray($result) ) {
+while ( false !== ($rank = $db->fetchArray($result))) {
     $i = $rank['rank_id'];
     if (0 == $rank['rank_special']){
         $ranks[$i]['title'] = $rank['rank_title'];
         $ranks[$i]['min'] = $rank['rank_min'];
         $ranks[$i]['max'] = $rank['rank_max'];
-        $ranks[$i]['image'] = ($rank['rank_image'] > '')?'<img src="'.XOOPS_URL.'/uploads/'.$rank['rank_image'].'" alt="" />':'&nbsp;';
+        $ranks[$i]['image'] = ($rank['rank_image'] > '')?'<img src="'.XOOPS_URL.'/uploads/'.$rank['rank_image'].'" alt="" >':'&nbsp;';
     } else {
         $sranks[$i]['title'] = $rank['rank_title'];
-        $sranks[$i]['image'] = ($rank['rank_image'] > '')?'<img src="'.XOOPS_URL.'/uploads/'.$rank['rank_image'].'" alt="" />':'&nbsp;';
+        $sranks[$i]['image'] = ($rank['rank_image'] > '')?'<img src="'.XOOPS_URL.'/uploads/'.$rank['rank_image'].'" alt="" >':'&nbsp;';
     }
 }
 $xoopsTpl->assign('ranks', $ranks);

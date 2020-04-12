@@ -1,6 +1,6 @@
 <{if $displaybreadcrumb == 1}>
     <div class="breadcrumb">
-        <a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="rank.php"><{$smarty.const._MD_XOOPSMEMBERS_USERRANK}></a>&nbsp;<br />
+        <a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="rank.php"><{$smarty.const._MD_XOOPSMEMBERS_USERRANK}></a>&nbsp;<br>
     </div>
 <{/if}>
 
