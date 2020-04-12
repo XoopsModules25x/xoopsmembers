@@ -102,8 +102,7 @@ function timeDifference($start,$end,$return='days') {
  */
 function memberslastlogin_edit($options)
 {
-    $form = '';
-    $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . '&nbsp;';
+    $form = _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . '&nbsp;';
     if (1 == $options[0]) {
         $chk = " checked='checked'";
     }

@@ -13,8 +13,8 @@ if (!defined('XOOPS_ROOT_PATH')) {
 function show_memberswelcome_block($options)
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule, $xoopsDB, $_SERVER;
-
     if (is_object($xoopsUser)) {
+        $block = [];
         $block['uid'] = $xoopsUser->getVar('uid');
         $realname     = $xoopsUser->getVar('name');
 
