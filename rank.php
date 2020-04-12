@@ -16,7 +16,7 @@ $sranks = [];
 
 while ( $rank = $db->fetchArray($result) ) {
     $i = $rank['rank_id'];
-    if ($rank['rank_special']==0){
+    if (0 == $rank['rank_special']){
         $ranks[$i]['title'] = $rank['rank_title'];
         $ranks[$i]['min'] = $rank['rank_min'];
         $ranks[$i]['max'] = $rank['rank_max'];
