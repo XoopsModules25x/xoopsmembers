@@ -54,6 +54,6 @@ define('_MD_XOOPSMEMBERS_LIMIT', 'Number of members per page');
 define('_MD_XOOPSMEMBERS_RESULTS', 'Search results');
 
 // 1.03
-define('_MD_XOOPSMEMBERS_MEMBERSLIST','Members List');
-define("_MD_XOOPSMEMBERS_LATESTMEMBER","Latest Member");
-define("_MD_XOOPSMEMBERS_WELCOMETO","Welcome to Members Directory");
+define('_MD_XOOPSMEMBERS_MEMBERSLIST', 'Members List');
+define("_MD_XOOPSMEMBERS_LATESTMEMBER", "Latest Member");
+define("_MD_XOOPSMEMBERS_WELCOMETO", "Welcome to Members Directory");

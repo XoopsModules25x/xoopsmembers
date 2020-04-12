@@ -1,0 +1,6 @@
+Credits
+===============
+
+Originally developed by John Neill, Kazumi Ono
+
+Version 1.03 was updated to XOOPS 2.5.10 and PHP 7 by Michael Beck (Mamba) and Liomj
