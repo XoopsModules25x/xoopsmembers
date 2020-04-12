@@ -27,7 +27,7 @@ define('_MD_XOOPSMEMBERS_REGDATE', 'Joined Date');
 define('_MD_XOOPSMEMBERS_EMAIL', 'Email');
 define('_MD_XOOPSMEMBERS_PM', 'PM');
 define('_MD_XOOPSMEMBERS_URL', 'URL');
-define('_MD_XOOPSMEMBERS_ADMIN', 'ADMIN');
+define('_MD_XOOPSMEMBERS_ADMIN', 'Admin');
 define('_MD_XOOPSMEMBERS_PREVIOUS', 'Previous');
 define('_MD_XOOPSMEMBERS_NEXT', 'Next');
 define('_MD_XOOPSMEMBERS_USERSFOUND', '%s member(s) found');
