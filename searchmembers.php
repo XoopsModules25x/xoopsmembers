@@ -198,7 +198,7 @@ if ('submit' == $op) {
         $foundusers = $member_handler->getUsers( $criteria, true );
         foreach ( array_keys( $foundusers ) as $j ) {
             $userdata['avatar'] = $foundusers[$j]->getVar('user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar('user_avatar' ) . '" alt="" />' : '&nbsp;';
-            $userdata['realname'] = $foundusers[$j]->getVar('name' ) ? $foundusers[$j]->getVar('name' ) : '&nbsp;';
+            $userdata['realname'] = $foundusers[$j]->getVar('name' ) ?: '&nbsp;';
             $userdata['name'] = $foundusers[$j]->getVar('uname' );
             $userdata['id'] = $foundusers[$j]->getVar('uid' );
             if (1 == $foundusers[$j]->getVar('user_viewemail' ) || $iamadmin ) {
