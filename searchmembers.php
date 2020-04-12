@@ -33,7 +33,7 @@ if ( $op == 'form' ) {
     $member_handler = xoops_getHandler( 'member' );
     $total = $member_handler->getUserCount( new Criteria( 'level', 0, '>' ) );
 
-    include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php";
+    include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 
     $form = new XoopsThemeForm( '', 'searchform', 'searchmembers.php' );
     $uname_text = new XoopsFormText( '', 'user_uname', 30, 60 );
@@ -197,38 +197,40 @@ if ( $op == 'submit' ) {
         $criteria->setLimit( $limit );
         $foundusers = $member_handler->getUsers( $criteria, true );
         foreach ( array_keys( $foundusers ) as $j ) {
-            $userdata["avatar"] = $foundusers[$j]->getVar( 'user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar( 'user_avatar' ) . '" alt="" />' : '&nbsp;';
-            $userdata["realname"] = $foundusers[$j]->getVar( 'name' ) ? $foundusers[$j]->getVar( 'name' ) : '&nbsp;';
-            $userdata["name"] = $foundusers[$j]->getVar( 'uname' );
-            $userdata["id"] = $foundusers[$j]->getVar( 'uid' );
+            $userdata['avatar'] = $foundusers[$j]->getVar('user_avatar' ) ? '<img src="' . XOOPS_UPLOAD_URL . '/' . $foundusers[$j]->getVar('user_avatar' ) . '" alt="" />' : '&nbsp;';
+            $userdata['realname'] = $foundusers[$j]->getVar('name' ) ? $foundusers[$j]->getVar('name' ) : '&nbsp;';
+            $userdata['name'] = $foundusers[$j]->getVar('uname' );
+            $userdata['id'] = $foundusers[$j]->getVar('uid' );
             if ( $foundusers[$j]->getVar( 'user_viewemail' ) == 1 || $iamadmin ) {
-                $userdata["email"] = '<a href="mailto:' . $foundusers[$j]->getVar( 'email' ) . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf( _SENDEMAILTO, $foundusers[$j]->getVar( 'uname', "e" ) ) . '" /></a>';
+                $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email' ) . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e') ) . '" /></a>';
             } else {
-                $userdata["email"] = '&nbsp;';
+                $userdata['email'] = '&nbsp;';
             }
             if ( $xoopsUser ) {
-                $userdata["pmlink"] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar( 'uid' ) . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf( _SENDPMTO, $foundusers[$j]->getVar( 'uname', "e" ) ) . '" /></a>';
+                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid' ) . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname',
+                                                                                                                                                                                                                                                                                                                 'e'
+                    ) ) . '" /></a>';
             } else {
-                $userdata["pmlink"] = '&nbsp;';
+                $userdata['pmlink'] = '&nbsp;';
             }
-            if ( $foundusers[$j]->getVar( 'url', "e" ) != '' ) {
-                $userdata["website"] = '<a href="' . $foundusers[$j]->getVar( 'url', "e" ) . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" /></a>';
+            if ( $foundusers[$j]->getVar('url', 'e') != '' ) {
+                $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" /></a>';
             } else {
-                $userdata["website"] = '&nbsp;';
+                $userdata['website'] = '&nbsp;';
             }
-            $userdata["registerdate"] = formatTimestamp( $foundusers[$j]->getVar( 'user_regdate' ), 's' );
+            $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate' ), 's' );
             if ( $foundusers[$j]->getVar( 'last_login' ) != 0 ) {
-                $userdata["lastlogin"] = formatTimestamp( $foundusers[$j]->getVar( 'last_login' ), "m" );
+                $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login' ), 'm');
             } else {
-                $userdata["lastlogin"] = '&nbsp;';
+                $userdata['lastlogin'] = '&nbsp;';
             }
-            $userdata["posts"] = $foundusers[$j]->getVar( 'posts' );
+            $userdata['posts'] = $foundusers[$j]->getVar('posts' );
             if ( $iamadmin ) {
-                $userdata["adminlink"] = '<a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;uid=' . $foundusers[$j]->getVar( 'uid' ) . '&amp;op=users_edit">' . '<img src='. $pathIcon16 .'/edit.png'." alt='" . _EDIT . "' title='" . _EDIT . "' />"
+                $userdata['adminlink'] = '<a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;uid=' . $foundusers[$j]->getVar('uid' ) . '&amp;op=users_edit">' . '<img src=' . $pathIcon16 . '/edit.png' . " alt='" . _EDIT . "' title='" . _EDIT . "' />"
 
-                . '</a> | <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar( 'uid' ) . '">' . '<img src='. $pathIcon16 .'/delete.png'." alt='" . _DELETE . "' title='" . _DELETE . "' />" . '</a>';
+                                         . '</a> | <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar( 'uid' ) . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' />" . '</a>';
             }
-            $xoopsTpl->append( "users", $userdata );
+            $xoopsTpl->append('users', $userdata );
         }
 
         $totalpages = ceil( $total / $limit );

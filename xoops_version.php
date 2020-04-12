@@ -26,12 +26,12 @@ $modversion = [
     'description'         => _MI_XM_MEMBERS_DESC,
     'author'              => 'John Neill, Kazumi Ono',
     'license'             => 'GNU GPL 2.0',
-    'license_url'         => "www.gnu.org/licenses/gpl-2.0.html",
+    'license_url'         => 'www.gnu.org/licenses/gpl-2.0.html',
     'help'                => 'page=help',
     'contributors'        => '',
     'credits'             => 'The Xoops Module Development Team',
     'version'             => 1.03,
-    'module_status'       => "Alpha",
+    'module_status'       => 'Alpha',
     'official'            => 1,
     'image' => 'assets/images/slogo.png',
     'dirname' => basename( dirname( __FILE__ ) ),
@@ -91,8 +91,8 @@ $modversion['templates'][] = [
 
 // Search
 $modversion['hasSearch'] = 1;
-$modversion['search']['file'] = "include/search.inc.php";
-$modversion['search']['func'] = "member_search";
+$modversion['search']['file'] = 'include/search.inc.php';
+$modversion['search']['func'] = 'member_search';
 
 
 // Config categories
