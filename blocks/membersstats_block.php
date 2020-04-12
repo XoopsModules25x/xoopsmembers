@@ -30,7 +30,7 @@ function show_membersstats_block($options) {
     $onlines = $online_handler->getAll();
     if (!empty($onlines)) {
         $total   = count($onlines);
-        $block   = array();
+        $block   = [];
         $guests  = 0;
         $members = '';
         for ($i = 0; $i < $total; ++$i) {

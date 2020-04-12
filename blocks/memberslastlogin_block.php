@@ -66,7 +66,7 @@ function timeDifference($start,$end,$return='days') {
             $time['seconds'] = $seconds;
     }
 
-    $output = array();
+    $output = [];
     if(is_array($time)) {
         $showSec = true;
         if(isset($time['hours']) && $time['hours'] > 0) {

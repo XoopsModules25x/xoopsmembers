@@ -11,8 +11,8 @@ global $xoopsModule;
 $db= XoopsDatabaseFactory::getDatabaseConnection();
 
 $result = $db->query("SELECT * FROM ".$db->prefix("ranks")." ORDER BY rank_id");
-$ranks = array();
-$sranks = array();
+$ranks = [];
+$sranks = [];
 
 while ( $rank = $db->fetchArray($result) ) {
     $i = $rank['rank_id'];
