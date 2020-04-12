@@ -1,5 +1,7 @@
 <{if $displaybreadcrumb == 1}>
-	<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="searchmembers.php"><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></a>&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_RESULTS}><br />
+	<div class="breadcrumb">
+		<a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="searchmembers.php"><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></a>&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_RESULTS}><br />
+	</div>
 <{/if}>
 <h4><{$smarty.const._MD_XOOPSMEMBERS_RESULTS}></h4>
 
@@ -9,67 +11,46 @@
 <table class="table table-striped table-hover">
   <thead>
   <tr>
-    <{if $displayavatar == 1}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_AVATAR}></th>
-	<{/if}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_UNAME}></th>
-    <{if $displayrealname == 1}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}></th>
-	<{/if}>
-	<{if $displayemail == 1}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></th>
-	<{/if}>
-	<{if $xoops_isuser AND $displaypm == 1}>
-		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_PM}></th>
-	<{/if}>
-    <{if $displayurl == 1}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_URL}></th>
-	<{/if}>
-    <{if $displayregdate == 1}>
-		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REGDATE}></th>
-	<{/if}>
-    <{if $displaylastlogin == 1}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}></th>
-	<{/if}>
-	<{if $displayposts == 1}>
-            <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_POSTS}></th>
-    <{/if}>
-    <{if $is_admin == true}>
-                <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_ADMIN}></th>
-    <{/if}>
+    <th bgcolor="#38a8e8"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></th>
   </tr>
   </thead>
   <tbody>
   <{section name=i loop=$users}>
   <tr>
+	<td>
+	<h5><a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].name}></a></h5>
     <{if $displayavatar == 1}>  
-		<td><{$users[i].avatar}></td>
+		<a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><img src='<{$xoops_url}>/uploads/<{$users[i].avatar}>' class='rounded-circle float-left' title='<{$users[i].name}>' alt='<{$users[i].name}>' style='padding:10px' width='100' height='100'></a>
 	<{/if}>
-	<td><a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].name}></a></td>
-    <{if $displayrealname == 1}>  
-		<td><{$users[i].realname}></td>
-	<{/if}>
-	<{if $displayemail == 1}>
-		<td align="center"><{$users[i].email}></td>
-    <{/if}>
-	<{if $xoops_isuser AND $displaypm == 1}>
-		<td align="center"><{$users[i].pmlink}></td>
-	<{/if}>
-	<{if $displayurl == 1}>
-		<td align="center"><{$users[i].website}></td>
+	<{if $displayrealname == 1 && $users[i].realname!=''}>  
+		<span class="text-muted"><b><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}> :</b> <a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].realname}></a></span>
 	<{/if}>
 	<{if $displayregdate == 1}>
-		<td align="center"><{$users[i].registerdate}></td>
-	<{/if}>
-	<{if $displaylastlogin == 1}>
-		<td align="center"><{$users[i].lastlogin}></td>
+		<br><span class='text-muted'><small><b><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSINCE}> :</b> <{$users[i].registerdate}></small></span>
 	<{/if}>
 	<{if $displayposts == 1}>
-		<td align="center"><{$users[i].posts}></td>
+		<span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_POSTS}> :</b> <{$users[i].posts}>  </small></span>
     <{/if}>
-	<{if $is_admin == true}>
-		<td align="center"><{$users[i].adminlink}></td>
+	<{if $displaylastlogin == 1 && $users[i].lastlogin!='0'}>
+		<span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}> :</b> <{$users[i].lastlogin}></small></span>
+	<{else}>	
+	    <span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}> :</b> <{$smarty.const._MD_XOOPSMEMBERS_NEVERLOGIN}> </b></small></span>
 	<{/if}>
+	<br>
+	<{if $displayemail == 1}>
+		<{$users[i].email}>
+    <{/if}>
+	<{if $xoops_isuser AND $displaypm == 1}>
+		<{$users[i].pmlink}>
+	<{/if}>
+	<{if $displayurl == 1}>
+		<{$users[i].website}>
+	<{/if}>
+	
+	<{if $is_admin == true}>
+		<p class="float-right"><br><{$users[i].adminlink}></p>
+	<{/if}>
+  </td>
   </tr>
   <{/section}> 
   </tbody>
