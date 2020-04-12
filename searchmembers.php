@@ -21,7 +21,6 @@
 require_once  __DIR__ . '/header.php';
 
 global $xoopsModule;
-$pathIcon16 = $xoopsModule->getInfo('icons16');
 
 $op = (isset($_POST['op']) && 'submit' == $_POST['op']) ? 'submit' : 'form';
 

@@ -24,8 +24,6 @@ require_once  __DIR__ . '/header.php';
 
 global $xoopsModule;
 
-$pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
-
 /** @var \XoopsMemberHandler $memberHandler */
 $memberHandler = xoops_getHandler('member');
     $total     = $memberHandler->getUserCount( new Criteria( 'level', 0, '>' ) );

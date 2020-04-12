@@ -28,6 +28,8 @@ $moduleDirName = basename(__DIR__);
 /** @var \XoopsModules\Xoopsmembers\Helper $helper */
 $helper = \XoopsModules\Xoopsmembers\Helper::getInstance();
 
+$pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
+
 $modulePath = XOOPS_ROOT_PATH . '/modules/' . $moduleDirName;
 
 $myts = \MyTextSanitizer::getInstance();
