@@ -1,5 +1,6 @@
 <h5>1.04 Alpha 2  [2020-04-11]</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
 <hr>
+- Update Index and Search template to Bootstrap 4 based on xswatch4 theme (liomj)
 - Add Rank List Page from Membership 2.3 Module (liomj)
 - Add Last Logon Member Block (liomj)
 - Add Membership Statistic Blocks (liomj)
