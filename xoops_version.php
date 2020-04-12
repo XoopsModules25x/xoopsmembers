@@ -317,7 +317,7 @@ $modversion['config'][] = [
     'description' => '_MI_XOOPSMEMBERS_DISPLAYPOSTS_DSC',
     'formtype'    => 'yesno',
     'valuetype'   => 'int',
-    'default'     => 0,
+    'default'     => 1,
     'category'    => 'indexsearch',
 ];
 
