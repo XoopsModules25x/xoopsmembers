@@ -46,7 +46,7 @@ function show_membersstats_block($options) {
             $block['online_total'] .= ' (' . sprintf(_ONLINEPHRASEX, $mytotal, $xoopsModule->getVar('name')) . ')';
         }
         // Membership Statistic
-        $member_handler =xoops_gethandler('member');
+        $member_handler =xoops_getHandler('member');
         $today = formatTimestamp(time());
         $level_criteria = new Criteria('level', 0, '>');
         $criteria = new CriteriaCompo($level_criteria);
