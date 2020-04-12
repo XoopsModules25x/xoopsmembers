@@ -26,7 +26,7 @@ function member_search($queryarray, $andor, $limit, $offset, $userid)
     }
     $sql .= ' ORDER BY uname,name ASC';
 
-    $result = $GLOBALS['xoopsDB']->query($sql, intval($limit), intval($offset));
+    $result = $GLOBALS['xoopsDB']->query($sql, (int)$limit, (int)$offset);
     $ret    = [];
     $i      = 0;
     while ($myrow = $GLOBALS['xoopsDB']->fetchArray($result)) {
