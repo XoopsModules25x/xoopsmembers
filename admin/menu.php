@@ -20,8 +20,8 @@
 
 use XoopsModules\Xoopsmembers;
 
-// require_once  dirname(__DIR__) . '/class/Helper.php';
-//require_once  dirname(__DIR__) . '/include/common.php';
+include dirname(__DIR__) . '/preloads/autoloader.php';
+
 /** @var \Xoopsmembers\Helper $helper */
 $helper = Xoopsmembers\Helper::getInstance();
 $helper->loadLanguage('common');
