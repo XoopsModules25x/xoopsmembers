@@ -8,4 +8,4 @@ Install
 2. From the Module admin, select the module and install it.
 
 
-Xoops Module Development Team
+XOOPS Module Development Team

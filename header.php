@@ -28,6 +28,8 @@ $moduleDirName = basename(__DIR__);
 /** @var \XoopsModules\Xoopsmembers\Helper $helper */
 $helper = \XoopsModules\Xoopsmembers\Helper::getInstance();
 
+$pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
+
 $modulePath = XOOPS_ROOT_PATH . '/modules/' . $moduleDirName;
 
 $myts = \MyTextSanitizer::getInstance();
@@ -44,4 +46,3 @@ if (!isset($GLOBALS['xoopsTpl']) || !($GLOBALS['xoopsTpl'] instanceof XoopsTpl))
     require $GLOBALS['xoops']->path('class/template.php');
     $xoopsTpl = new XoopsTpl();
 }
-
