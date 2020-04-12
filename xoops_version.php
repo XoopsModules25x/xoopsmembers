@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Name: xoops_version.php
  * Description:
@@ -10,16 +11,16 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright The XOOPS Project http://sourceforge.net/projects/xoops/
- * @license http://www.fsf.org/copyleft/gpl.html GNU public license
- * @package : XOOPS
- * @Module :
+ * @copyright  The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @license    http://www.fsf.org/copyleft/gpl.html GNU public license
+ * @package    : XOOPS
+ * @Module     :
  * @subpackage :
- * @since 2.3.0
- * @author John Neill
- * @version $Id: xoops_version.php 11483 2013-04-30 08:14:19Z beckmi $
+ * @since      2.3.0
+ * @author     John Neill
+ * @version    $Id: xoops_version.php 11483 2013-04-30 08:14:19Z beckmi $
  */
-defined( 'XOOPS_ROOT_PATH' ) or die( 'Restricted access' );
+defined('XOOPS_ROOT_PATH') or die('Restricted access');
 
 $modversion = [
     'name'                => _MI_XM_MEMBERS_NAME,
@@ -33,11 +34,11 @@ $modversion = [
     'version'             => 1.03,
     'module_status'       => 'Alpha',
     'official'            => 1,
-    'image' => 'assets/images/slogo.png',
-    'dirname' => basename(__DIR__),
-    'dirmoduleadmin' => '/Frameworks/moduleclasses/moduleadmin',
-    'icons16' =>  '../../Frameworks/moduleclasses/icons/16',
-    'icons32'             =>  '../../Frameworks/moduleclasses/icons/32',
+    'image'               => 'assets/images/slogo.png',
+    'dirname'             => basename(__DIR__),
+    'dirmoduleadmin'      => '/Frameworks/moduleclasses/moduleadmin',
+    'icons16'             => '../../Frameworks/moduleclasses/icons/16',
+    'icons32'             => '../../Frameworks/moduleclasses/icons/32',
 
     //about
     'author_website_url'  => 'https://www.xoops.org',
@@ -47,57 +48,56 @@ $modversion = [
     'release_date'        => '2020',
     'min_php'             => '7.3.0',
     'min_xoops'           => '2.5.10',
-    'min_db'              => ['mysql' =>'5.6', 'mysqli' =>'5.6'],
-    'min_admin'           => '1.2'
+    'min_db'              => ['mysql' => '5.6', 'mysqli' => '5.6'],
+    'min_admin'           => '1.2',
 ];
 
 /**
  * Module Admin
  */
-$modversion['hasAdmin'] = 1;
+$modversion['hasAdmin']    = 1;
 $modversion['system_menu'] = 1;
-$modversion['adminindex'] = 'admin/index.php';
-$modversion['adminmenu'] = 'admin/menu.php';
+$modversion['adminindex']  = 'admin/index.php';
+$modversion['adminmenu']   = 'admin/menu.php';
 /**
  * Module Main Main
  */
-$modversion['hasMain']             = 1;
-$modversion['sub']                 = [
-        [
-            'name' => _MI_XM_MEMBERSLIST,
-            'url'  => 'index.php',
-        ],
-		[
-            'name' => _MI_XM_ADVANCEDSEARCH,
-            'url'  => 'searchmembers.php',
-        ]
-    ];
+$modversion['hasMain'] = 1;
+$modversion['sub']     = [
+    [
+        'name' => _MI_XM_MEMBERSLIST,
+        'url'  => 'index.php',
+    ],
+    [
+        'name' => _MI_XM_ADVANCEDSEARCH,
+        'url'  => 'searchmembers.php',
+    ],
+];
 
 /**
  * Module Templates
  */
 $modversion['templates'][] = [
     'file'        => 'xoopsmembers_index.tpl',
-    'description' => ''
+    'description' => '',
 ];
 $modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchform.tpl',
-    'description' => ''
+    'description' => '',
 ];
 $modversion['templates'][] = [
     'file'        => 'xoopsmembers_searchresults.tpl',
-    'description' => ''
+    'description' => '',
 ];
 
 // Search
-$modversion['hasSearch'] = 1;
+$modversion['hasSearch']      = 1;
 $modversion['search']['file'] = 'include/search.inc.php';
 $modversion['search']['func'] = 'member_search';
 
-
 // Config categories
 
-$modversion['configcat']['index']      = [
+$modversion['configcat']['index'] = [
     'name'        => _MI_XM_CONFCAT_INDEX,
     'description' => _MI_XM_CONFCAT_INDEX_DSC,
 ];
@@ -133,13 +133,13 @@ $modversion['config'][] = [
     'valuetype'   => 'text',
     'default'     => 'uname',
     'options'     => [
-        _MI_XM_UNAME      => 'uname',
-		_MI_XM_REALNAME   => 'name',
-        _MI_XM_LASTLOGIN  => 'last_login',
-        _MI_XM_REGDATE    => 'user_regdate',
-        _MI_XM_POSTS      => 'posts',
+        _MI_XM_UNAME     => 'uname',
+        _MI_XM_REALNAME  => 'name',
+        _MI_XM_LASTLOGIN => 'last_login',
+        _MI_XM_REGDATE   => 'user_regdate',
+        _MI_XM_POSTS     => 'posts',
     ],
-    'category'    => 'index'	
+    'category'    => 'index',
 ];
 
 $modversion['config'][] = [
@@ -150,8 +150,8 @@ $modversion['config'][] = [
     'valuetype'   => 'text',
     'default'     => 'ASC',
     'options'     => [
-        _MI_XM_ASC      => 'ASC',
-		_MI_XM_DESC     => 'DESC',    
-	],
-    'category'    => 'index'	
+        _MI_XM_ASC  => 'ASC',
+        _MI_XM_DESC => 'DESC',
+    ],
+    'category'    => 'index',
 ];
