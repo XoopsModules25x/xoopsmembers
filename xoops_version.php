@@ -106,6 +106,12 @@ $modversion['configcat']['index'] = [
     'description' => _MI_XOOPSMEMBERS_CONFCAT_INDEX_DSC,
 ];
 
+$modversion['configcat']['indexsearch']      = [
+    'name'        => _MI_XOOPSMEMBERS_CONFCAT_INDEXSEARCH,
+    'description' => _MI_XOOPSMEMBERS_CONFCAT_INDEXSEARCH_DSC,
+];
+
+
 //Configs
 
 // group header
@@ -158,4 +164,129 @@ $modversion['config'][] = [
         _MI_XOOPSMEMBERS_ORDER_DESC => 'DESC',
     ],
     'category'    => 'index',
+];
+
+
+
+// group header
+$modversion['config'][] = [
+    'name'        => 'indexsearch_configs',
+    'title'       => '_MI_XOOPSMEMBERS_CONFCAT_INDEXSEARCHPAGE',
+    'description' => '_MI_XOOPSMEMBERS_CONFCAT_INDEXSEARCHPAGEDSC',
+    'formtype'    => 'line_break',
+    'valuetype'   => 'textbox',
+    'default'     => 'even',
+    'category'    => 'group_header',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayavatar',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYAVATAR',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYAVATAR_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayrealname',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYREALNAME',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYREALNAME_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayemail',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYEMAIL',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYEMAIL_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaypm',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYPM',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYPM_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displayurl',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYURL',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYURL_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displayregdate',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYREGDATE',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYREGDATE_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayfrom',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYFROM',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYFROM_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayposts',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYPOSTS',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYPOSTS_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaylastlogin',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYLASTLOGIN',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYLASTLOGIN_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayoccupation',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYOCC',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYOCC_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayinterest',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYINTEREST',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYINTEREST_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
 ];

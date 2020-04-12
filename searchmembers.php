@@ -42,30 +42,48 @@ if ('form' == $op) {
     $uname_tray->addElement($uname_text);
     $form->addElement($uname_tray);
 
+    if (1 == $xoopsModuleConfig['displayrealname']){
     $name_text  = new XoopsFormText('', 'user_name', 30, 60);
     $name_match = new XoopsFormSelectMatchOption('', 'user_name_match');
     $name_tray  = new XoopsFormElementTray(_MD_XOOPSMEMBERS_REALNAME, '&nbsp;');
     $name_tray->addElement($name_match);
     $name_tray->addElement($name_text);
     $form->addElement($name_tray);
+    }
 
+	if (1 == $xoopsModuleConfig['displayemail']){
     $email_text  = new XoopsFormText('', 'user_email', 30, 60);
     $email_match = new XoopsFormSelectMatchOption('', 'user_email_match');
     $email_tray  = new XoopsFormElementTray(_MD_XOOPSMEMBERS_EMAIL, '&nbsp;');
     $email_tray->addElement($email_match);
     $email_tray->addElement($email_text);
     $form->addElement($email_tray);
+    }
 
+	if (1 == $xoopsModuleConfig['displayurl']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_URLC, 'user_url', 30, 100));
+    }
+	if (1 == $xoopsModuleConfig['displayfrom']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_LOCATION, 'user_from', 30, 100));
+	}
+	if (1 == $xoopsModuleConfig['displayoccupation']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATION, 'user_occ', 30, 100));
+	}
+	if (1 == $xoopsModuleConfig['displayinterest']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_INTEREST, 'user_intrest', 30, 100));
+	}
+	if (1 == $xoopsModuleConfig['displaylastlogin']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGMORE, 'user_lastlog_more', 10, 5));
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGLESS, 'user_lastlog_less', 10, 5));
+	}
+	if (1 == $xoopsModuleConfig['displayregdate']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_REGMORE, 'user_reg_more', 10, 5));
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_REGLESS, 'user_reg_less', 10, 5));
+	}
+	if (1 == $xoopsModuleConfig['displayposts']){
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_POSTSMORE, 'user_posts_more', 10, 5));
     $form->addElement(new XoopsFormText(_MD_XOOPSMEMBERS_POSTSLESS, 'user_posts_less', 10, 5));
+	}
 
     $sort_select = new XoopsFormSelect(_MD_XOOPSMEMBERS_SORT, 'user_sort');
     $sort_select->addOptionArray(['uname' => _MD_XOOPSMEMBERS_UNAME, 'name' => _MD_XOOPSMEMBERS_REALNAME, 'last_login' => _MD_XOOPSMEMBERS_LASTLOGIN, 'user_regdate' => _MD_XOOPSMEMBERS_REGDATE, 'posts' => _MD_XOOPSMEMBERS_POSTS]);
@@ -206,13 +224,7 @@ if ('submit' == $op) {
                 $userdata['email'] = '&nbsp;';
             }
             if ($xoopsUser) {
-                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(
-                        _SENDPMTO,
-                        $foundusers[$j]->getVar(
-                            'uname',
-                            'e'
-                        )
-                    ) . '" /></a>';
+                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '" /></a>';
             } else {
                 $userdata['pmlink'] = '&nbsp;';
             }
@@ -279,6 +291,7 @@ if ('submit' == $op) {
     }
 }
 
+include 'footer.php';
 include_once XOOPS_ROOT_PATH . '/footer.php';
 exit();
 
