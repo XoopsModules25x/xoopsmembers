@@ -39,10 +39,8 @@
     <{if $displayposts == 1}>
         <span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_POSTS}> :</b> <{$users[i].posts}>  </small></span>
     <{/if}>
-    <{if $displaylastlogin == 1 && $users[i].lastlogin!='0'}>
+    <{if $displaylastlogin == 1}>
         <span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}> :</b> <{$users[i].lastlogin}></small></span>
-    <{else}>
-        <span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}> :</b> <{$smarty.const._MD_XOOPSMEMBERS_NEVERLOGIN}> </b></small></span>
     <{/if}>
     <br>
     <{if $displayemail == 1}>
