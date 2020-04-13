@@ -119,7 +119,7 @@ $('#memberslist').DataTable({
     "paginate": {
         "first":      "<{$smarty.const._MD_XOOPSMEMBERS_DTFIRST}>",
         "last":       "<{$smarty.const._MD_XOOPSMEMBERS_DTLAST}>",
-        "next":       "1<{$smarty.const._MD_XOOPSMEMBERS_DTNEXT}>",
+        "next":       "<{$smarty.const._MD_XOOPSMEMBERS_DTNEXT}>",
         "previous":   "<{$smarty.const._MD_XOOPSMEMBERS_DTPREVIOUS}>"
     },
     "aria": {
