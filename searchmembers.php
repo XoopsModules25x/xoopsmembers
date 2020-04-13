@@ -236,7 +236,7 @@ if ('submit' == $op) {
             if (0 != $foundusers[$j]->getVar('last_login')) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');
             } else {
-                $userdata['lastlogin'] = '&nbsp;';
+                $userdata['lastlogin'] = _MD_XOOPSMEMBERS_NEVERLOGIN;
             }
             $userdata['posts'] = $foundusers[$j]->getVar('posts');
             if ($iamadmin) {
