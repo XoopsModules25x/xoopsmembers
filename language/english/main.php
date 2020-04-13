@@ -46,8 +46,8 @@ define('_MD_XOOPSMEMBERS_POSTSMORE', 'Number of Posts is greater than <span styl
 define('_MD_XOOPSMEMBERS_POSTSLESS', 'Number of Posts is less than <span style=\'color:#ff0000;\'>X</span>');
 define('_MD_XOOPSMEMBERS_SORT', 'Sort by');
 define('_MD_XOOPSMEMBERS_ORDER', 'Order');
-define('_MD_XOOPSMEMBERS_LASTLOGIN', 'Last login');
-define('_MD_XOOPSMEMBERS_POSTS', 'Number of posts');
+define('_MD_XOOPSMEMBERS_LASTLOGIN', 'Last Login');
+define('_MD_XOOPSMEMBERS_POSTS', 'Number of Posts');
 define('_MD_XOOPSMEMBERS_ASC', 'Ascending order');
 define('_MD_XOOPSMEMBERS_DESC', 'Descending order');
 define('_MD_XOOPSMEMBERS_LIMIT', 'Number of members per page');
@@ -62,7 +62,7 @@ define('_MD_XOOPSMEMBERS_MEMBERSINCE', 'Member Since');
 define('_MD_XOOPSMEMBERS_LOCATION', 'Location');
 define('_MD_XOOPSMEMBERS_OCCUPATION', 'Occupation');
 define('_MD_XOOPSMEMBERS_INTEREST', 'Interest');
-
+define('_MD_XOOPSMEMBERS_CONTACT', 'Contact');
 
 //rank.php
 define('_MD_XOOPSMEMBERS_USERRANK', 'Members Rank');
@@ -73,3 +73,27 @@ define('_MD_XOOPSMEMBERS_MINPOST', 'Minimum Post');
 define('_MD_XOOPSMEMBERS_MAXPOST', 'Maximum Post');
 define('_MD_XOOPSMEMBERS_IMAGE', 'Image');
 
+//Data Tables
+define('_MD_XOOPSMEMBERS_DTDECIMAL','');
+define('_MD_XOOPSMEMBERS_DTEMPTYTABLE','No data available in table');
+define('_MD_XOOPSMEMBERS_DTINFOSHOWING','Showing');
+define('_MD_XOOPSMEMBERS_DTINFOTO','to');
+define('_MD_XOOPSMEMBERS_DTINFOOF','of');
+define('_MD_XOOPSMEMBERS_DTINFOENTRIES','entries');
+define('_MD_XOOPSMEMBERS_DTINFOEMPTY','Showing 0 to 0 of 0 entries');
+define('_MD_XOOPSMEMBERS_DTINFOFILTEREDFROM','filtered from');
+define('_MD_XOOPSMEMBERS_DTINFOFILTEREDTOTALENTRIES','total entries');
+define('_MD_XOOPSMEMBERS_DTINFOPOSTFIX','');
+define('_MD_XOOPSMEMBERS_DTTHOUSANDS',',');
+define('_MD_XOOPSMEMBERS_DTLENGTHMENUSHOW','Show');
+define('_MD_XOOPSMEMBERS_DTLENGTHMENUENTRIES','entries');
+define('_MD_XOOPSMEMBERS_DTLOADINGRECORDS','Loading...');
+define('_MD_XOOPSMEMBERS_DTPROCESSING','Processing...');
+define('_MD_XOOPSMEMBERS_DTSEARCH','Search');
+define('_MD_XOOPSMEMBERS_DTZERORECORDS','No matching records found');
+define('_MD_XOOPSMEMBERS_DTFIRST','First');
+define('_MD_XOOPSMEMBERS_DTLAST','Last');
+define('_MD_XOOPSMEMBERS_DTNEXT','Next');
+define('_MD_XOOPSMEMBERS_DTPREVIOUS','Previous');
+define('_MD_XOOPSMEMBERS_DTSORTASCENDING',': activate to sort column ascending');
+define('_MD_XOOPSMEMBERS_DTSORTDESCENSING',': activate to sort column descending');

@@ -29,3 +29,5 @@ $xoopsTpl->assign('displaylatestmember', $xoopsModuleConfig['displaylatestmember
 $xoopsTpl->assign('displaywelcomemessage', $xoopsModuleConfig['displaywelcomemessage']);
 $xoopsTpl->assign('displaybreadcrumb', $xoopsModuleConfig['displaybreadcrumb']);
 $xoopsTpl->assign('displaytotalmember', $xoopsModuleConfig['displaytotalmember']);
+$xoopsTpl->assign('membersperpage', $xoopsModuleConfig['membersperpage']);
+$xoopsTpl->assign('indextemplate', $xoopsModuleConfig['indextemplate']);

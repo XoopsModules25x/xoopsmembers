@@ -219,19 +219,13 @@ if ('submit' == $op) {
             $userdata['id']       = $foundusers[$j]->getVar('uid');
             if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
                 $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '" ></a>';
-            } else {
-                $userdata['email'] = '&nbsp;';
-            }
+            } 
             if ($xoopsUser) {
                 $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '" ></a>';
-            } else {
-                $userdata['pmlink'] = '&nbsp;';
-            }
+            } 
             if ('' != $foundusers[$j]->getVar('url', 'e')) {
                 $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" ></a>';
-            } else {
-                $userdata['website'] = '&nbsp;';
-            }
+            } 
             $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
             if (0 != $foundusers[$j]->getVar('last_login')) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');

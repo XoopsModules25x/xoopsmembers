@@ -76,7 +76,7 @@ $modversion['sub']     = [
         'name' => _MI_XOOPSMEMBERS_ADVANCEDSEARCH,
         'url'  => 'searchmembers.php',
     ],
-        [
+    [
         'name' => _MI_XOOPSMEMBERS_USERRANK,
         'url'  => 'rank.php',
     ],
@@ -90,6 +90,7 @@ $modversion['templates'] = [
     ['file' => 'xoopsmembers_searchform.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchresults.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_rank.tpl', 'description' => ''],
+	['file' => 'xoopsmembers_datatables_basic.tpl', 'description' => ''],
 ];
 // Search
 $modversion['hasSearch']      = 1;
@@ -193,7 +194,19 @@ $modversion['config'][] = [
     'category'    => 'index',
 ];
 
-
+$modversion['config'][] = [
+    'name'        => 'indextemplate',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXTEMPSTYLE',
+    'description' => '_MI_XOOPSMEMBERS_INDEXTEMPSTYLE_DSC',
+    'formtype'    => 'select',
+    'valuetype'   => 'text',
+    'default'     => 'normal',
+    'options'     => [
+        _MI_XOOPSMEMBERS_NORMALTEMPLATE  => 'normal',
+        _MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE => 'datatables1',
+    ],
+    'category'    => 'index',
+];
 
 // group header
 $modversion['config'][] = [

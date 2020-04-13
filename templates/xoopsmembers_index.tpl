@@ -15,6 +15,8 @@
          &nbsp;&nbsp;<b><{$smarty.const._MD_XOOPSMEMBERS_LATESTMEMBER}>:</b> <{$latestmember}> <br><br>
     <{/if}>
   
+  <{if $indextemplate == 'normal'}>
+  
 <div class="table-responsive">
 <table class="table table-striped table-hover">
   <thead>
@@ -72,5 +74,8 @@
   </tbody>
 </table>
 </div>
-<br>
-<{$pagenav}>
+<{$pagenav}><br>
+
+<{else}>
+<{include file='db:xoopsmembers_datatables_basic.tpl'}>
+<{/if}>

@@ -65,8 +65,7 @@
   </tbody>
 </table>
 </div>
-<br>
-  <{$pagenav}>
+  <{$pagenav}><br>
 <{else}>
     <{$smarty.const._MD_XOOPSMEMBERS_NOFOUND}>
 <{/if}>
