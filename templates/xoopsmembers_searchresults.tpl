@@ -25,9 +25,20 @@
     <{if $displayrealname == 1 && $users[i].realname!=''}>
         <span class="text-muted"><b><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}> :</b> <a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].realname}></a></span>
     <{/if}>
+	<{if $displayfrom == 1 && $users[i].location!=''}>
+        <br><span class='text-muted'><small><b><{$smarty.const._MD_XOOPSMEMBERS_LOCATION}> :</b> <{$users[i].location}></small></span>
+    <{/if}>
+    <{if $displayoccupation == 1 && $users[i].occupation!=''}>
+        <span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_OCCUPATION}> :</b> <{$users[i].occupation}>  </small></span>
+    <{/if}>
+    <{if $displayinterest == 1 && $users[i].interest!=''}>
+        <br><span class='text-muted'><small> <b><{$smarty.const._MD_XOOPSMEMBERS_INTEREST}> :</b> <{$users[i].interest}></small></span>
+    <{/if}>
+    <br>
     <{if $displayregdate == 1}>
         <br><span class='text-muted'><small><b><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSINCE}> :</b> <{$users[i].registerdate}></small></span>
     <{/if}>
+
     <{if $displayposts == 1}>
         <span class='text-muted'><small> | <b><{$smarty.const._MD_XOOPSMEMBERS_POSTS}> :</b> <{$users[i].posts}>  </small></span>
     <{/if}>

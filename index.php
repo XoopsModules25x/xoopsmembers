@@ -98,6 +98,10 @@ if (0 == $total) {
 
                                      . '</a> <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "'>" . '</a>';
         }
+		
+		$userdata['location']       = $foundusers[$j]->getVar('user_from');
+		$userdata['occupation']     = $foundusers[$j]->getVar('user_occ');
+		$userdata['interest']       = $foundusers[$j]->getVar('user_intrest');
         $xoopsTpl->append('users', $userdata);
     }
 
