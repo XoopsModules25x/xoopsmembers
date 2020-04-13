@@ -24,7 +24,7 @@ require_once __DIR__ . '/header.php';
 //global $pathIcon16;
 
 global $xoopsModule;
-if ('datatables' == $xoopsModuleConfig['indextemplate']) {
+if ('datatables1' == $xoopsModuleConfig['indextemplate']) {
 	$xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/css/jquery.dataTables.css');
 	$xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/jquery.dataTables.js');
 }

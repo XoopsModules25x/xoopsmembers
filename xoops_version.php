@@ -90,7 +90,7 @@ $modversion['templates'] = [
     ['file' => 'xoopsmembers_searchform.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchresults.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_rank.tpl', 'description' => ''],
-	['file' => 'xoopsmembers_datatables.tpl', 'description' => ''],
+	['file' => 'xoopsmembers_datatables_basic.tpl', 'description' => ''],
 ];
 // Search
 $modversion['hasSearch']      = 1;
@@ -203,7 +203,7 @@ $modversion['config'][] = [
     'default'     => 'normal',
     'options'     => [
         _MI_XOOPSMEMBERS_NORMALTEMPLATE  => 'normal',
-        _MI_XOOPSMEMBERS_DATATABLESTEMPLATE => 'datatables',
+        _MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE => 'datatables1',
     ],
     'category'    => 'index',
 ];
