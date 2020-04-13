@@ -90,6 +90,7 @@ $modversion['templates'] = [
     ['file' => 'xoopsmembers_searchform.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchresults.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_rank.tpl', 'description' => ''],
+	['file' => 'xoopsmembers_datatable.tpl', 'description' => ''],
 ];
 // Search
 $modversion['hasSearch']      = 1;
