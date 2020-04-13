@@ -76,7 +76,7 @@ $modversion['sub']     = [
         'name' => _MI_XOOPSMEMBERS_ADVANCEDSEARCH,
         'url'  => 'searchmembers.php',
     ],
-        [
+    [
         'name' => _MI_XOOPSMEMBERS_USERRANK,
         'url'  => 'rank.php',
     ],
@@ -193,7 +193,19 @@ $modversion['config'][] = [
     'category'    => 'index',
 ];
 
-
+$modversion['config'][] = [
+    'name'        => 'indextemplate',
+    'title'       => '_MI_XOOPSMEMBERS_INDEXTEMPSTYLE',
+    'description' => '_MI_XOOPSMEMBERS_INDEXTEMPSTYLE_DSC',
+    'formtype'    => 'select',
+    'valuetype'   => 'text',
+    'default'     => 'normal',
+    'options'     => [
+        _MI_XOOPSMEMBERS_NORMALTEMPLATE  => 'normal',
+        _MI_XOOPSMEMBERS_DATATABLETEMPLATE => 'datatable',
+    ],
+    'category'    => 'index',
+];
 
 // group header
 $modversion['config'][] = [

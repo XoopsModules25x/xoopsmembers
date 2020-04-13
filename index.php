@@ -18,11 +18,16 @@
  * @author    John Neill
  */
 
-$xoopsOption['template_main'] = 'xoopsmembers_index.tpl';
+$xoopsOption['template_main'] = 'xoopsmembers_index.tpl'; 
 require_once __DIR__ . '/header.php';
+ 
 //global $pathIcon16;
 
 global $xoopsModule;
+if ('datatable' == $xoopsModuleConfig['indextemplate']) {
+	$xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/css/jquery.dataTables.css');
+	$xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/jquery.dataTables.js');
+}
 
 /** @var \XoopsMemberHandler $memberHandler */
 $memberHandler = xoops_getHandler('member');
@@ -41,18 +46,19 @@ $sort = (!in_array($xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' :
 $order = 'ASC';
 //$temp  = $helper->getModule()->getInfo('membersorder');
 //temp solution
-if ( isset( $xoopsModuleConfig['membersorder'] ) && $xoopsModuleConfig['membersorder'] == 'DESC' ) {
+if ( isset($xoopsModuleConfig['membersorder']) && $xoopsModuleConfig['membersorder'] == 'DESC' ) {
 //if (isset($temp) && 'DESC' == $temp) {
     $order = 'DESC';
 }
 
+if ('normal' == $xoopsModuleConfig['indextemplate']) {
 //temp solution
 $limit = (!empty($xoopsModuleConfig['membersperpage'])) ? intval($xoopsModuleConfig['membersperpage']) : 20;
 //$limit = \Xmf\Request::getInt('limit', 20, 'POST');
 if (0 == $limit || $limit > 50) {
     $limit = 50;
 }
-
+}
 $start = \Xmf\Request::getInt('start', 0, 'POST');
 $total = $memberHandler->getUserCount($criteria);
 $xoopsTpl->assign('totalmember', $total);
@@ -71,7 +77,8 @@ if (0 == $total) {
     $criteria->setSort($sort);
     $criteria->setOrder($order);
     $criteria->setStart($start);
-    $criteria->setLimit($limit);
+    if ('normal' == $xoopsModuleConfig['indextemplate']) {
+    $criteria->setLimit($limit); }
     $foundusers = $memberHandler->getUsers($criteria, true);
     foreach (array_keys($foundusers) as $j) {
         $userdata['avatar']   = $foundusers[$j]->getVar('user_avatar');
@@ -80,18 +87,12 @@ if (0 == $total) {
         $userdata['id']       = $foundusers[$j]->getVar('uid');
         if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
             $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-        } else {
-            $userdata['email'] = '&nbsp;';
         }
         if ($xoopsUser) {
             $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-        } else {
-            $userdata['pmlink'] = '&nbsp;';
-        }
+        } 
         if ('' != $foundusers[$j]->getVar('url', 'e')) {
             $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
-        } else {
-            $userdata['website'] = '&nbsp;';
         }
         $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
         if (0 != $foundusers[$j]->getVar('last_login')) {
@@ -111,7 +112,7 @@ if (0 == $total) {
 		$userdata['interest']       = $foundusers[$j]->getVar('user_intrest');
         $xoopsTpl->append('users', $userdata);
     }
-
+  if ('normal' == $xoopsModuleConfig['indextemplate']) {
     $totalpages = ceil($total / $limit);
     if ($totalpages > 1) {
         $hiddenform = '<form name="findnext" action="index.php" method="post">';
@@ -152,6 +153,7 @@ if (0 == $total) {
         $xoopsTpl->assign('pagenav', $hiddenform);
         $xoopsTpl->assign('lang_numfound', sprintf(_MD_XOOPSMEMBERS_USERSFOUND, $total));
     }
+  }
 }
 
 require __DIR__ . '/footer.php';

@@ -46,8 +46,8 @@ define('_MD_XOOPSMEMBERS_POSTSMORE', 'Number of Posts is greater than <span styl
 define('_MD_XOOPSMEMBERS_POSTSLESS', 'Number of Posts is less than <span style=\'color:#ff0000;\'>X</span>');
 define('_MD_XOOPSMEMBERS_SORT', 'Sort by');
 define('_MD_XOOPSMEMBERS_ORDER', 'Order');
-define('_MD_XOOPSMEMBERS_LASTLOGIN', 'Last login');
-define('_MD_XOOPSMEMBERS_POSTS', 'Number of posts');
+define('_MD_XOOPSMEMBERS_LASTLOGIN', 'Last Login');
+define('_MD_XOOPSMEMBERS_POSTS', 'Number of Posts');
 define('_MD_XOOPSMEMBERS_ASC', 'Ascending order');
 define('_MD_XOOPSMEMBERS_DESC', 'Descending order');
 define('_MD_XOOPSMEMBERS_LIMIT', 'Number of members per page');
@@ -62,7 +62,7 @@ define('_MD_XOOPSMEMBERS_MEMBERSINCE', 'Member Since');
 define('_MD_XOOPSMEMBERS_LOCATION', 'Location');
 define('_MD_XOOPSMEMBERS_OCCUPATION', 'Occupation');
 define('_MD_XOOPSMEMBERS_INTEREST', 'Interest');
-
+define('_MD_XOOPSMEMBERS_CONTACT', 'Contact');
 
 //rank.php
 define('_MD_XOOPSMEMBERS_USERRANK', 'Members Rank');
