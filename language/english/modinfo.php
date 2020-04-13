@@ -94,11 +94,11 @@ define('_MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_TITLE', 'Last Logon Member');
 define('_MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC', 'To Display Last Logon User');
 define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_TITLE', 'Welcome Member');
 define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_DSC', 'To Display Welcome User Block');
-define('_MI_XOOPSMEMBERS_DATATABLE', 'Data Table');
+define('_MI_XOOPSMEMBERS_DATATABLES', 'Data Tables');
 define('_MI_XOOPSMEMBERS_INDEXTEMPSTYLE', 'Member List Template Style');
 define('_MI_XOOPSMEMBERS_INDEXTEMPSTYLE_DSC', 'Change Member List template style in index page?');
 define('_MI_XOOPSMEMBERS_NORMALTEMPLATE', 'Normal');
-define('_MI_XOOPSMEMBERS_DATATABLETEMPLATE', 'Data Table');
+define('_MI_XOOPSMEMBERS_DATATABLESTEMPLATE', 'Data Tables');
 
 //Menu
 define('_MI_XOOPSMEMBERS_MENU_HOME', 'Home');

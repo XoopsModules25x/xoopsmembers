@@ -73,3 +73,27 @@ define('_MD_XOOPSMEMBERS_MINPOST', 'Minimum Post');
 define('_MD_XOOPSMEMBERS_MAXPOST', 'Maximum Post');
 define('_MD_XOOPSMEMBERS_IMAGE', 'Image');
 
+//Data Tables
+define('_MD_XOOPSMEMBERS_DTDECIMAL','');
+define('_MD_XOOPSMEMBERS_DTEMPTYTABLE','No data available in table');
+define('_MD_XOOPSMEMBERS_DTINFOSHOWING','Showing');
+define('_MD_XOOPSMEMBERS_DTINFOTO','to');
+define('_MD_XOOPSMEMBERS_DTINFOOF','of');
+define('_MD_XOOPSMEMBERS_DTINFOENTRIES','entries');
+define('_MD_XOOPSMEMBERS_DTINFOEMPTY','Showing 0 to 0 of 0 entries');
+define('_MD_XOOPSMEMBERS_DTINFOFILTEREDFROM','filtered from');
+define('_MD_XOOPSMEMBERS_DTINFOFILTEREDTOTALENTRIES','total entries');
+define('_MD_XOOPSMEMBERS_DTINFOPOSTFIX','');
+define('_MD_XOOPSMEMBERS_DTTHOUSANDS',',');
+define('_MD_XOOPSMEMBERS_DTLENGTHMENUSHOW','Show');
+define('_MD_XOOPSMEMBERS_DTLENGTHMENUENTRIES','entries');
+define('_MD_XOOPSMEMBERS_DTLOADINGRECORDS','Loading...');
+define('_MD_XOOPSMEMBERS_DTPROCESSING','Processing...');
+define('_MD_XOOPSMEMBERS_DTSEARCH','Search');
+define('_MD_XOOPSMEMBERS_DTZERORECORDS','No matching records found');
+define('_MD_XOOPSMEMBERS_DTFIRST','First');
+define('_MD_XOOPSMEMBERS_DTLAST','Last');
+define('_MD_XOOPSMEMBERS_DTNEXT','Next');
+define('_MD_XOOPSMEMBERS_DTPREVIOUS','Previous');
+define('_MD_XOOPSMEMBERS_DTSORTASCENDING',': activate to sort column ascending');
+define('_MD_XOOPSMEMBERS_DTSORTDESCENSING',': activate to sort column descending');

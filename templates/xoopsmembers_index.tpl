@@ -77,5 +77,5 @@
 <{$pagenav}><br>
 
 <{else}>
-<{include file='db:xoopsmembers_datatable.tpl'}>
+<{include file='db:xoopsmembers_datatables.tpl'}>
 <{/if}>
