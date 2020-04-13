@@ -30,7 +30,7 @@ use XoopsModules\Xoopsmembers;
 function xoops_module_pre_install_xoopsmembers(\XoopsModule $module)
 {
     require_once dirname(__DIR__) . '/preloads/autoloader.php';
-    /** @var \Xoopsmembers\Utility $utility */
+    /** @var \XoopsModules\Xoopsmembers\Utility $utility */
     $utility      = new \XoopsModules\Xoopsmembers\Utility();
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
@@ -56,7 +56,7 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
     require_once dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
 
     $moduleDirName = basename(dirname(__DIR__));
-    /** @var \Xoopsmembers\Helper $helper */
+    /** @var Xoopsmembers\Helper $helper */
     $helper       = Xoopsmembers\Helper::getInstance();
     $utility      = new Xoopsmembers\Utility();
     $configurator = new Xoopsmembers\Common\Configurator();
@@ -68,13 +68,14 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
     global $xoopsModule;
     $moduleId = $xoopsModule->getVar('mid');
     // $moduleId2        = $helper->getModule()->mid();
+    /** @var \XoopsGroupPermHandler $grouppermHandler */
     $grouppermHandler = xoops_getHandler('groupperm');
     // access rights ------------------------------------------
     $grouppermHandler->addRight($moduleDirName . '_approve', 1, XOOPS_GROUP_ADMIN, $moduleId);
     $grouppermHandler->addRight($moduleDirName . '_submit', 1, XOOPS_GROUP_ADMIN, $moduleId);
     $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_ADMIN, $moduleId);
     $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_USERS, $moduleId);
-    $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_ANONYMOUS, $moduleId);
+//    $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_ANONYMOUS, $moduleId);
 
     //  ---  CREATE FOLDERS ---------------
     if (count($configurator->uploadFolders) > 0) {

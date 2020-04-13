@@ -37,6 +37,6 @@ define('_AM_TOPPAGE', 'Top Page');
 define('_AM_VISIBLE', 'Visible');
 define('_AM_VISIBLEIN', 'Visible In');
 define('_AM_WEIGHT', 'Weight');
-
+define('_AM_NOTSELNG', 'Not Sel');
 
 define('_AM_BLOCKTAG1', '%s will print %s');

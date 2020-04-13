@@ -23,7 +23,7 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
 $modversion = [
     'version'             => 1.04,
-    'module_status'       => 'Alpha 3',
+    'module_status'       => 'Beta 1',
     'release_date'        => '2020/04/12',
     'name'                => _MI_XOOPSMEMBERS_NAME,
     'description'         => _MI_XOOPSMEMBERS_DESC,
@@ -76,7 +76,7 @@ $modversion['sub']     = [
         'name' => _MI_XOOPSMEMBERS_ADVANCEDSEARCH,
         'url'  => 'searchmembers.php',
     ],
-	    [
+        [
         'name' => _MI_XOOPSMEMBERS_USERRANK,
         'url'  => 'rank.php',
     ],
@@ -359,7 +359,7 @@ $modversion['blocks'][] = [
     'description' => _MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC,
     'show_func'   => 'show_memberslastlogin_block',
     'edit_func'   => 'memberslastlogin_edit',
-	'options'     => '0|1|0|10',
+    'options'     => '0|1|0|10',
     'template'    => 'xoopsmembers_block_memberslastlogin.tpl',
 ];
 
@@ -369,6 +369,6 @@ $modversion['blocks'][] = [
     'description' => _MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_DSC,
     'show_func'   => 'show_memberswelcome_block',
     'edit_func'   => 'memberswelcome_edit',
-	'options'     => '1|0',
+    'options'     => '1|0',
     'template'    => 'xoopsmembers_block_memberswelcome.tpl',
 ];
