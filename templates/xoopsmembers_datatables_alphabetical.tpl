@@ -98,10 +98,12 @@
 </div>
 <br>
 <script>
-$(document).ready(function() {
-    $('#memberslist').DataTable( {
-		"displayLength": <{$membersperpage}>,
-		"language": {
+$('#memberslist').DataTable({
+   dom: 'Alfrtip',
+   alphabetSearch: {
+      column: 1
+   },
+   "language": {
     "decimal":        "<{$smarty.const._MD_XOOPSMEMBERS_DTDECIMAL}>",
     "emptyTable":     "<{$smarty.const._MD_XOOPSMEMBERS_DTEMPTYTABLE}>",
     "info":           "<{$smarty.const._MD_XOOPSMEMBERS_DTINFOSHOWING}> _START_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOTO}> _END_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOOF}> _TOTAL_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOENTRIES}>",
@@ -125,7 +127,6 @@ $(document).ready(function() {
         "sortDescending": "<{$smarty.const._MD_XOOPSMEMBERS_DTSORTDESCENSING}>"
     }
 }
-    }
-	);
-} );
+});
 </script>
+

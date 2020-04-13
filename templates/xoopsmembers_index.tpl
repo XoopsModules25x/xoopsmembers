@@ -76,6 +76,8 @@
 </div>
 <{$pagenav}><br>
 
-<{else}>
+<{elseif $indextemplate == 'datatables1'}>
 <{include file='db:xoopsmembers_datatables_basic.tpl'}>
+<{elseif $indextemplate == 'datatables2'}>
+<{include file='db:xoopsmembers_datatables_alphabetical.tpl'}>
 <{/if}>

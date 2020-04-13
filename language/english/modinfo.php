@@ -98,7 +98,7 @@ define('_MI_XOOPSMEMBERS_INDEXTEMPSTYLE', 'Member List Template Style');
 define('_MI_XOOPSMEMBERS_INDEXTEMPSTYLE_DSC', 'Change Member List template style in index page?');
 define('_MI_XOOPSMEMBERS_NORMALTEMPLATE', 'Normal');
 define('_MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE', 'Data Tables Basic');
-
+define('_MI_XOOPSMEMBERS_DATATABLESALPHABETICALTEMPLATE', 'Data Tables Alphabetical');
 //Menu
 define('_MI_XOOPSMEMBERS_MENU_HOME', 'Home');
 define('_MI_XOOPSMEMBERS_MENU_01', 'Admin');
