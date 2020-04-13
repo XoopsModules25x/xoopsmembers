@@ -61,16 +61,16 @@ if ('form' == $op) {
     }
 
     if (1 == $xoopsModuleConfig['displayurl']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_URLC, 'user_url', 30, 100));
+    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_URLCONTAINS, 'user_url', 30, 100));
     }
     if (1 == $xoopsModuleConfig['displayfrom']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LOCATION, 'user_from', 30, 100));
+    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LOCATIONCONTAINS, 'user_from', 30, 100));
     }
     if (1 == $xoopsModuleConfig['displayoccupation']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATION, 'user_occ', 30, 100));
+    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATIONCONTAINS, 'user_occ', 30, 100));
     }
     if (1 == $xoopsModuleConfig['displayinterest']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_INTEREST, 'user_intrest', 30, 100));
+    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_INTERESTCONTAINS, 'user_intrest', 30, 100));
     }
     if (1 == $xoopsModuleConfig['displaylastlogin']){
     $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGMORE, 'user_lastlog_more', 10, 5));
@@ -244,6 +244,9 @@ if ('submit' == $op) {
 
                                          . '</a>  <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' >" . '</a>';
             }
+			$userdata['location']       = $foundusers[$j]->getVar('user_from');
+			$userdata['occupation']     = $foundusers[$j]->getVar('user_occ');
+			$userdata['interest']       = $foundusers[$j]->getVar('user_intrest');
             $xoopsTpl->append('users', $userdata);
         }
 

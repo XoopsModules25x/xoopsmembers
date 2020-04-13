@@ -34,10 +34,10 @@ define('_MD_XOOPSMEMBERS_USERSFOUND', '%s member(s) found');
 define('_MD_XOOPSMEMBERS_TOTALUSERS', 'Total Members: ');
 define('_MD_XOOPSMEMBERS_NOFOUND', 'No Members Found');
 define('_MD_XOOPSMEMBERS_UNAME', 'User Name');
-define('_MD_XOOPSMEMBERS_LOCATION', 'Location contains');
-define('_MD_XOOPSMEMBERS_OCCUPATION', 'Occupation contains');
-define('_MD_XOOPSMEMBERS_INTEREST', 'Interest contains');
-define('_MD_XOOPSMEMBERS_URLC', 'URL contains');
+define('_MD_XOOPSMEMBERS_LOCATIONCONTAINS', 'Location contains');
+define('_MD_XOOPSMEMBERS_OCCUPATIONCONTAINS', 'Occupation contains');
+define('_MD_XOOPSMEMBERS_INTERESTCONTAINS', 'Interest contains');
+define('_MD_XOOPSMEMBERS_URLCONTAINS', 'URL contains');
 define('_MD_XOOPSMEMBERS_LASTLOGMORE', 'Last login is more than <span style=\'color:#ff0000;\'>X</span> days ago');
 define('_MD_XOOPSMEMBERS_LASTLOGLESS', 'Last login is less than <span style=\'color:#ff0000;\'>X</span> days ago');
 define('_MD_XOOPSMEMBERS_REGMORE', 'Joined date is more than <span style=\'color:#ff0000;\'>X</span> days ago');
@@ -59,6 +59,11 @@ define('_MD_XOOPSMEMBERS_LATESTMEMBER', 'Latest Member');
 define('_MD_XOOPSMEMBERS_WELCOMETO', 'Welcome to Members Directory');
 define('_MD_XOOPSMEMBERS_NEVERLOGIN', 'Never Login');
 define('_MD_XOOPSMEMBERS_MEMBERSINCE', 'Member Since');
+define('_MD_XOOPSMEMBERS_LOCATION', 'Location');
+define('_MD_XOOPSMEMBERS_OCCUPATION', 'Occupation');
+define('_MD_XOOPSMEMBERS_INTEREST', 'Interest');
+
+
 //rank.php
 define('_MD_XOOPSMEMBERS_USERRANK', 'Members Rank');
 define('_MD_XOOPSMEMBERS_MRANK', 'System Members Ranks');
