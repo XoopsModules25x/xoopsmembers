@@ -62,7 +62,7 @@ define('_MD_XOOPSMEMBERS_MEMBERSINCE', 'Member Since');
 define('_MD_XOOPSMEMBERS_LOCATION', 'Location');
 define('_MD_XOOPSMEMBERS_OCCUPATION', 'Occupation');
 define('_MD_XOOPSMEMBERS_INTEREST', 'Interest');
-define('_MD_XOOPSMEMBERS_URL', 'URL');
+
 
 //rank.php
 define('_MD_XOOPSMEMBERS_USERRANK', 'Members Rank');
