@@ -98,11 +98,13 @@
 </div>
 <br>
 <script>
+$(document).ready(function() {
 $('#memberslist').DataTable({
    dom: 'Alfrtip',
    alphabetSearch: {
-      column: 1
+      column: 1,
    },
+   "displayLength": <{$membersperpage}>,
    "language": {
     "decimal":        "<{$smarty.const._MD_XOOPSMEMBERS_DTDECIMAL}>",
     "emptyTable":     "<{$smarty.const._MD_XOOPSMEMBERS_DTEMPTYTABLE}>",
@@ -128,5 +130,8 @@ $('#memberslist').DataTable({
     }
 }
 });
+} );
 </script>
+
+
 
