@@ -34,14 +34,21 @@ $criteria = new \CriteriaCompo();
 
 $criteria->add(new \Criteria('level', 0, '>'));
 $validsort = ['uname', 'name', 'last_login', 'user_regdate', 'posts'];
-$sort      = (!in_array($helper->getModule()->getInfo('sortmembers'), $validsort)) ? 'uname' : $helper->getModule()->getInfo('sortmembers');
-
+//$sort      = (!in_array($helper->getModule()->getInfo('sortmembers'), $validsort)) ? 'uname' : $helper->getModule()->getInfo('sortmembers');
+//temp solution
+$sort = (!in_array($xoopsModuleConfig['sortmembers'], $validsort ) ) ? 'uname' : $xoopsModuleConfig['sortmembers'];
+    
 $order = 'ASC';
-$temp  = $helper->getModule()->getInfo('membersorder');
-if (isset($temp) && 'DESC' == $temp) {
+//$temp  = $helper->getModule()->getInfo('membersorder');
+//temp solution
+if ( isset( $xoopsModuleConfig['membersorder'] ) && $xoopsModuleConfig['membersorder'] == 'DESC' ) {
+//if (isset($temp) && 'DESC' == $temp) {
     $order = 'DESC';
 }
-$limit = \Xmf\Request::getInt('limit', 20, 'POST');
+
+//temp solution
+$limit = (!empty($xoopsModuleConfig['membersperpage'])) ? intval($xoopsModuleConfig['membersperpage']) : 20;
+//$limit = \Xmf\Request::getInt('limit', 20, 'POST');
 if (0 == $limit || $limit > 50) {
     $limit = 50;
 }
