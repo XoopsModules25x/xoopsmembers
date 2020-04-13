@@ -104,6 +104,7 @@ $('#memberslist').DataTable({
    alphabetSearch: {
       column: 1,
    },
+   "ordering": false,
    "displayLength": <{$membersperpage}>,
    "language": {
     "decimal":        "<{$smarty.const._MD_XOOPSMEMBERS_DTDECIMAL}>",
