@@ -218,14 +218,17 @@ if ('submit' == $op) {
             $userdata['name']     = $foundusers[$j]->getVar('uname');
             $userdata['id']       = $foundusers[$j]->getVar('uid');
             if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
-                $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '" ></a>';
-            } 
-            if ($xoopsUser) {
-                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '" ></a>';
-            } 
-            if ('' != $foundusers[$j]->getVar('url', 'e')) {
-                $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '" ></a>';
-            } 
+            //$userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+			$userdata['email'] = $foundusers[$j]->getVar('email');
+			}
+			if ($xoopsUser) {
+			//$userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+			$userdata['pmlink'] = $foundusers[$j]->getVar('uid');
+			} 
+			//if ('' != $foundusers[$j]->getVar('url', 'e')) {
+            //$userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
+			//}
+			$userdata['website'] = $foundusers[$j]->getVar('url', 'e');
             $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
             if (0 != $foundusers[$j]->getVar('last_login')) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');
@@ -241,7 +244,24 @@ if ('submit' == $op) {
 			$userdata['location']       = $foundusers[$j]->getVar('user_from');
 			$userdata['occupation']     = $foundusers[$j]->getVar('user_occ');
 			$userdata['interest']       = $foundusers[$j]->getVar('user_intrest');
-            $xoopsTpl->append('users', $userdata);
+            $userdata['extrainfo']      = $foundusers[$j]->getVar('bio');
+			$userdata['signature']      = $foundusers[$j]->getVar('user_sig');
+			$userdata['onlinestatus']   = $foundusers[$j]->isOnline();
+			$userrank = $foundusers[$j]->rank();
+			if ($userrank['image']) {
+				$userdata['rankimage']='<img src="' . XOOPS_UPLOAD_URL . '/' . $userrank['image'] . '" alt="">';
+			}
+			$userdata['ranktitle']=$userrank['title'];
+		
+			$uid=$userdata['id'];
+			$groups =$member_handler->getGroupsByUser($uid, true); 
+			$usergroups = array(); 
+			foreach ($groups as $group) { 
+			$usergroups[] = $group->getVar('name'); 
+			}  		
+			$userdata['groups']= implode(', ', $usergroups);
+
+			$xoopsTpl->append('users', $userdata);
         }
 
         $totalpages = ceil($total / $limit);

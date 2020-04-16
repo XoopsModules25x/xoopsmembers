@@ -357,6 +357,58 @@ $modversion['config'][] = [
 ];
 
 
+$modversion['config'][] = [
+    'name'        => 'displayextrainfo',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYBIO',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYBIO_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displayonlinestatus',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYONLINESTATUS',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYONLINESTATUS_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+$modversion['config'][] = [
+    'name'        => 'displaysignature',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYSIGNATURE',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYSIGNATURE_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displayrank',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYRANK',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYRANK_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
+
+$modversion['config'][] = [
+    'name'        => 'displaygroups',
+    'title'       => '_MI_XOOPSMEMBERS_DISPLAYGROUPS',
+    'description' => '_MI_XOOPSMEMBERS_DISPLAYGROUPS_DSC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+    'category'    => 'indexsearch',
+];
+
 // ------------------- Blocks -------------------
 $modversion['blocks'][] = [
     'file'        => 'membersstats_block.php',

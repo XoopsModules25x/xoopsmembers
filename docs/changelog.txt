@@ -1,5 +1,7 @@
 <h5>1.04 Beta 2  []</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
 <hr>
+- Add Online Status (liomj)
+- Add Biography/Extra Info, Signature, Rank, Groups (liomj)
 - Add Data Tables Style Template (liomj)
 - Add occupation, interest and location to index and searchresult page (liomj)
 - Fix Never Login User (liomj)
