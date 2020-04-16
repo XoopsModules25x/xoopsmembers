@@ -140,6 +140,55 @@
   </tr>
   <{/section}> 
   </tbody>
+  <tfoot>
+  <tr>
+	<th></th>
+    <{if $displayavatar == 1}>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_AVATAR}></th>
+	<{/if}>
+	<th><{$smarty.const._MD_XOOPSMEMBERS_UNAME}></th>
+	<{if $displayonlinestatus == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_ONLINESTATUS}></th>
+	<{/if}>
+	<{if $displayregdate == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REGDATE}></th>
+	<{/if}>
+    <{if $displaylastlogin == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_LASTLOGIN}></th>
+	<{/if}>
+	<{if $displayrealname == 1}>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_REALNAME}>
+	<{/if}>
+	<{if $displayfrom == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_LOCATION}></th>
+	<{/if}>
+	<{if $displayoccupation == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_OCCUPATION}></th>
+	<{/if}>
+	<{if $displayinterest == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_INTEREST}></th>
+	<{/if}>
+	<{if $displayextrainfo == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_EXTRAINFO}></th>
+	<{/if}>
+	<{if $displaysignature == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_SIGNATURE}></th>
+	<{/if}>
+	<{if $displayrank == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_RANK}></th>
+	<{/if}>
+	<{if $displaygroups == 1}>
+		<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_GROUP}></th>
+	<{/if}>
+	<{if $displayposts == 1}>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_POSTS}></th>
+    <{/if}>
+	<th align="center"><{$smarty.const._MD_XOOPSMEMBERS_CONTACT}></th>
+	<{if $is_admin == true}>
+    <th align="center"><{$smarty.const._MD_XOOPSMEMBERS_ADMIN}></th>
+    <{/if}>
+  </tr>
+  </tfoot>
   </table>
 </div>
 <br>
