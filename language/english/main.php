@@ -63,6 +63,16 @@ define('_MD_XOOPSMEMBERS_LOCATION', 'Location');
 define('_MD_XOOPSMEMBERS_OCCUPATION', 'Occupation');
 define('_MD_XOOPSMEMBERS_INTEREST', 'Interest');
 define('_MD_XOOPSMEMBERS_CONTACT', 'Contact');
+define('_MD_XOOPSMEMBERS_ONLINESTATUS', 'Online Status');
+define('_MD_XOOPSMEMBERS_ONLINE', 'Online');
+define('_MD_XOOPSMEMBERS_OFFLINE', 'Offline');
+define('_MD_XOOPSMEMBERS_SIGNATURE', 'Signature');
+define('_MD_XOOPSMEMBERS_BIOGRAPHY', 'Biography');
+define('_MD_XOOPSMEMBERS_EXTRAINFO', 'Extra Information');
+define('_MD_XOOPSMEMBERS_GROUP', 'Group');
+define('_MD_XOOPSMEMBERS_PRIVATEMESSAGE', 'Private Message');
+define('_MD_XOOPSMEMBERS_WEBSITE', 'Website');
+define('_MD_XOOPSMEMBERS_WWW', 'WWW');
 
 //rank.php
 define('_MD_XOOPSMEMBERS_USERRANK', 'Members Rank');
