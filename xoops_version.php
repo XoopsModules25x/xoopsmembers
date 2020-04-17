@@ -86,11 +86,12 @@ $modversion['sub']     = [
  * Module Templates
  */
 $modversion['templates'] = [
-    ['file' => 'xoopsmembers_index.tpl', 'description' => ''],
+	['file' => 'xoopsmembers_index.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchform.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchresults.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_rank.tpl', 'description' => ''],
-	['file' => 'xoopsmembers_datatables_basic.tpl', 'description' => ''],
+	['file' => 'xoopsmembers_normal.tpl', 'description' => ''],
+	['file' => 'xoopsmembers_datatables_column.tpl', 'description' => ''],
 	['file' => 'xoopsmembers_datatables_alphabetical.tpl', 'description' => ''],
 ];
 // Search
@@ -201,11 +202,12 @@ $modversion['config'][] = [
     'description' => '_MI_XOOPSMEMBERS_INDEXTEMPSTYLE_DSC',
     'formtype'    => 'select',
     'valuetype'   => 'text',
-    'default'     => 'normal',
+    'default'     => 'datatables1',
     'options'     => [
-        _MI_XOOPSMEMBERS_NORMALTEMPLATE  => 'normal',
-        _MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE => 'datatables1',
-		_MI_XOOPSMEMBERS_DATATABLESALPHABETICALTEMPLATE => 'datatables2',
+        _MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE  => 'datatables1',
+        _MI_XOOPSMEMBERS_DATATABLESCOLUMNTEMPLATE => 'datatables2',
+		_MI_XOOPSMEMBERS_DATATABLESALPHABETICALTEMPLATE => 'datatables3',
+		_MI_XOOPSMEMBERS_NORMALTEMPLATE => 'normal',
     ],
     'category'    => 'index',
 ];

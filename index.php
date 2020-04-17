@@ -24,13 +24,14 @@ require_once __DIR__ . '/header.php';
 //global $pathIcon16;
 
 global $xoopsModule;
-if ('datatables1' == $xoopsModuleConfig['indextemplate'] || 'datatables2' == $xoopsModuleConfig['indextemplate']) {
+
+if ('datatables1' == $xoopsModuleConfig['indextemplate'] || 'datatables2' == $xoopsModuleConfig['indextemplate'] || 'datatables3' == $xoopsModuleConfig['indextemplate']) {
 	$xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/css/jquery.dataTables.css');
 	$xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/css/responsive.dataTables.min.css');
 	$xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/jquery.dataTables.js');
 	$xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/dataTables.responsive.min.js');
 }
-if ('datatables2' == $xoopsModuleConfig['indextemplate']) {
+if ('datatables3' == $xoopsModuleConfig['indextemplate']) {
 	$xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/css/dataTables.alphabetSearch.css');
 	$xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/js/dataTables.alphabetSearch.js');
 		$xoTheme->addStylesheet(XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/assets/css/jquery.dataTables.css');
@@ -96,17 +97,17 @@ if (0 == $total) {
         $userdata['name']     = $foundusers[$j]->getVar('uname');
         $userdata['id']       = $foundusers[$j]->getVar('uid');
         if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
-            //$userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-			$userdata['email'] = $foundusers[$j]->getVar('email');
+            $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+			$userdata['emailaddress'] = $foundusers[$j]->getVar('email');
 		}
         if ($xoopsUser) {
-			//$userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-			$userdata['pmlink'] = $foundusers[$j]->getVar('uid');
+			$userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+			$userdata['pm'] = $foundusers[$j]->getVar('uid');
 		} 
-        //if ('' != $foundusers[$j]->getVar('url', 'e')) {
-            //$userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
-		//}
-		$userdata['website'] = $foundusers[$j]->getVar('url', 'e');
+        if ('' != $foundusers[$j]->getVar('url', 'e')) {
+            $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
+		}
+		$userdata['url'] = $foundusers[$j]->getVar('url', 'e');
 		$userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
         if (0 != $foundusers[$j]->getVar('last_login')) {
             $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');

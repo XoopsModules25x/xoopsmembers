@@ -52,7 +52,7 @@
   <tbody>
   <{section name=i loop=$users}>
   <tr>
-  	<td></td>
+  <td></td>
     <{if $displayavatar == 1}>  
 		<td><a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><img src='<{$xoops_url}>/uploads/<{$users[i].avatar}>' class='rounded-circle float-left' title='<{$users[i].name}>' alt='<{$users[i].name}>' style='padding:10px' width='100' height='100'></a></td>
 	<{/if}>
@@ -192,14 +192,11 @@
   </table>
 </div>
 <br>
+
 <script>
 $(document).ready(function() {
-$('#memberslist').DataTable({
-   dom: 'Alfrtip',
-   alphabetSearch: {
-      column: 2,
-   },
-   responsive: {
+    $('#memberslist').DataTable( {
+        responsive: {
             details: {
                 type: 'column'
             }
@@ -209,9 +206,8 @@ $('#memberslist').DataTable({
             orderable: false,
             targets:   0
         } ],
-   "ordering": false,
-   "displayLength": <{$membersperpage}>,
-   "language": {
+	"displayLength": <{$membersperpage}>,
+		"language": {
     "decimal":        "<{$smarty.const._MD_XOOPSMEMBERS_DTDECIMAL}>",
     "emptyTable":     "<{$smarty.const._MD_XOOPSMEMBERS_DTEMPTYTABLE}>",
     "info":           "<{$smarty.const._MD_XOOPSMEMBERS_DTINFOSHOWING}> _START_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOTO}> _END_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOOF}> _TOTAL_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOENTRIES}>",
@@ -235,9 +231,7 @@ $('#memberslist').DataTable({
         "sortDescending": "<{$smarty.const._MD_XOOPSMEMBERS_DTSORTDESCENSING}>"
     }
 }
-});
+    }
+	);
 } );
 </script>
-
-
-

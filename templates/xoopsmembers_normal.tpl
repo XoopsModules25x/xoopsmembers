@@ -1,12 +1,3 @@
-<{if $displaybreadcrumb == 1}>
-    <div class="breadcrumb">
-        <a href="index.php"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></a>&nbsp;&raquo;&nbsp;<a href="searchmembers.php"><{$smarty.const._MD_XOOPSMEMBERS_SEARCH}></a>&nbsp;<span style="font-weight:bold;">&raquo;</span>&nbsp;<{$smarty.const._MD_XOOPSMEMBERS_RESULTS}><br>
-    </div>
-<{/if}>
-<h4><{$smarty.const._MD_XOOPSMEMBERS_RESULTS}></h4>
-
-<{if $total_found != 0}>
-  <{$lang_numfound}><br>
 <div class="table-responsive">
 <table class="table table-striped table-hover">
   <thead>
@@ -85,7 +76,4 @@
   </tbody>
 </table>
 </div>
-  <{$pagenav}><br>
-<{else}>
-    <{$smarty.const._MD_XOOPSMEMBERS_NOFOUND}>
-<{/if}>
+<{$pagenav}><br>

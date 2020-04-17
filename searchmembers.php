@@ -69,10 +69,16 @@ if ('form' == $op) {
     if (1 == $xoopsModuleConfig['displayoccupation']){
     $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATIONCONTAINS, 'user_occ', 30, 100));
     }
-    if (1 == $xoopsModuleConfig['displayinterest']){
+	if (1 == $xoopsModuleConfig['displayinterest']){
     $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_INTERESTCONTAINS, 'user_intrest', 30, 100));
     }
-    if (1 == $xoopsModuleConfig['displaylastlogin']){
+    if (1 == $xoopsModuleConfig['displayextrainfo']){
+    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_EXTRAINFOCONTAINS, 'bio', 30, 100));
+    }
+	if (1 == $xoopsModuleConfig['displaysignature']){
+    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_SIGNATURECONTAINS, 'user_sig', 30, 100));
+    }
+	if (1 == $xoopsModuleConfig['displaylastlogin']){
     $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGMORE, 'user_lastlog_more', 10, 5));
     $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGLESS, 'user_lastlog_less', 10, 5));
     }
@@ -144,6 +150,12 @@ if ('submit' == $op) {
 
     if (!empty($_POST['user_occ'])) {
         $criteria->add(new \Criteria('user_occ', '%' . $myts->addSlashes(trim($_POST['user_occ'])) . '%', 'LIKE'));
+    }
+	if (!empty($_POST['bio'])) {
+        $criteria->add(new \Criteria('bio', '%' . $myts->addSlashes(trim($_POST['bio'])) . '%', 'LIKE'));
+    }
+	if (!empty($_POST['user_sig'])) {
+        $criteria->add(new \Criteria('user_sig', '%' . $myts->addSlashes(trim($_POST['user_sig'])) . '%', 'LIKE'));
     }
 
     if (!empty($_POST['user_lastlog_more']) && is_numeric($_POST['user_lastlog_more'])) {
@@ -218,17 +230,17 @@ if ('submit' == $op) {
             $userdata['name']     = $foundusers[$j]->getVar('uname');
             $userdata['id']       = $foundusers[$j]->getVar('uid');
             if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
-            //$userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-			$userdata['email'] = $foundusers[$j]->getVar('email');
+            $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+			$userdata['emailaddress'] = $foundusers[$j]->getVar('email');
 			}
 			if ($xoopsUser) {
-			//$userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-			$userdata['pmlink'] = $foundusers[$j]->getVar('uid');
+			$userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+			$userdata['pm'] = $foundusers[$j]->getVar('uid');
 			} 
-			//if ('' != $foundusers[$j]->getVar('url', 'e')) {
-            //$userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
-			//}
-			$userdata['website'] = $foundusers[$j]->getVar('url', 'e');
+			if ('' != $foundusers[$j]->getVar('url', 'e')) {
+            $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
+			}
+			$userdata['url'] = $foundusers[$j]->getVar('url', 'e');
             $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
             if (0 != $foundusers[$j]->getVar('last_login')) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');
