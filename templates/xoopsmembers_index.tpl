@@ -15,10 +15,10 @@
          &nbsp;&nbsp;<b><{$smarty.const._MD_XOOPSMEMBERS_LATESTMEMBER}>:</b> <{$latestmember}> <br><br>
     <{/if}>
   
-  <{if $indextemplate == 'normal'}>
+  <{if $indextemplate == 'datatables1'}>
   
 <div class="table-responsive">
-<table class="table table-striped table-hover">
+<table id="memberslist" class="table table-striped table-hover">
   <thead>
   <tr>
     <th bgcolor="#38a8e8"><{$smarty.const._MD_XOOPSMEMBERS_MEMBERSLIST}></th>
@@ -78,13 +78,13 @@
 	<{/if}>
 	<br><br>
     <{if $xoops_isuser AND $displayemail == 1}>
-		<a href="mailto:<{$users[i].email}>" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="fa fa-envelope" aria-hidden="true"></i> <{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></a>
+		<a href="mailto:<{$users[i].emailaddress}>" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="fa fa-envelope" aria-hidden="true"></i> <{$smarty.const._MD_XOOPSMEMBERS_EMAIL}></a>
     <{/if}>
     <{if $xoops_isuser AND $displaypm == 1}>
 		<a href="javascript:openWithSelfMain('<{$xoops_url}>/pmlite.php?send2=1&amp;to_userid=<{$users[i].id}>', 'pmlite', 450, 380);" class="btn btn-primary btn-sm" role="button"><i class="fa fa-envelope-o"></i> <{$smarty.const._MD_XOOPSMEMBERS_PRIVATEMESSAGE}></a></button>			
 	<{/if}>
     <{if $displayurl == 1 AND $users[i].website!=''}>
-        <a href="<{$users[i].website}>" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="fa fa-link" aria-hidden="true"></i> <{$smarty.const._MD_XOOPSMEMBERS_URL}></a>
+        <a href="<{$users[i].url}>" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="fa fa-link" aria-hidden="true"></i> <{$smarty.const._MD_XOOPSMEMBERS_URL}></a>
     <{/if}>
     <{if $is_admin == true}>
         <p class="float-right"><br><{$users[i].adminlink}></p>
@@ -97,8 +97,44 @@
 </div>
 <{$pagenav}><br>
 
-<{elseif $indextemplate == 'datatables1'}>
-<{include file='db:xoopsmembers_datatables_basic.tpl'}>
+<script>
+$(document).ready(function() {
+$('#memberslist').DataTable({
+   "ordering": false,
+   "lengthChange": false,
+   "displayLength": <{$membersperpage}>,
+   "language": {
+    "decimal":        "<{$smarty.const._MD_XOOPSMEMBERS_DTDECIMAL}>",
+    "emptyTable":     "<{$smarty.const._MD_XOOPSMEMBERS_DTEMPTYTABLE}>",
+    "info":           "<{$smarty.const._MD_XOOPSMEMBERS_DTINFOSHOWING}> _START_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOTO}> _END_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOOF}> _TOTAL_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOENTRIES}>",
+    "infoEmpty":      "<{$smarty.const._MD_XOOPSMEMBERS_DTINFOEMPTY}>",
+    "infoFiltered":   "(<{$smarty.const._MD_XOOPSMEMBERS_DTINFOFILTEREDFROM}> _MAX_ <{$smarty.const._MD_XOOPSMEMBERS_DTINFOFILTEREDTOTALENTRIES}>)",
+    "infoPostFix":    "<{$smarty.const._MD_XOOPSMEMBERS_DTINFOPOSTFIX}>",
+    "thousands":      "<{$smarty.const._MD_XOOPSMEMBERS_DTTHOUSANDS}>",
+    "lengthMenu":     "<{$smarty.const._MD_XOOPSMEMBERS_DTLENGTHMENUSHOW}> _MENU_ <{$smarty.const._MD_XOOPSMEMBERS_DTLENGTHMENUENTRIES}>",
+    "loadingRecords": "<{$smarty.const._MD_XOOPSMEMBERS_DTLOADINGRECORDS}>",
+    "processing":     "<{$smarty.const._MD_XOOPSMEMBERS_DTPROCESSING}>",
+    "search":         "<{$smarty.const._MD_XOOPSMEMBERS_DTSEARCH}>",
+    "zeroRecords":    "<{$smarty.const._MD_XOOPSMEMBERS_DTZERORECORDS}>",
+    "paginate": {
+        "first":      "<{$smarty.const._MD_XOOPSMEMBERS_DTFIRST}>",
+        "last":       "<{$smarty.const._MD_XOOPSMEMBERS_DTLAST}>",
+        "next":       "<{$smarty.const._MD_XOOPSMEMBERS_DTNEXT}>",
+        "previous":   "<{$smarty.const._MD_XOOPSMEMBERS_DTPREVIOUS}>"
+    },
+    "aria": {
+        "sortAscending":  "<{$smarty.const._MD_XOOPSMEMBERS_DTSORTASCENDING}>",
+        "sortDescending": "<{$smarty.const._MD_XOOPSMEMBERS_DTSORTDESCENSING}>"
+    }
+}
+});
+} );
+</script>
+
 <{elseif $indextemplate == 'datatables2'}>
+<{include file='db:xoopsmembers_datatables_column.tpl'}>
+<{elseif $indextemplate == 'datatables3'}>
 <{include file='db:xoopsmembers_datatables_alphabetical.tpl'}>
+<{elseif $indextemplate == 'normal'}>
+<{include file='db:xoopsmembers_normal.tpl'}>
 <{/if}>

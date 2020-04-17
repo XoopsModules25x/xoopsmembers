@@ -107,9 +107,10 @@ define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_TITLE', 'Welcome Member');
 define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_DSC', 'To Display Welcome User Block');
 define('_MI_XOOPSMEMBERS_INDEXTEMPSTYLE', 'Member List Template Style');
 define('_MI_XOOPSMEMBERS_INDEXTEMPSTYLE_DSC', 'Change Member List template style in index page?');
-define('_MI_XOOPSMEMBERS_NORMALTEMPLATE', 'Normal');
+define('_MI_XOOPSMEMBERS_DATATABLESCOLUMNTEMPLATE', 'Data Tables Column');
 define('_MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE', 'Data Tables Basic');
 define('_MI_XOOPSMEMBERS_DATATABLESALPHABETICALTEMPLATE', 'Data Tables Alphabetical');
+define('_MI_XOOPSMEMBERS_NORMALTEMPLATE', 'Normal');
 //Menu
 define('_MI_XOOPSMEMBERS_MENU_HOME', 'Home');
 define('_MI_XOOPSMEMBERS_MENU_01', 'Admin');

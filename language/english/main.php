@@ -73,6 +73,9 @@ define('_MD_XOOPSMEMBERS_GROUP', 'Group');
 define('_MD_XOOPSMEMBERS_PRIVATEMESSAGE', 'Private Message');
 define('_MD_XOOPSMEMBERS_WEBSITE', 'Website');
 define('_MD_XOOPSMEMBERS_WWW', 'WWW');
+define('_MD_XOOPSMEMBERS_EXTRAINFOCONTAINS', 'Extra Info Contains');
+define('_MD_XOOPSMEMBERS_BIOGRAPHYINFOCONTAINS', 'Biography Contains');
+define('_MD_XOOPSMEMBERS_SIGNATURECONTAINS', 'Signature Contains');
 
 //rank.php
 define('_MD_XOOPSMEMBERS_USERRANK', 'Members Rank');
