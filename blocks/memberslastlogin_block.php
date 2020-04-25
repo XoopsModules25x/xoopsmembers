@@ -23,7 +23,7 @@ function show_memberslastlogin_block($options)
         $sincelastlogin = ' ' . timeDifference($last_login, $now, 'hours') . ' ago ';
         $x++;
 
-        $block['recentlogin'][] = $recentlogin;
+        $block['recentlogin'] = [];// = $recentlogin;
         $recentlogin['uid']     = $uid;
 
         if ('' != $name && '1' == $options[2]) {
