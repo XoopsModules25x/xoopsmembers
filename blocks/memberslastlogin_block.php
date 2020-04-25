@@ -23,9 +23,8 @@ function show_memberslastlogin_block($options)
         $sincelastlogin = ' ' . timeDifference($last_login, $now, 'hours') . ' ago ';
         $x++;
 
-        $block['recentlogin'] = [];// = $recentlogin;
+        $recentlogin = [];
         $recentlogin['uid']     = $uid;
-
         if ('' != $name && '1' == $options[2]) {
             $recentlogin['name'] = htmlspecialchars($name, ENT_QUOTES);
         } else {
@@ -34,6 +33,9 @@ function show_memberslastlogin_block($options)
         $recentlogin['user_avatar']    = $user_avatar;
         $recentlogin['last_login']     = $last_login;
         $recentlogin['sincelastlogin'] = $sincelastlogin;
+
+        $block['recentlogin'][] = $recentlogin;
+        unset($recentlogin);
     }
 
     $block['showrecentloginname']   = $options[0];
@@ -103,6 +105,7 @@ function timeDifference($start,$end,$return='days') {
 function memberslastlogin_edit($options)
 {
     $form = _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . '&nbsp;';
+    $chk = '';
     if (1 == $options[0]) {
         $chk = " checked='checked'";
     }
