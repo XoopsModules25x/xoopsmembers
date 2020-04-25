@@ -29,9 +29,11 @@ function show_memberswelcome_block($options)
         $block['rankimage'] = $ranking['image'];
         $block['ranktitle'] = $ranking['title'];
         $block['showrank']  = $options[0];
+		
+		return $block;
+
     }
 
-    return $block;
 }
 
 /**
