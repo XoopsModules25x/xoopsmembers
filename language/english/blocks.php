@@ -26,7 +26,7 @@ define('_MB_XOOPSMEMBERS_YESTERDAY', 'Yesterday');
 define('_MB_XOOPSMEMBERS_OVERALL', 'Overall');
 define('_MB_XOOPSMEMBERS_ONLINE', 'People Online');
 define('_MB_XOOPSMEMBERS_GUESTS', 'Guests');
-define('_MB_XOOPSMEMBERS_MEMBERS', 'Members');
+define('_MB_XOOPSMEMBERS_MEMBERS', 'Member(s)');
 define('_MB_XOOPSMEMBERS_TOTAL', 'Total');
 define('_MB_XOOPSMEMBERS_LIST', 'Online List');
 define('_MB_XOOPSMEMBERS_POPUP', 'Popup');
@@ -58,3 +58,10 @@ define('_MB_XOOPSMEMBERS_SHOWREGHISTORY', 'Show Total Members Registration for t
 define('_MB_XOOPSMEMBERS_SHOWNEWMEMBER', 'Show Newest Member registered');
 define('_MB_XOOPSMEMBERS_USEREALNAME', 'Use real name intead of username');
 define('_MB_XOOPSMEMBERS_SHOWMEMBERSRANK', 'Show Members Rank');
+
+define('_MB_XOOPSMEMBERS_AGO', 'ago');
+define('_MB_XOOPSMEMBERS_HOURS', 'hours');
+define('_MB_XOOPSMEMBERS_HOUR', 'hour(s)');
+define('_MB_XOOPSMEMBERS_MINUTES', 'minute(s)');
+define('_MB_XOOPSMEMBERS_SECONDS', 'seconds');
+
