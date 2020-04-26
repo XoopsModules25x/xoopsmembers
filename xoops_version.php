@@ -428,7 +428,7 @@ $modversion['blocks'][] = [
     'description' => _MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC,
     'show_func'   => 'show_memberslastlogin_block',
     'edit_func'   => 'memberslastlogin_edit',
-    'options'     => '0|1|0|10',
+    'options'     => '1|1|0|10',
     'template'    => 'xoopsmembers_block_memberslastlogin.tpl',
 ];
 
