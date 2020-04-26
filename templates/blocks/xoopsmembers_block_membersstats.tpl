@@ -1,18 +1,18 @@
 <{if $block.showtotalpost == 1}>
-<{$block.totalpostmade_lang}> <{$block.totalposts}> <{$block.totalposts_lang}><br>
+<i class="fa fa-sticky-note-o"></i> <{$block.totalposts}> <br>
 <{/if}>
-<{$block.wehave_lang}> <{$block.activeusers}> <{$block.registeredmembers_lang}><br>
+<i class="fa fa-user"></i> <{$block.activeusers}> <br>
 
 <{if $block.showtotalonline == 1}>
-<{$block.online_guests}> <{$block.guests_lang}> <{$block.and_lang}> <{$block.online_members}> <{$block.members_lang}> <{$block.currentonline_lang}> <br>
+<i class="fa fa-user-circle"></i> <{$block.online_guests}> <{$block.online_members}> <br>
 <{/if}>
 
 <{if $block.showreghistory == 1}>
-<{$block.todayreg}> <{$block.registeredtoday_lang}> <{$block.and_lang}> <{$block.yesterdayreg}> <{$block.registeredyesterday_lang}><br>
+<i class="fa fa-bar-chart"></i> <{$block.todayreg}> <{$block.yesterdayreg}> <br>
 <{/if}>
 
 <{if $block.shownewmember == 1}>
-<{$block.newestmember_lang}> <a href="<{$xoops_url}>/userinfo.php?uid=<{$block.latest_id}>">
+<i class="fa fa-user-circle-o"></i> <{$block.newestmember_lang}> <a href="<{$xoops_url}>/userinfo.php?uid=<{$block.latest_id}>">
 <{$block.latestmember}>
 </a>
 <{/if}>

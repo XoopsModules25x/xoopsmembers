@@ -26,7 +26,7 @@ define('_MB_XOOPSMEMBERS_YESTERDAY', 'Yesterday');
 define('_MB_XOOPSMEMBERS_OVERALL', 'Overall');
 define('_MB_XOOPSMEMBERS_ONLINE', 'People Online');
 define('_MB_XOOPSMEMBERS_GUESTS', 'Guests');
-define('_MB_XOOPSMEMBERS_MEMBERS', 'Members');
+define('_MB_XOOPSMEMBERS_MEMBERS', 'Member(s)');
 define('_MB_XOOPSMEMBERS_TOTAL', 'Total');
 define('_MB_XOOPSMEMBERS_LIST', 'Online List');
 define('_MB_XOOPSMEMBERS_POPUP', 'Popup');
