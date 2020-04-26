@@ -20,7 +20,7 @@ function show_memberslastlogin_block($options)
     $sql    = 'SELECT distinct uid, name, uname, user_avatar, last_login FROM ' . $GLOBALS['xoopsDB']->prefix('users') . " WHERE level > 0 AND last_login >= '" . $time . "' ORDER BY last_login DESC LIMIT " . $options[3] . '';
     $result = $GLOBALS['xoopsDB']->query($sql);
     while (list($uid, $name, $uname, $user_avatar, $last_login) = $GLOBALS['xoopsDB']->fetchRow($result)) {
-        $sincelastlogin = ' ' . timeDifference($last_login, $now, 'hours') . ' ago ';
+        $sincelastlogin = ' ' . timeDifference($last_login, $now, _MB_XOOPSMEMBERS_HOURS) . ' ' . _MB_XOOPSMEMBERS_AGO;
         $x++;
 
         $recentlogin = [];
@@ -82,17 +82,17 @@ function timeDifference($start,$end,$return='days') {
     if(is_array($time)) {
         $showSec = true;
         if(isset($time['hours']) && $time['hours'] > 0) {
-            $output[] = $time['hours'] . ' Hour';
+            $output[] = $time['hours']. ' ' . _MB_XOOPSMEMBERS_HOUR;
             $showSec = false;
         }
 
         if(isset($time['minutes']) && $time['minutes'] > 0) {
-            $output[] = $time['minutes'] . ' minutes';
+            $output[] = $time['minutes']. ' ' . _MB_XOOPSMEMBERS_MINUTES;
             $showSec = false;
         }
 
         if(isset($time['seconds']) && true == $showSec) {
-            return $time['seconds'] . ' seconds';
+            return $time['seconds']. ' ' . _MB_XOOPSMEMBERS_SECONDS;
         }
         return implode(', ',$output);
     }
