@@ -130,8 +130,8 @@
     <{if $xoops_isuser AND $displaypm == 1}>
 		<a href="javascript:openWithSelfMain('<{$xoops_url}>/pmlite.php?send2=1&amp;to_userid=<{$users[i].id}>', 'pmlite', 450, 380);" class="btn btn-primary btn-sm" role="button"><i class="fa fa-envelope-o"></i> <{$smarty.const._MD_XOOPSMEMBERS_PRIVATEMESSAGE}></a></button>			
 	<{/if}>
-    <{if $displayurl == 1 AND $users[i].website!=''}>
-        <a href="<{$users[i].website}>" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="fa fa-link" aria-hidden="true"></i> <{$smarty.const._MD_XOOPSMEMBERS_URL}></a>
+    <{if $displayurl == 1 AND $users[i].url!=''}>
+        <a href="<{$users[i].url}>" target="_blank" class="btn btn-primary btn-sm" role="button"><i class="fa fa-link" aria-hidden="true"></i> <{$smarty.const._MD_XOOPSMEMBERS_URL}></a>
     <{/if}>
 	</td>
 	<{if $is_admin == true}>
