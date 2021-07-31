@@ -20,7 +20,7 @@ function show_memberslastlogin_block($options)
     $sql    = 'SELECT distinct uid, name, uname, user_avatar, last_login FROM ' . $GLOBALS['xoopsDB']->prefix('users') . " WHERE level > 0 AND last_login >= '" . $time . "' ORDER BY last_login DESC LIMIT " . $options[3] . '';
     $result = $GLOBALS['xoopsDB']->query($sql);
     while (list($uid, $name, $uname, $user_avatar, $last_login) = $GLOBALS['xoopsDB']->fetchRow($result)) {
-        $sincelastlogin = ' ' . timeDifference($last_login, $now, 'hours') . ' ago ';
+        $sincelastlogin = ' ' . timeDifference($last_login, $now, _MB_XOOPSMEMBERS_HOURS) . ' ' . _MB_XOOPSMEMBERS_AGO;
         $x++;
 
         $recentlogin = [];
@@ -57,45 +57,45 @@ function timeDifference($start, $end, $return = 'days')
     //$start = strtotime($start);
     //$end = strtotime($end);
     //subtract dates
-    $difference = max($end, $start) - min($end, $start);
+    $difference = max($end, $start) - min($end,$start);
     $time       = null;
     //24 hours equal to 86400
     //calculate time difference.
-    switch ($return) {
+    switch($return) {
         case 'days':
-            $days         = floor($difference / 86400);
-            $difference   = $difference % 86400;
+            $days = floor($difference/86400);
+            $difference = $difference % 86400;
             $time['days'] = $days;
         case 'hours':
-            $hours         = floor($difference / 3600);
-            $difference    = $difference % 3600;
+            $hours = floor($difference/3600);
+            $difference = $difference % 3600;
             $time['hours'] = $hours;
         case 'minutes':
-            $minutes         = floor($difference / 60);
-            $difference      = $difference % 60;
+            $minutes = floor($difference/60);
+            $difference = $difference % 60;
             $time['minutes'] = $minutes;
         case 'seconds':
-            $seconds         = $difference;
+            $seconds = $difference;
             $time['seconds'] = $seconds;
     }
 
     $output = [];
-    if (is_array($time)) {
+    if(is_array($time)) {
         $showSec = true;
-        if (isset($time['hours']) && $time['hours'] > 0) {
-            $output[] = $time['hours'] . ' Hour';
-            $showSec  = false;
+        if(isset($time['hours']) && $time['hours'] > 0) {
+            $output[] = $time['hours']. ' ' . _MB_XOOPSMEMBERS_HOUR;
+            $showSec = false;
         }
 
-        if (isset($time['minutes']) && $time['minutes'] > 0) {
-            $output[] = $time['minutes'] . ' minutes';
-            $showSec  = false;
+        if(isset($time['minutes']) && $time['minutes'] > 0) {
+            $output[] = $time['minutes']. ' ' . _MB_XOOPSMEMBERS_MINUTES;
+            $showSec = false;
         }
 
         if (isset($time['seconds']) && true === $showSec) {
-            return $time['seconds'] . ' seconds';
+            return $time['seconds']. ' ' . _MB_XOOPSMEMBERS_SECONDS;
         }
-        return implode(', ', $output);
+        return implode(', ',$output);
     }
 }
 

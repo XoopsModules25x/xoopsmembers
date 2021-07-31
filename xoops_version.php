@@ -433,6 +433,16 @@ $modversion['config'][] = [
 
 // ------------------- Blocks -------------------
 $modversion['blocks'][] = [
+    'file'        => 'membersonline_block.php',
+    'name'        => _MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_TITLE,
+    'description' => _MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_DSC,
+    'show_func'   => 'show_membersonline_block',
+    'edit_func'   => 'membersonline_edit',
+    'options'     => '1|1|1|0|1|0|10',
+    'template'    => 'xoopsmembers_block_membersonline.tpl',
+];
+
+$modversion['blocks'][] = [
     'file'        => 'membersstats_block.php',
     'name'        => _MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_TITLE,
     'description' => _MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_DSC,
@@ -448,7 +458,7 @@ $modversion['blocks'][] = [
     'description' => _MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC,
     'show_func'   => 'show_memberslastlogin_block',
     'edit_func'   => 'memberslastlogin_edit',
-    'options'     => '0|1|0|10',
+    'options'     => '1|1|0|10',
     'template'    => 'xoopsmembers_block_memberslastlogin.tpl',
 ];
 

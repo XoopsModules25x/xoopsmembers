@@ -79,15 +79,16 @@ function show_membersstats_block($options)
         $sql                 = 'SELECT SUM(posts) AS totalposts FROM ' . $GLOBALS['xoopsDB']->prefix('users') . ' WHERE level > 0';
         $result              = $GLOBALS['xoopsDB']->query($sql);
         $myrow               = $GLOBALS['xoopsDB']->fetchArray($result);
-        $block['totalposts'] = $myrow['totalposts'];
+        $block['totalposts'] = $myrow['totalposts']. ' ' . _MB_XOOPSMEMBERS_TOTALPOSTS;
+		 
 
         // data
-        $block['activeusers']    = $total_active_users;
-        $block['todayreg']       = $users_reg_24;
-        $block['yesterdayreg']   = $users_reg_48 - $users_reg_24;
+        $block['activeusers']    = $total_active_users. ' ' . _MB_XOOPSMEMBERS_REGISTEREDMEMBERS;
+        $block['todayreg']       = $users_reg_24   . ' ' . _MB_XOOPSMEMBERS_REGISTEREDTODAY . ' ' . _MB_XOOPSMEMBERS_AND;
+        $block['yesterdayreg']   = $users_reg_48 - $users_reg_24    . ' ' . _MB_XOOPSMEMBERS_REGISTEREDYESTERDAY;
         $block['online_names']   = $members;
-        $block['online_members'] = $total - $guests;
-        $block['online_guests']  = $guests;
+        $block['online_members'] = $total - $guests  . ' ' . _MB_XOOPSMEMBERS_MEMBERS . ' ' . _MB_XOOPSMEMBERS_CURRENTONLINE;
+        $block['online_guests']  = $guests . ' ' . _MB_XOOPSMEMBERS_GUESTS . ' ' . _MB_XOOPSMEMBERS_AND;
         $block['lang_more']      = _MB_XOOPSMEMBERS_MORE;
 
         $block['total_online'] = $total;
@@ -101,26 +102,7 @@ function show_membersstats_block($options)
 
         // Language Definition
         $block['membership_lang']          = _MB_XOOPSMEMBERS_MEMBERSHIP;
-        $block['today_lang']               = _MB_XOOPSMEMBERS_TODAY;
-        $block['yesterday_lang']           = _MB_XOOPSMEMBERS_YESTERDAY;
-        $block['overall_lang']             = _MB_XOOPSMEMBERS_OVERALL;
-        $block['online_lang']              = _MB_XOOPSMEMBERS_ONLINE;
-        $block['guests_lang']              = _MB_XOOPSMEMBERS_GUESTS;
-        $block['members_lang']             = _MB_XOOPSMEMBERS_MEMBERS;
-        $block['total_lang']               = _MB_XOOPSMEMBERS_TOTAL;
-        $block['list_lang']                = _MB_XOOPSMEMBERS_LIST;
-        $block['popup_lang']               = _MB_XOOPSMEMBERS_POPUP;
-        $block['latest_lang']              = _MB_XOOPSMEMBERS_LATEST;
-        $block['totalpostmade_lang']       = _MB_XOOPSMEMBERS_TOTALPOSTMADE;
-        $block['totalposts_lang']          = _MB_XOOPSMEMBERS_TOTALPOSTS;
-        $block['totalpost_lang']           = _MB_XOOPSMEMBERS_TOTALPOST;
-        $block['wehave_lang']              = _MB_XOOPSMEMBERS_WEHAVE;
-        $block['currentonline_lang']       = _MB_XOOPSMEMBERS_CURRENTONLINE;
-        $block['registeredmembers_lang']   = _MB_XOOPSMEMBERS_REGISTEREDMEMBERS;
-        $block['registeredtoday_lang']     = _MB_XOOPSMEMBERS_REGISTEREDTODAY;
-        $block['registeredyesterday_lang'] = _MB_XOOPSMEMBERS_REGISTEREDYESTERDAY;
         $block['newestmember_lang']        = _MB_XOOPSMEMBERS_NEWESTMEMBER;
-        $block['and_lang']                 = _MB_XOOPSMEMBERS_AND;
         $block['showtotalpost']            = $options[0];
         $block['showtotalonline']          = $options[1];
         $block['showreghistory']           = $options[2];
