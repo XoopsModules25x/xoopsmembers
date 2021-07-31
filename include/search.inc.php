@@ -18,7 +18,7 @@ function member_search($queryarray, $andor, $limit, $offset, $userid)
     // is not an array, we must check if $querryarray is really an array
     if (is_array($queryarray) && $count = count($queryarray)) {
         $sql .= " AND ((uname LIKE '%{$queryarray[0]}%' OR name LIKE '%{$queryarray[0]}%')";
-        for ($i = 1; $i < $count; $i++) {
+        for ($i = 1; $i < $count; ++$i) {
             $sql .= " $andor ";
             $sql .= "(uname LIKE '%{$queryarray[$i]}%' OR name LIKE '%{$queryarray[$i]}%')";
         }

@@ -10,7 +10,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright The XOOPS Project http://sourceforge.net/projects/xoops/
+ * @copyright XOOPS Project (https://xoops.org)
  * @license   http://www.fsf.org/copyleft/gpl.html GNU public license
  * @package   Xoops Members
  * @since     2.3.0
@@ -18,7 +18,7 @@
  * @author    John Neill
  */
 
-require_once  __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 
 global $xoopsModule;
 
@@ -27,12 +27,12 @@ $op = (isset($_POST['op']) && 'submit' == $_POST['op']) ? 'submit' : 'form';
 $memberHandler = xoops_getHandler('member');
 
 if ('form' == $op) {
-    $xoopsOption['template_main'] = 'xoopsmembers_searchform.tpl';
-    include XOOPS_ROOT_PATH . '/header.php';
+    $GLOBALS['xoopsOption']['template_main'] = 'xoopsmembers_searchform.tpl';
+    require XOOPS_ROOT_PATH . '/header.php';
 
-    $total          = $memberHandler->getUserCount(new \Criteria('level', 0, '>'));
+    $total = $memberHandler->getUserCount(new \Criteria('level', 0, '>'));
 
-    include_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+    require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 
     $form        = new \XoopsThemeForm('', 'searchform', 'searchmembers.php');
     $uname_text  = new \XoopsFormText('', 'user_uname', 30, 60);
@@ -42,53 +42,53 @@ if ('form' == $op) {
     $uname_tray->addElement($uname_text);
     $form->addElement($uname_tray);
 
-    if (1 == $xoopsModuleConfig['displayrealname']){
-    $name_text  = new \XoopsFormText('', 'user_name', 30, 60);
-    $name_match = new \XoopsFormSelectMatchOption('', 'user_name_match');
-    $name_tray  = new \XoopsFormElementTray(_MD_XOOPSMEMBERS_REALNAME, '&nbsp;');
-    $name_tray->addElement($name_match);
-    $name_tray->addElement($name_text);
-    $form->addElement($name_tray);
+    if (1 == $xoopsModuleConfig['displayrealname']) {
+        $name_text  = new \XoopsFormText('', 'user_name', 30, 60);
+        $name_match = new \XoopsFormSelectMatchOption('', 'user_name_match');
+        $name_tray  = new \XoopsFormElementTray(_MD_XOOPSMEMBERS_REALNAME, '&nbsp;');
+        $name_tray->addElement($name_match);
+        $name_tray->addElement($name_text);
+        $form->addElement($name_tray);
     }
 
-    if (1 == $xoopsModuleConfig['displayemail']){
-    $email_text  = new \XoopsFormText('', 'user_email', 30, 60);
-    $email_match = new \XoopsFormSelectMatchOption('', 'user_email_match');
-    $email_tray  = new \XoopsFormElementTray(_MD_XOOPSMEMBERS_EMAIL, '&nbsp;');
-    $email_tray->addElement($email_match);
-    $email_tray->addElement($email_text);
-    $form->addElement($email_tray);
+    if (1 == $xoopsModuleConfig['displayemail']) {
+        $email_text  = new \XoopsFormText('', 'user_email', 30, 60);
+        $email_match = new \XoopsFormSelectMatchOption('', 'user_email_match');
+        $email_tray  = new \XoopsFormElementTray(_MD_XOOPSMEMBERS_EMAIL, '&nbsp;');
+        $email_tray->addElement($email_match);
+        $email_tray->addElement($email_text);
+        $form->addElement($email_tray);
     }
 
-    if (1 == $xoopsModuleConfig['displayurl']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_URLCONTAINS, 'user_url', 30, 100));
+    if (1 == $xoopsModuleConfig['displayurl']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_URLCONTAINS, 'user_url', 30, 100));
     }
-    if (1 == $xoopsModuleConfig['displayfrom']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LOCATIONCONTAINS, 'user_from', 30, 100));
+    if (1 == $xoopsModuleConfig['displayfrom']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LOCATIONCONTAINS, 'user_from', 30, 100));
     }
-    if (1 == $xoopsModuleConfig['displayoccupation']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATIONCONTAINS, 'user_occ', 30, 100));
+    if (1 == $xoopsModuleConfig['displayoccupation']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_OCCUPATIONCONTAINS, 'user_occ', 30, 100));
     }
-	if (1 == $xoopsModuleConfig['displayinterest']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_INTERESTCONTAINS, 'user_intrest', 30, 100));
+    if (1 == $xoopsModuleConfig['displayinterest']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_INTERESTCONTAINS, 'user_intrest', 30, 100));
     }
-    if (1 == $xoopsModuleConfig['displayextrainfo']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_EXTRAINFOCONTAINS, 'bio', 30, 100));
+    if (1 == $xoopsModuleConfig['displayextrainfo']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_EXTRAINFOCONTAINS, 'bio', 30, 100));
     }
-	if (1 == $xoopsModuleConfig['displaysignature']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_SIGNATURECONTAINS, 'user_sig', 30, 100));
+    if (1 == $xoopsModuleConfig['displaysignature']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_SIGNATURECONTAINS, 'user_sig', 30, 100));
     }
-	if (1 == $xoopsModuleConfig['displaylastlogin']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGMORE, 'user_lastlog_more', 10, 5));
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGLESS, 'user_lastlog_less', 10, 5));
+    if (1 == $xoopsModuleConfig['displaylastlogin']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGMORE, 'user_lastlog_more', 10, 5));
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_LASTLOGLESS, 'user_lastlog_less', 10, 5));
     }
-    if (1 == $xoopsModuleConfig['displayregdate']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_REGMORE, 'user_reg_more', 10, 5));
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_REGLESS, 'user_reg_less', 10, 5));
+    if (1 == $xoopsModuleConfig['displayregdate']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_REGMORE, 'user_reg_more', 10, 5));
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_REGLESS, 'user_reg_less', 10, 5));
     }
-    if (1 == $xoopsModuleConfig['displayposts']){
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_POSTSMORE, 'user_posts_more', 10, 5));
-    $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_POSTSLESS, 'user_posts_less', 10, 5));
+    if (1 == $xoopsModuleConfig['displayposts']) {
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_POSTSMORE, 'user_posts_more', 10, 5));
+        $form->addElement(new \XoopsFormText(_MD_XOOPSMEMBERS_POSTSLESS, 'user_posts_less', 10, 5));
     }
 
     $sort_select = new \XoopsFormSelect(_MD_XOOPSMEMBERS_SORT, 'user_sort');
@@ -107,8 +107,8 @@ if ('form' == $op) {
 }
 
 if ('submit' == $op) {
-    $xoopsOption['template_main'] = 'xoopsmembers_searchresults.tpl';
-    include XOOPS_ROOT_PATH . '/header.php';
+    $GLOBALS['xoopsOption']['template_main'] = 'xoopsmembers_searchresults.tpl';
+    require XOOPS_ROOT_PATH . '/header.php';
 
     $iamadmin = $xoopsUserIsAdmin;
     $myts     = MyTextSanitizer::getInstance();
@@ -151,10 +151,10 @@ if ('submit' == $op) {
     if (!empty($_POST['user_occ'])) {
         $criteria->add(new \Criteria('user_occ', '%' . $myts->addSlashes(trim($_POST['user_occ'])) . '%', 'LIKE'));
     }
-	if (!empty($_POST['bio'])) {
+    if (!empty($_POST['bio'])) {
         $criteria->add(new \Criteria('bio', '%' . $myts->addSlashes(trim($_POST['bio'])) . '%', 'LIKE'));
     }
-	if (!empty($_POST['user_sig'])) {
+    if (!empty($_POST['user_sig'])) {
         $criteria->add(new \Criteria('user_sig', '%' . $myts->addSlashes(trim($_POST['user_sig'])) . '%', 'LIKE'));
     }
 
@@ -210,8 +210,8 @@ if ('submit' == $op) {
         $limit = 50;
     }
 
-    $start          = (!empty($_POST['start'])) ? (int)$_POST['start'] : 0;
-    $total          = $memberHandler->getUserCount($criteria);
+    $start = (!empty($_POST['start'])) ? (int)$_POST['start'] : 0;
+    $total = $memberHandler->getUserCount($criteria);
     $xoopsTpl->assign('total_found', $total);
 
     if (0 == $total) {
@@ -230,17 +230,23 @@ if ('submit' == $op) {
             $userdata['name']     = $foundusers[$j]->getVar('uname');
             $userdata['id']       = $foundusers[$j]->getVar('uid');
             if (1 == $foundusers[$j]->getVar('user_viewemail') || $iamadmin) {
-            $userdata['email'] = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-			$userdata['emailaddress'] = $foundusers[$j]->getVar('email');
-			}
-			if ($xoopsUser) {
-			$userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(_SENDPMTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
-			$userdata['pm'] = $foundusers[$j]->getVar('uid');
-			} 
-			if ('' != $foundusers[$j]->getVar('url', 'e')) {
-            $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
-			}
-			$userdata['url'] = $foundusers[$j]->getVar('url', 'e');
+                $userdata['email']        = '<a href="mailto:' . $foundusers[$j]->getVar('email') . '"><img src="' . XOOPS_URL . '/images/icons/email.gif" border="0" alt="' . sprintf(_SENDEMAILTO, $foundusers[$j]->getVar('uname', 'e')) . '"></a>';
+                $userdata['emailaddress'] = $foundusers[$j]->getVar('email');
+            }
+            if ($xoopsUser) {
+                $userdata['pmlink'] = '<a href="javascript:openWithSelfMain(\'' . XOOPS_URL . '/pmlite.php?send2=1&amp;to_userid=' . $foundusers[$j]->getVar('uid') . '\',\'pmlite\',450,370);"><img src="' . XOOPS_URL . '/images/icons/pm.gif" border="0" alt="' . sprintf(
+                        _SENDPMTO,
+                        $foundusers[$j]->getVar(
+                            'uname',
+                            'e'
+                        )
+                    ) . '"></a>';
+                $userdata['pm']     = $foundusers[$j]->getVar('uid');
+            }
+            if ('' != $foundusers[$j]->getVar('url', 'e')) {
+                $userdata['website'] = '<a href="' . $foundusers[$j]->getVar('url', 'e') . '" target="_blank"><img src="' . XOOPS_URL . '/images/icons/www.gif" border="0" alt="' . _VISITWEBSITE . '"></a>';
+            }
+            $userdata['url']          = $foundusers[$j]->getVar('url', 'e');
             $userdata['registerdate'] = formatTimestamp($foundusers[$j]->getVar('user_regdate'), 's');
             if (0 != $foundusers[$j]->getVar('last_login')) {
                 $userdata['lastlogin'] = formatTimestamp($foundusers[$j]->getVar('last_login'), 'm');
@@ -253,34 +259,34 @@ if ('submit' == $op) {
 
                                          . '</a>  <a href="' . XOOPS_URL . '/modules/system/admin.php?fct=users&amp;op=users_delete&amp;uid=' . $foundusers[$j]->getVar('uid') . '">' . '<img src=' . $pathIcon16 . '/delete.png' . " alt='" . _DELETE . "' title='" . _DELETE . "' >" . '</a>';
             }
-			$userdata['location']       = $foundusers[$j]->getVar('user_from');
-			$userdata['occupation']     = $foundusers[$j]->getVar('user_occ');
-			$userdata['interest']       = $foundusers[$j]->getVar('user_intrest');
-            $userdata['extrainfo']      = $foundusers[$j]->getVar('bio');
-			$userdata['signature']      = $foundusers[$j]->getVar('user_sig');
-			$userdata['onlinestatus']   = $foundusers[$j]->isOnline();
-			$userrank = $foundusers[$j]->rank();
-			if ($userrank['image']) {
-				$userdata['rankimage']='<img src="' . XOOPS_UPLOAD_URL . '/' . $userrank['image'] . '" alt="">';
-			}
-			$userdata['ranktitle']=$userrank['title'];
-		
-			$uid=$userdata['id'];
-			$groups =$member_handler->getGroupsByUser($uid, true); 
-			$usergroups = array(); 
-			foreach ($groups as $group) { 
-			$usergroups[] = $group->getVar('name'); 
-			}  		
-			$userdata['groups']= implode(', ', $usergroups);
+            $userdata['location']     = $foundusers[$j]->getVar('user_from');
+            $userdata['occupation']   = $foundusers[$j]->getVar('user_occ');
+            $userdata['interest']     = $foundusers[$j]->getVar('user_intrest');
+            $userdata['extrainfo']    = $foundusers[$j]->getVar('bio');
+            $userdata['signature']    = $foundusers[$j]->getVar('user_sig');
+            $userdata['onlinestatus'] = $foundusers[$j]->isOnline();
+            $userrank                 = $foundusers[$j]->rank();
+            if ($userrank['image']) {
+                $userdata['rankimage'] = '<img src="' . XOOPS_UPLOAD_URL . '/' . $userrank['image'] . '" alt="">';
+            }
+            $userdata['ranktitle'] = $userrank['title'];
 
-			$xoopsTpl->append('users', $userdata);
+            $uid        = $userdata['id'];
+            $groups     = $memberHandler->getGroupsByUser($uid, true);
+            $usergroups = [];
+            foreach ($groups as $group) {
+                $usergroups[] = $group->getVar('name');
+            }
+            $userdata['groups'] = implode(', ', $usergroups);
+
+            $xoopsTpl->append('users', $userdata);
         }
 
         $totalpages = ceil($total / $limit);
         if ($totalpages > 1) {
             $hiddenform = '<form name="findnext" action="searchmembers.php" method="post">';
             foreach ($_POST as $k => $v) {
-                $hiddenform .= '<input type="hidden" name="' . $myts->htmlSpecialChars($k) . '" value="' . $myts->previewTarea($v) . '" >';
+                $hiddenform .= '<input type="hidden" name="' . htmlspecialchars($k) . '" value="' . $myts->previewTarea($v) . '" >';
             }
             if (!isset($_POST['limit'])) {
                 $hiddenform .= '<input type="hidden" name="limit" value="' . $limit . '" >';
@@ -327,9 +333,9 @@ exit();
  * xoops_Criteria()
  *
  * @param \CriteriaCompo $criteria
- * @param string $name
- * @param string $ret
- * @param string $match
+ * @param string         $name
+ * @param string         $ret
+ * @param string         $match
  * @return void
  */
 function xoops_Criteria(&$criteria, $name = '', $ret = '', $match = '')

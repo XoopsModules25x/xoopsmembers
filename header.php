@@ -11,23 +11,24 @@
  */
 
 /**
- * @copyright    XOOPS Project https://xoops.org/
- * @license      GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
- * @package
- * @since
- * @author     XOOPS Development Team
+ * @copyright    XOOPS Project (https://xoops.org)
+ * @license      GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
+ * @author      XOOPS Development Team
  */
 
-include __DIR__ . '/preloads/autoloader.php';
+use Xmf\Module\Admin;
+use XoopsModules\Xoopsmembers\Helper;
 
-require  dirname(dirname(__DIR__)) . '/mainfile.php';
+require __DIR__ . '/preloads/autoloader.php';
+
+require_once \dirname(__DIR__, 2) . '/mainfile.php';
 require XOOPS_ROOT_PATH . '/header.php';
 
 $moduleDirName = basename(__DIR__);
 
-$helper = \XoopsModules\Xoopsmembers\Helper::getInstance();
+$helper = Helper::getInstance();
 
-$pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
+$pathIcon16 = Admin::iconUrl('', 16);
 
 $modulePath = XOOPS_ROOT_PATH . '/modules/' . $moduleDirName;
 
@@ -41,7 +42,7 @@ if (!isset($GLOBALS['xoTheme']) || !is_object($GLOBALS['xoTheme'])) {
 // Load language files
 $helper->loadLanguage('main');
 
-if (!isset($GLOBALS['xoopsTpl']) || !($GLOBALS['xoopsTpl'] instanceof XoopsTpl)) {
+if (!isset($GLOBALS['xoopsTpl']) || !($GLOBALS['xoopsTpl'] instanceof \XoopsTpl)) {
     require $GLOBALS['xoops']->path('class/template.php');
     $xoopsTpl = new \XoopsTpl();
 }

@@ -49,50 +49,51 @@ function show_memberslastlogin_block($options)
  * @param string $return
  * @return string
  */
-function timeDifference($start,$end,$return='days') {
+function timeDifference($start, $end, $return = 'days')
+{
     //change times to Unix timestamp.
     //$start = strtotime($start);
     //$end = strtotime($end);
     //subtract dates
-    $difference = max($end, $start) - min($end,$start);
-    $time = NULL;
+    $difference = max($end, $start) - min($end, $start);
+    $time       = null;
     //24 hours equal to 86400
     //calculate time difference.
-    switch($return) {
+    switch ($return) {
         case 'days':
-            $days = floor($difference/86400);
-            $difference = $difference % 86400;
+            $days         = floor($difference / 86400);
+            $difference   = $difference % 86400;
             $time['days'] = $days;
         case 'hours':
-            $hours = floor($difference/3600);
-            $difference = $difference % 3600;
+            $hours         = floor($difference / 3600);
+            $difference    = $difference % 3600;
             $time['hours'] = $hours;
         case 'minutes':
-            $minutes = floor($difference/60);
-            $difference = $difference % 60;
+            $minutes         = floor($difference / 60);
+            $difference      = $difference % 60;
             $time['minutes'] = $minutes;
         case 'seconds':
-            $seconds = $difference;
+            $seconds         = $difference;
             $time['seconds'] = $seconds;
     }
 
     $output = [];
-    if(is_array($time)) {
+    if (is_array($time)) {
         $showSec = true;
-        if(isset($time['hours']) && $time['hours'] > 0) {
+        if (isset($time['hours']) && $time['hours'] > 0) {
             $output[] = $time['hours'] . ' Hour';
-            $showSec = false;
+            $showSec  = false;
         }
 
-        if(isset($time['minutes']) && $time['minutes'] > 0) {
+        if (isset($time['minutes']) && $time['minutes'] > 0) {
             $output[] = $time['minutes'] . ' minutes';
-            $showSec = false;
+            $showSec  = false;
         }
 
-        if(isset($time['seconds']) && true == $showSec) {
+        if (isset($time['seconds']) && true === $showSec) {
             return $time['seconds'] . ' seconds';
         }
-        return implode(', ',$output);
+        return implode(', ', $output);
     }
 }
 
@@ -104,34 +105,34 @@ function memberslastlogin_edit($options)
 {
     $form = _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . '&nbsp;';
     if (1 == $options[0]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[0]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[0]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINAVATAR . '&nbsp;';
     if (1 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[1]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_USEREALNAME . '&nbsp;';
     if (1 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[2]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . ' >' . _NO . '<br>';
 

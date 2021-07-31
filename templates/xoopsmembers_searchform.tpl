@@ -16,7 +16,7 @@
     <table class="outer" cellpadding="4" cellspacing="1">
         <!-- start of form elements loop -->
         <{foreach item=element from=$searchform.elements}>
-            <{if $element.hidden != true}>
+            <{if $element.hidden !== true}>
                 <tr>
                     <td class="head"><b><{$element.caption}></b></td>
                     <td class="<{cycle values="even,odd"}>"><{$element.body}></td>

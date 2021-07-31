@@ -12,6 +12,10 @@ namespace XoopsModules\Xoopsmembers\Common;
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+use XoopsModule;
+
+
+
 /**
  * @copyright   XOOPS Project (https://xoops.org)
  * @license     http://www.fsf.org/copyleft/gpl.html GNU public license
@@ -27,12 +31,12 @@ trait VersionChecks
      * @param null|string  $requiredVer
      * @return bool true if meets requirements, false if not
      */
-    public static function checkVerXoops(\XoopsModule $module = null, $requiredVer = null)
+    public static function checkVerXoops(XoopsModule $module = null, $requiredVer = null)
     {
-        $moduleDirName      = basename(dirname(dirname(__DIR__)));
+        $moduleDirName      = \basename(\dirname(__DIR__, 2));
         $moduleDirNameUpper = mb_strtoupper($moduleDirName);
         if (null === $module) {
-            $module = \XoopsModule::getByDirname($moduleDirName);
+            $module = XoopsModule::getByDirname($moduleDirName);
         }
         xoops_loadLanguage('admin', $moduleDirName);
         xoops_loadLanguage('common', $moduleDirName);
@@ -59,12 +63,12 @@ trait VersionChecks
      *
      * @return bool true if meets requirements, false if not
      */
-    public static function checkVerPhp(\XoopsModule $module = null)
+    public static function checkVerPhp(XoopsModule $module = null)
     {
-        $moduleDirName      = basename(dirname(dirname(__DIR__)));
+        $moduleDirName      = \basename(\dirname(__DIR__, 2));
         $moduleDirNameUpper = mb_strtoupper($moduleDirName);
         if (null === $module) {
-            $module = \XoopsModule::getByDirname($moduleDirName);
+            $module = XoopsModule::getByDirname($moduleDirName);
         }
         xoops_loadLanguage('admin', $moduleDirName);
         xoops_loadLanguage('common', $moduleDirName);
@@ -98,7 +102,7 @@ trait VersionChecks
 
     public static function checkVerModule($helper, $source = 'github', $default = 'master')
     {
-        $moduleDirName      = basename(dirname(dirname(__DIR__)));
+        $moduleDirName      = \basename(\dirname(__DIR__, 2));
         $moduleDirNameUpper = mb_strtoupper($moduleDirName);
         $update             = '';
         $repository         = 'XoopsModules25x/' . $moduleDirName;

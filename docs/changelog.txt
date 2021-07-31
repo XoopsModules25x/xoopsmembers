@@ -1,4 +1,4 @@
-<h5>1.04 Beta 2  []</h5>  Dev: Xoops 2.5.11, PHP 7.4.4
+<h5>1.04 Beta 2  []</h5>  Dev: XOOPS 2.5.11, PHP 7.4.10, PHP 8.0 Beta 3
 <hr>
 - Add Online Status (liomj)
 - Add Biography/Extra Info, Signature, Rank, Groups (liomj)

@@ -3,6 +3,8 @@
 //  URL: http://www.xoopsmalaysia.org  & http://www.xuups.com
 //  E-Mail: webmaster@xoopsmalaysia.org  & lusopoemas@gmail.com
 
+use Xmf\IPAddress;
+
 if (!defined('XOOPS_ROOT_PATH')) {
     exit;
 }
@@ -14,11 +16,11 @@ if (!defined('XOOPS_ROOT_PATH')) {
 function show_membersstats_block($options)
 {
     global $xoopsConfig, $xoopsUser, $xoopsModule, $xoopsDB, $_SERVER;
-    /* @var XoopsOnlineHandler $online_handler */
-    $online_handler = xoops_getHandler('online');
+    /* @var XoopsOnlineHandler $onlineHandler */
+    $onlineHandler = xoops_getHandler('online');
     // set gc probabillity to 10% for now..
     if (mt_rand(1, 100) < 11) {
-        $online_handler->gc(300);
+        $onlineHandler->gc(300);
     }
     if (is_object($xoopsUser)) {
         $uid   = $xoopsUser->getVar('uid');
@@ -27,14 +29,14 @@ function show_membersstats_block($options)
         $uid   = 0;
         $uname = '';
     }
-    $requestIp = \Xmf\IPAddress::fromRequest()->asReadable();
+    $requestIp = IPAddress::fromRequest()->asReadable();
     $requestIp = (false === $requestIp) ? '0.0.0.0' : $requestIp;
     if (is_object($xoopsModule)) {
-        $online_handler->write($uid, $uname, time(), $xoopsModule->getVar('mid'), $requestIp);
+        $onlineHandler->write($uid, $uname, time(), $xoopsModule->getVar('mid'), $requestIp);
     } else {
-        $online_handler->write($uid, $uname, time(), 0, $requestIp);
+        $onlineHandler->write($uid, $uname, time(), 0, $requestIp);
     }
-    $onlines = $online_handler->getAll();
+    $onlines = $onlineHandler->getAll();
     if (!empty($onlines)) {
         $total   = count($onlines);
         $block   = [];
@@ -49,7 +51,7 @@ function show_membersstats_block($options)
         }
         $block['online_total'] = sprintf(_ONLINEPHRASE, $total);
         if (is_object($xoopsModule)) {
-            $mytotal               = $online_handler->getCount(new \Criteria('online_module', $xoopsModule->getVar('mid')));
+            $mytotal               = $onlineHandler->getCount(new \Criteria('online_module', $xoopsModule->getVar('mid')));
             $block['online_total'] .= ' (' . sprintf(_ONLINEPHRASEX, $mytotal, $xoopsModule->getVar('name')) . ')';
         }
         // Membership Statistic
@@ -139,56 +141,56 @@ function membersstats_edit($options)
 {
     $form = _MB_XOOPSMEMBERS_SHOWTOTALPOST . '&nbsp;';
     if (1 == $options[0]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[0]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[0]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_SHOWTOTALONLINE . '&nbsp;';
     if (1 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[1]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_SHOWREGHISTORY . '&nbsp;';
     if (1 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[2]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_SHOWNEWMEMBER . '&nbsp;';
     if (1 == $options[3]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[3]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[3]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[3]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_USEREALNAME . '&nbsp;';
     if (1 == $options[4]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[4]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[4]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[4]' value='0'" . $chk . ' >' . _NO . '<br>';
 
