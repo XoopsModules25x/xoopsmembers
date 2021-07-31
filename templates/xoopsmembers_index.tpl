@@ -95,7 +95,7 @@
   </tbody>
 </table>
 </div>
-<{$pagenav}><br>
+<{$pagenav|default:''}><br>
 
 <script>
 $(document).ready(function() {
