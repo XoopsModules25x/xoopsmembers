@@ -47,7 +47,7 @@ function show_membersonline_block($options) {
 		$avatar = '';
 		$uid = '';
         $name = '';
-        
+        $onlineUsers = [];
 		for ($i = 0; $i < $total; ++$i) {
 			  if ($onlines[$i]['online_uid'] == 0) {
                     $onlineUsers[$i]['user'] = '';
@@ -78,12 +78,13 @@ function show_membersonline_block($options) {
             $block['online_total'] .= ' (' . sprintf(_ONLINEPHRASEX, $mytotal, $xoopsModule->getVar('name')) . ')';
         }
         // Membership Statistic
-        $member_handler =xoops_gethandler('member');
-        $today = formatTimestamp(time());
-        $level_criteria = new Criteria('level', 0, '>');
-        $criteria = new CriteriaCompo($level_criteria);
-        $criteria24 = new CriteriaCompo($level_criteria);
-        $criteria48 = new CriteriaCompo($level_criteria);
+        /** @var \XoopsMemberHandler $member_handler */
+        $member_handler     =xoops_gethandler('member');
+        $today              = formatTimestamp(time());
+        $level_criteria     = new Criteria('level', 0, '>');
+        $criteria           = new CriteriaCompo($level_criteria);
+        $criteria24         = new CriteriaCompo($level_criteria);
+        $criteria48         = new CriteriaCompo($level_criteria);
         $total_active_users = $member_handler->getUserCount($level_criteria);
         //Fixing stats for last 24 and 48 hours
         $users_reg_24 = $member_handler->getUserCount($criteria24->add(new Criteria('user_regdate', (mktime(0,0,0)-(24*3600)), '>=')),'AND');
@@ -117,13 +118,13 @@ function show_membersonline_block($options) {
 }
 
 function membersonline_edit($options) {
-	
+
+    $chk = '';
 	$form = _MB_XOOPSMEMBERS_SHOWONLINEMEMBER."&nbsp;";
 	if ( $options[0] == 1 ) {
 		$chk = " checked='checked'";
 	}
 	$form .= "<input type='radio' name='options[0]' value='1'".$chk." />&nbsp;"._YES."";
-	$chk = "";
 	if ( $options[0] == 0 ) {
 		$chk = " checked='checked'";
 	}
@@ -189,4 +190,3 @@ function membersonline_edit($options) {
 	return $form;
 }
 
-?>

@@ -51,13 +51,14 @@ function show_memberslastlogin_block($options)
  * @param string $return
  * @return string
  */
-function timeDifference($start,$end,$return='days') {
+function timeDifference($start, $end, $return = 'days')
+{
     //change times to Unix timestamp.
     //$start = strtotime($start);
     //$end = strtotime($end);
     //subtract dates
     $difference = max($end, $start) - min($end,$start);
-    $time = NULL;
+    $time       = null;
     //24 hours equal to 86400
     //calculate time difference.
     switch($return) {
@@ -91,7 +92,7 @@ function timeDifference($start,$end,$return='days') {
             $showSec = false;
         }
 
-        if(isset($time['seconds']) && true == $showSec) {
+        if (isset($time['seconds']) && true === $showSec) {
             return $time['seconds']. ' ' . _MB_XOOPSMEMBERS_SECONDS;
         }
         return implode(', ',$output);
@@ -107,34 +108,34 @@ function memberslastlogin_edit($options)
     $form = _MB_XOOPSMEMBERS_SHOWRECENTLOGINNAME . '&nbsp;';
     $chk = '';
     if (1 == $options[0]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[0]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[0]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[0]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_SHOWRECENTLOGINAVATAR . '&nbsp;';
     if (1 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[1]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[1]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[1]' value='0'" . $chk . ' >' . _NO . '<br>';
 
     $form .= _MB_XOOPSMEMBERS_USEREALNAME . '&nbsp;';
     if (1 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "<input type='radio' name='options[2]' value='1'" . $chk . ' >&nbsp;' . _YES . '';
     $chk  = '';
     if (0 == $options[2]) {
-        $chk = " checked='checked'";
+        $chk = " checked";
     }
     $form .= "&nbsp;<input type='radio' name='options[2]' value='0'" . $chk . ' >' . _NO . '<br>';
 

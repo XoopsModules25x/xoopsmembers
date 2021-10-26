@@ -10,9 +10,9 @@
  */
 
 /**
- * @copyright       XOOPS https://www.xoops.org
+ * @copyright       XOOPS https://xoops.org
  * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author          XOOPS https://www.xoops.org
+ * @author          XOOPS https://xoops.org
  */
 $xoopsTpl->assign('displayrealname', $xoopsModuleConfig['displayrealname']);
 $xoopsTpl->assign('displayemail', $xoopsModuleConfig['displayemail']);

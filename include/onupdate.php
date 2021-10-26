@@ -10,11 +10,9 @@
  */
 
 /**
- * @copyright    XOOPS Project https://xoops.org/
+ * @copyright    XOOPS Project (https://xoops.org)
  * @license      GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
- * @package
- * @since
- * @author       XOOPS Development Team
+ * @author      XOOPS Development Team
  */
 
 use XoopsModules\Xoopsmembers;
@@ -24,17 +22,7 @@ if ((!defined('XOOPS_ROOT_PATH')) || !($GLOBALS['xoopsUser'] instanceof \XoopsUs
     exit('Restricted access' . PHP_EOL);
 }
 
-/**
- * @param string $tablename
- *
- * @return bool
- */
-function tableExists($tablename)
-{
-    $result = $GLOBALS['xoopsDB']->queryF("SHOW TABLES LIKE '$tablename'");
 
-    return ($GLOBALS['xoopsDB']->getRowsNum($result) > 0) ? true : false;
-}
 
 /**
  * Prepares system prior to attempting to install module
@@ -62,8 +50,8 @@ function xoops_module_pre_update_xoopsmembers(\XoopsModule $module)
  */
 function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion = null)
 {
-    $moduleDirName      = basename(dirname(__DIR__));
-    $moduleDirNameUpper = mb_strtoupper($moduleDirName);
+    $moduleDirName      = \basename(\dirname(__DIR__));
+    $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
     /** @var Xoopsmembers\Utility $utility */
     /** @var Xoopsmembers\Common\Configurator $configurator */
@@ -80,7 +68,7 @@ function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion
                     foreach ($templateList as $k => $v) {
                         $fileInfo = new \SplFileInfo($templateFolder . $v);
                         if ('html' === $fileInfo->getExtension() && 'index.html' !== $fileInfo->getFilename()) {
-                            if (file_exists($templateFolder . $v)) {
+                            if (is_file($templateFolder . $v)) {
                                 unlink($templateFolder . $v);
                             }
                         }
@@ -122,7 +110,7 @@ function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion
 
         //  ---  COPY blank.png FILES ---------------
         if (count($configurator->copyBlankFiles) > 0) {
-            $file = dirname(__DIR__) . '/assets/images/blank.png';
+            $file = \dirname(__DIR__) . '/assets/images/blank.png';
             foreach (array_keys($configurator->copyBlankFiles) as $i) {
                 $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
                 $utility::copyFile($file, $dest);

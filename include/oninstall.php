@@ -10,14 +10,13 @@
  */
 
 /**
- * @copyright    XOOPS Project https://xoops.org/
+ * @copyright    XOOPS Project (https://xoops.org)
  * @license      GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
- * @package
- * @since
- * @author       XOOPS Development Team
+ * @author      XOOPS Development Team
  */
 
 use XoopsModules\Xoopsmembers;
+use XoopsModules\Xoopsmembers\Utility;
 
 //require_once __DIR__ . '/setup.php';
 
@@ -29,9 +28,9 @@ use XoopsModules\Xoopsmembers;
  */
 function xoops_module_pre_install_xoopsmembers(\XoopsModule $module)
 {
-    require_once dirname(__DIR__) . '/preloads/autoloader.php';
+    require_once \dirname(__DIR__) . '/preloads/autoloader.php';
     /** @var \XoopsModules\Xoopsmembers\Utility $utility */
-    $utility      = new \XoopsModules\Xoopsmembers\Utility();
+    $utility      = new Utility();
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
 
@@ -53,12 +52,12 @@ function xoops_module_pre_install_xoopsmembers(\XoopsModule $module)
  */
 function xoops_module_install_xoopsmembers(\XoopsModule $module)
 {
-    require_once dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
+    require \dirname(__DIR__, 3) . '/mainfile.php';
 
-    $moduleDirName = basename(dirname(__DIR__));
+    $moduleDirName = \basename(\dirname(__DIR__));
     /** @var Xoopsmembers\Helper $helper */
     $helper       = Xoopsmembers\Helper::getInstance();
-    $utility      = new Xoopsmembers\Utility();
+    $utility      = new Utility();
     $configurator = new Xoopsmembers\Common\Configurator();
     // Load language files
     $helper->loadLanguage('admin');
@@ -75,7 +74,7 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
     $grouppermHandler->addRight($moduleDirName . '_submit', 1, XOOPS_GROUP_ADMIN, $moduleId);
     $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_ADMIN, $moduleId);
     $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_USERS, $moduleId);
-//    $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_ANONYMOUS, $moduleId);
+    //    $grouppermHandler->addRight($moduleDirName . '_view', 1, XOOPS_GROUP_ANONYMOUS, $moduleId);
 
     //  ---  CREATE FOLDERS ---------------
     if (count($configurator->uploadFolders) > 0) {
@@ -87,7 +86,7 @@ function xoops_module_install_xoopsmembers(\XoopsModule $module)
 
     //  ---  COPY blank.png FILES ---------------
     if (count($configurator->copyBlankFiles) > 0) {
-        $file = dirname(__DIR__) . '/assets/images/blank.png';
+        $file = \dirname(__DIR__) . '/assets/images/blank.png';
         foreach (array_keys($configurator->copyBlankFiles) as $i) {
             $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
             $utility::copyFile($file, $dest);

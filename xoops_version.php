@@ -21,10 +21,15 @@
  */
 defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 
+require_once __DIR__ . '/preloads/autoloader.php';
+
+$moduleDirName = basename(__DIR__);
+$moduleDirNameUpper = \mb_strtoupper($moduleDirName);
+
 $modversion = [
     'version'             => 1.04,
-    'module_status'       => 'Beta 1',
-    'release_date'        => '2020/04/12',
+    'module_status'       => 'Beta 2',
+    'release_date'        => '2021/10/25',
     'name'                => _MI_XOOPSMEMBERS_NAME,
     'description'         => _MI_XOOPSMEMBERS_DESC,
     'author'              => 'John Neill, Kazumi Ono, Liomj, Mamba',
@@ -42,7 +47,7 @@ $modversion = [
     'author_website_name' => 'XOOPS',
     'module_website_url'  => 'https://xoops.org',
     'module_website_name' => 'XOOPS',
-    'min_php'             => '7.1',
+    'min_php'             => '7.3',
     'min_xoops'           => '2.5.10',
     'min_db'              => ['mysql' => '5.5'],
     'min_admin'           => '1.2',
@@ -86,13 +91,13 @@ $modversion['sub']     = [
  * Module Templates
  */
 $modversion['templates'] = [
-	['file' => 'xoopsmembers_index.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_index.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchform.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_searchresults.tpl', 'description' => ''],
     ['file' => 'xoopsmembers_rank.tpl', 'description' => ''],
-	['file' => 'xoopsmembers_normal.tpl', 'description' => ''],
-	['file' => 'xoopsmembers_datatables_column.tpl', 'description' => ''],
-	['file' => 'xoopsmembers_datatables_alphabetical.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_normal.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_datatables_column.tpl', 'description' => ''],
+    ['file' => 'xoopsmembers_datatables_alphabetical.tpl', 'description' => ''],
 ];
 // Search
 $modversion['hasSearch']      = 1;
@@ -106,11 +111,10 @@ $modversion['configcat']['index'] = [
     'description' => _MI_XOOPSMEMBERS_CONFCAT_INDEX_DSC,
 ];
 
-$modversion['configcat']['indexsearch']      = [
+$modversion['configcat']['indexsearch'] = [
     'name'        => _MI_XOOPSMEMBERS_CONFCAT_INDEXSEARCH,
     'description' => _MI_XOOPSMEMBERS_CONFCAT_INDEXSEARCH_DSC,
 ];
-
 
 //Configs
 
@@ -204,10 +208,10 @@ $modversion['config'][] = [
     'valuetype'   => 'text',
     'default'     => 'datatables1',
     'options'     => [
-        _MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE  => 'datatables1',
-        _MI_XOOPSMEMBERS_DATATABLESCOLUMNTEMPLATE => 'datatables2',
-		_MI_XOOPSMEMBERS_DATATABLESALPHABETICALTEMPLATE => 'datatables3',
-		_MI_XOOPSMEMBERS_NORMALTEMPLATE => 'normal',
+        _MI_XOOPSMEMBERS_DATATABLESBASICTEMPLATE        => 'datatables1',
+        _MI_XOOPSMEMBERS_DATATABLESCOLUMNTEMPLATE       => 'datatables2',
+        _MI_XOOPSMEMBERS_DATATABLESALPHABETICALTEMPLATE => 'datatables3',
+        _MI_XOOPSMEMBERS_NORMALTEMPLATE                 => 'normal',
     ],
     'category'    => 'index',
 ];
@@ -223,7 +227,6 @@ $modversion['config'][] = [
     'category'    => 'group_header',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'displaybreadcrumb',
     'title'       => '_MI_XOOPSMEMBERS_DISPLAYBREADCRUMB',
@@ -234,7 +237,6 @@ $modversion['config'][] = [
     'category'    => 'indexsearch',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'displaytotalmember',
     'title'       => '_MI_XOOPSMEMBERS_DISPLAYTOTALMEMBER',
@@ -244,7 +246,6 @@ $modversion['config'][] = [
     'default'     => 1,
     'category'    => 'indexsearch',
 ];
-
 
 $modversion['config'][] = [
     'name'        => 'displayavatar',
@@ -286,7 +287,6 @@ $modversion['config'][] = [
     'category'    => 'indexsearch',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'displayurl',
     'title'       => '_MI_XOOPSMEMBERS_DISPLAYURL',
@@ -296,7 +296,6 @@ $modversion['config'][] = [
     'default'     => 1,
     'category'    => 'indexsearch',
 ];
-
 
 $modversion['config'][] = [
     'name'        => 'displayregdate',
@@ -358,7 +357,6 @@ $modversion['config'][] = [
     'category'    => 'indexsearch',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'displayextrainfo',
     'title'       => '_MI_XOOPSMEMBERS_DISPLAYBIO',
@@ -389,7 +387,6 @@ $modversion['config'][] = [
     'category'    => 'indexsearch',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'displayrank',
     'title'       => '_MI_XOOPSMEMBERS_DISPLAYRANK',
@@ -400,7 +397,6 @@ $modversion['config'][] = [
     'category'    => 'indexsearch',
 ];
 
-
 $modversion['config'][] = [
     'name'        => 'displaygroups',
     'title'       => '_MI_XOOPSMEMBERS_DISPLAYGROUPS',
@@ -409,6 +405,30 @@ $modversion['config'][] = [
     'valuetype'   => 'int',
     'default'     => 1,
     'category'    => 'indexsearch',
+];
+
+/**
+ * Make Sample button visible?
+ */
+$modversion['config'][] = [
+    'name'        => 'displaySampleButton',
+    'title'       => 'CO_' . $moduleDirNameUpper . '_' . 'SHOW_SAMPLE_BUTTON',
+    'description' => 'CO_' . $moduleDirNameUpper . '_' . 'SHOW_SAMPLE_BUTTON_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1,
+];
+
+/**
+ * Show Developer Tools?
+ */
+$modversion['config'][] = [
+    'name'        => 'displayDeveloperTools',
+    'title'       => 'CO_' . $moduleDirNameUpper . '_' . 'SHOW_DEV_TOOLS',
+    'description' => 'CO_' . $moduleDirNameUpper . '_' . 'SHOW_DEV_TOOLS_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 0,
 ];
 
 // ------------------- Blocks -------------------

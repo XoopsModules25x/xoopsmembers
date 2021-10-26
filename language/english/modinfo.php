@@ -96,11 +96,11 @@ define('_MI_XOOPSMEMBERS_DISPLAYGROUPS_DSC', 'Hide or Display Members Groups');
 define('_MI_XOOPSMEMBERS_DISPLAYONLINESTATUS', 'Display Members Online Status');
 define('_MI_XOOPSMEMBERS_DISPLAYONLINESTATUS_DSC', 'Hide or Display Members Online Status');
 
-define('_MI_XOOPSMEMBERS_USERRANK','Members Rank');
-define('_MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_TITLE','Members Online');
-define('_MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_DSC','Display Members Online Block');
-define('_MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_TITLE','Membership Statistics');
-define('_MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_DSC','Display Statistic of Membership');
+define('_MI_XOOPSMEMBERS_USERRANK', 'Members Rank');
+define('_MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_TITLE', 'Members Online');
+define('_MI_XOOPSMEMBERS_MEMBERSONLINEBLOCK_DSC', 'Display Members Online Block');
+define('_MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_TITLE', 'Membership Statistics');
+define('_MI_XOOPSMEMBERS_MEMBERSSTATSBLOCK_DSC', 'Display Statistic of Membership');
 define('_MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_TITLE', 'Last Logon Member');
 define('_MI_XOOPSMEMBERS_MEMBERSLASTLOGINBLOCK_DSC', 'To Display Last Logon User');
 define('_MI_XOOPSMEMBERS_MEMBERSWELCOMEBLOCK_TITLE', 'Welcome Member');
@@ -123,7 +123,7 @@ define('MI_XOOPSMEMBERS_EDITOR_USER', 'Editor: User');
 define('MI_XOOPSMEMBERS_EDITOR_USER_DESC', 'Select the Editor to use by the User');
 
 //Help
-define('_MI_XOOPSMEMBERS_DIRNAME', basename(dirname(dirname(__DIR__))));
+define('_MI_XOOPSMEMBERS_DIRNAME', basename(dirname(__DIR__, 2)));
 define('_MI_XOOPSMEMBERS_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_XOOPSMEMBERS_BACK_2_ADMIN', 'Back to Administration of ');
 define('_MI_XOOPSMEMBERS_OVERVIEW', 'Overview');
