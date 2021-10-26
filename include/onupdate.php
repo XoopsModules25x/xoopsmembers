@@ -51,7 +51,7 @@ function xoops_module_pre_update_xoopsmembers(\XoopsModule $module)
 function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion = null)
 {
     $moduleDirName      = \basename(\dirname(__DIR__));
-    $moduleDirNameUpper = mb_strtoupper($moduleDirName);
+    $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
     /** @var Xoopsmembers\Utility $utility */
     /** @var Xoopsmembers\Common\Configurator $configurator */
@@ -110,7 +110,7 @@ function xoops_module_update_xoopsmembers(\XoopsModule $module, $previousVersion
 
         //  ---  COPY blank.png FILES ---------------
         if (count($configurator->copyBlankFiles) > 0) {
-            $file = dirname(__DIR__) . '/assets/images/blank.png';
+            $file = \dirname(__DIR__) . '/assets/images/blank.png';
             foreach (array_keys($configurator->copyBlankFiles) as $i) {
                 $dest = $configurator->copyBlankFiles[$i] . '/blank.png';
                 $utility::copyFile($file, $dest);

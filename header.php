@@ -28,7 +28,7 @@ $moduleDirName = basename(__DIR__);
 
 $helper = Helper::getInstance();
 
-$pathIcon16 = Admin::iconUrl('', 16);
+$pathIcon16 = Admin::iconUrl('', '16');
 
 $modulePath = XOOPS_ROOT_PATH . '/modules/' . $moduleDirName;
 

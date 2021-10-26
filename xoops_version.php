@@ -24,12 +24,12 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access');
 require_once __DIR__ . '/preloads/autoloader.php';
 
 $moduleDirName = basename(__DIR__);
-$moduleDirNameUpper = mb_strtoupper($moduleDirName);
+$moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
 $modversion = [
     'version'             => 1.04,
-    'module_status'       => 'Beta 1',
-    'release_date'        => '2020/04/12',
+    'module_status'       => 'Beta 2',
+    'release_date'        => '2021/10/21',
     'name'                => _MI_XOOPSMEMBERS_NAME,
     'description'         => _MI_XOOPSMEMBERS_DESC,
     'author'              => 'John Neill, Kazumi Ono, Liomj, Mamba',

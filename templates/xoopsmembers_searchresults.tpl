@@ -5,7 +5,7 @@
 <{/if}>
 <h4><{$smarty.const._MD_XOOPSMEMBERS_RESULTS}></h4>
 
-<{if $total_found != 0}>
+<{if $total_found|default:0 != 0}>
   <{$lang_numfound}><br>
 <div class="table-responsive">
 <table class="table table-striped table-hover">
