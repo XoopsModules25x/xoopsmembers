@@ -27,9 +27,9 @@ $moduleDirName = basename(__DIR__);
 $moduleDirNameUpper = \mb_strtoupper($moduleDirName);
 
 $modversion = [
-    'version'             => 1.04,
-    'module_status'       => 'Beta 2',
-    'release_date'        => '2021/10/25',
+    'version'             => '1.4.0',
+    'module_status'       => 'Beta 3',
+    'release_date'        => '2022/02/20',
     'name'                => _MI_XOOPSMEMBERS_NAME,
     'description'         => _MI_XOOPSMEMBERS_DESC,
     'author'              => 'John Neill, Kazumi Ono, Liomj, Mamba',
